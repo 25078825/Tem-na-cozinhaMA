@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-amber-50 text-gray-800 font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  /* Seleção de texto */
+  ::selection {
+    @apply bg-orange-200 text-orange-900;
+  }
+
+  /* Scrollbar sutil */
+  ::-webkit-scrollbar       { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }
+
+  /* Focus ring global */
+  :focus-visible {
+    @apply outline-none ring-2 ring-orange-400 ring-offset-2 ring-offset-white rounded-lg;
+  }
+
+  /* Headings com font-display */
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-orange-500 hover:bg-orange-600 active:scale-[0.97]
+           text-white font-semibold px-6 py-3 rounded-xl
+           transition-all duration-200 shadow-sm hover:shadow-md
+           select-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white hover:bg-orange-50 active:scale-[0.97]
+           text-orange-600 border-2 border-orange-400
+           font-semibold px-6 py-3 rounded-xl
+           transition-all duration-200
+           select-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-gray-600 hover:text-orange-600
+           hover:bg-orange-50 px-3 py-2 rounded-xl
+           transition-all duration-200 font-medium text-sm
+           select-none;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100
+           hover:border-orange-200 hover:shadow-lg
+           transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-display font-bold text-gray-900
+           tracking-tight;
+  }
+
+  .container-page {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Chip de filtro padrão */
+  .chip {
+    @apply text-xs px-3 py-1.5 rounded-full border font-medium
+           transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .chip-default {
+    @apply chip bg-white border-gray-200 text-gray-600
+           hover:border-orange-300 hover:text-orange-700 hover:bg-orange-50;
+  }
+
+  .chip-active {
+    @apply chip bg-orange-500 border-orange-500 text-white
+           shadow-sm shadow-orange-200;
+  }
+}
+
+/* ── Animação do modal ─────────────────────────────────── */
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
