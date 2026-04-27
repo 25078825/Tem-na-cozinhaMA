@@ -14,7 +14,6 @@ const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173'
 app.use(cors({ origin: FRONTEND_URL }))
 app.use(express.json())
 
-/* ── Rotas ─────────────────────────────────────────────── */
 app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
@@ -26,15 +25,12 @@ app.get('/health', (req, res) => {
 app.use('/receitas',     receitasRoutes)
 app.use('/ingredientes', ingredientesRoutes)
 
-/* ── 404 ───────────────────────────────────────────────── */
 app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: `Rota ${req.method} ${req.path} não encontrada.`,
   })
 })
-
-/* ── Inicialização ─────────────────────────────────────── */
 async function start() {
   try {
     await testConnection()

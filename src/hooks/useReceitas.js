@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react'
 import { api } from '../services/api'
 
-/**
- * Normaliza o formato da API para o formato que os componentes esperam.
- * - API retorna: ingredientes: [{nome, opcional}]
- * - Front espera: ingredientes: ['Arroz', ...], ingredientesOpcionais: ['Limão', ...]
- */
 function normalizar(r) {
   const ingredientesRaw = Array.isArray(r.ingredientes) ? r.ingredientes : []
   return {

@@ -1,13 +1,11 @@
 import { pool } from '../database/connection.js'
 
-/* ── Helper: garante que o valor seja array ────────────── */
 function toArray(value) {
   if (!value) return []
   if (Array.isArray(value)) return value
   try { return JSON.parse(value) } catch { return [] }
 }
 
-/* ── GET /receitas ─────────────────────────────────────── */
 export async function listarReceitas(req, res) {
   try {
     const { categoria, dificuldade, rapida, tipica_festa } = req.query
@@ -38,14 +36,12 @@ export async function listarReceitas(req, res) {
 
     const [receitas] = await pool.query(sql, params)
 
-    // busca ingredientes separado para evitar problema com JSON_ARRAYAGG
     const [ingredientes] = await pool.query(`
       SELECT ri.receita_id, i.nome, ri.opcional
       FROM receita_ingredientes ri
       JOIN ingredientes i ON i.id = ri.ingrediente_id
     `)
 
-    // agrupa ingredientes por receita_id
     const ingMap = {}
     for (const ing of ingredientes) {
       if (!ingMap[ing.receita_id]) ingMap[ing.receita_id] = []
@@ -68,7 +64,6 @@ export async function listarReceitas(req, res) {
   }
 }
 
-/* ── GET /receitas/buscar?ingredientes=A,B,C ───────────── */
 export async function buscarPorIngredientes(req, res) {
   try {
     const { ingredientes } = req.query
@@ -86,7 +81,6 @@ export async function buscarPorIngredientes(req, res) {
       return res.status(400).json({ success: false, message: 'Lista vazia.' })
     }
 
-    // todas as receitas com total de obrigatórios
     const [todasReceitas] = await pool.query(`
       SELECT
         r.id, r.nome, r.emoji, r.categoria, r.tempo, r.tempo_minutos,
@@ -97,7 +91,6 @@ export async function buscarPorIngredientes(req, res) {
       GROUP BY r.id
     `)
 
-    // quantos da lista cada receita possui
     const placeholders = lista.map(() => '?').join(',')
     const [matches] = await pool.query(`
       SELECT ri.receita_id, COUNT(DISTINCT ri.ingrediente_id) AS possui
@@ -137,7 +130,6 @@ export async function buscarPorIngredientes(req, res) {
   }
 }
 
-/* ── GET /receitas/:id ─────────────────────────────────── */
 export async function buscarReceitaPorId(req, res) {
   try {
     const { id } = req.params

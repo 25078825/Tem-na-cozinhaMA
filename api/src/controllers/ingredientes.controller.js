@@ -1,6 +1,5 @@
 import { pool } from '../database/connection.js'
 
-/* ── GET /ingredientes ─────────────────────────────────── */
 export async function listarIngredientes(req, res) {
   try {
     const [rows] = await pool.query(
@@ -18,7 +17,6 @@ export async function listarIngredientes(req, res) {
   }
 }
 
-/* ── GET /ingredientes/buscar?q=arroz ──────────────────── */
 export async function buscarIngrediente(req, res) {
   try {
     const { q } = req.query
@@ -46,7 +44,6 @@ export async function buscarIngrediente(req, res) {
   }
 }
 
-/* ── GET /ingredientes/:id/receitas ────────────────────── */
 export async function receitasPorIngrediente(req, res) {
   try {
     const { id } = req.params

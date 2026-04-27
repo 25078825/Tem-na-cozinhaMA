@@ -1,7 +1,6 @@
 import mysql from 'mysql2/promise'
 import dotenv from 'dotenv'
 
-/* ── Carrega .env antes de ler process.env ─────────────── */
 dotenv.config()
 
 const {

@@ -25,7 +25,6 @@ export default function IngredientePicker({
 
   return (
     <div>
-      {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-display font-semibold text-gray-800 text-base
                        flex items-center gap-2">
@@ -45,7 +44,6 @@ export default function IngredientePicker({
         )}
       </div>
 
-      {/* Campo de busca */}
       <div className="relative mb-3">
         <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
              fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,7 +63,6 @@ export default function IngredientePicker({
         />
       </div>
 
-      {/* Selecionados */}
       {selecionados.length > 0 && (
         <div className="mb-4">
           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">
@@ -93,7 +90,6 @@ export default function IngredientePicker({
         </div>
       )}
 
-      {/* Sugestões */}
       {sugeridos.length > 0 && (
         <div>
           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">

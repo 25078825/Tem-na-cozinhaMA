@@ -109,9 +109,7 @@ export default function FiltrosPanel({
         )}
       </div>
 
-      <div className="space-y-4">
-
-        {/* Tempo */}
+      <div className="space-y-4">       
         <Section label="Tempo de preparo">
           <div className="flex flex-wrap gap-1.5">
             {OPCOES_TEMPO.map(opt => (
@@ -126,7 +124,6 @@ export default function FiltrosPanel({
           </div>
         </Section>
 
-        {/* Dificuldade */}
         <Section label="Dificuldade">
           <div className="flex gap-1.5">
             {Object.entries(DIFICULDADE_CONFIG).map(([nivel, cfg]) => {
@@ -145,7 +142,6 @@ export default function FiltrosPanel({
           </div>
         </Section>
 
-        {/* Categoria */}
         <Section label="Tipo de prato">
           <div className="flex flex-wrap gap-1.5">
             {CATEGORIAS.map(cat => (
@@ -160,7 +156,6 @@ export default function FiltrosPanel({
           </div>
         </Section>
 
-        {/* Ocasião */}
         <Section label="Ocasião / Época" defaultOpen={false}>
           <div className="flex flex-wrap gap-1.5">
             {OCASIOES.map(oc => (
@@ -175,7 +170,6 @@ export default function FiltrosPanel({
           </div>
         </Section>
 
-        {/* Características */}
         <Section label="Características" defaultOpen={false}>
           <div className="space-y-2">
             <Toggle

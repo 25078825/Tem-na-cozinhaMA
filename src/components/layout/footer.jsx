@@ -6,7 +6,6 @@ export default function Footer() {
       <div className="container-page py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-sm shadow-sm">
@@ -22,7 +21,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navegação */}
           <div>
             <h3 className="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">
               Navegar
@@ -43,7 +41,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Sobre */}
           <div>
             <h3 className="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">
               Sobre o projeto

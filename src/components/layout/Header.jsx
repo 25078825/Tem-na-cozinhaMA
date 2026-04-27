@@ -23,7 +23,6 @@ export default function Header() {
       <div className="container-page">
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 bg-orange-500 group-hover:bg-orange-600 rounded-xl
                             flex items-center justify-center text-lg shadow-sm transition-colors">
@@ -39,7 +38,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(link => (
               <NavLink key={link.to} to={link.to} end={link.end} className={navClass}>
@@ -54,7 +52,6 @@ export default function Header() {
             </button>
           </nav>
 
-          {/* Hamburger */}
           <button
             className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-orange-50
                        hover:text-orange-600 transition-colors"
@@ -75,7 +72,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden border-t border-orange-100 py-3 space-y-1 pb-4">
             {NAV_LINKS.map(link => (

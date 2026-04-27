@@ -16,8 +16,6 @@ export function useFiltros() {
   const [filtros, setFiltros] = useState(FILTROS_INICIAIS)
   const { receitas, loading, error } = useReceitas()
 
-  /* ── Setters ─────────────────────────────────────────── */
-
   function setFiltro(campo, valor) {
     setFiltros(prev => ({ ...prev, [campo]: valor }))
   }
@@ -62,8 +60,6 @@ export function useFiltros() {
     setFiltros(FILTROS_INICIAIS)
   }
 
-  /* ── Filtragem ───────────────────────────────────────── */
-
   const todasFiltradas = useMemo(() => {
     return receitas.filter(r => {
       if (filtros.busca &&
@@ -91,8 +87,6 @@ export function useFiltros() {
     })
   }, [receitas, filtros])
 
-  /* ── Match com ingredientes ──────────────────────────── */
-
   const { receitasCompletas, receitasQuase } = useMemo(() => {
     if (!filtros.ingredientes.length) {
       return { receitasCompletas: [], receitasQuase: [] }
@@ -101,7 +95,6 @@ export function useFiltros() {
     const userIngs = filtros.ingredientes.map(i => i.toLowerCase())
 
     const comMatch = todasFiltradas.map(r => {
-      // r.ingredientes já é array de strings (obrigatórios) — normalizado em useReceitas
       const possuidos = r.ingredientes.filter(ing =>
         userIngs.includes(ing.toLowerCase())
       )
@@ -114,8 +107,6 @@ export function useFiltros() {
       receitasQuase:     comMatch.filter(r => r.faltando > 0 && r.faltando <= 3),
     }
   }, [todasFiltradas, filtros.ingredientes])
-
-  /* ── Contadores ──────────────────────────────────────── */
 
   const temFiltrosAtivos = useMemo(() =>
     filtros.busca !== ''       ||

@@ -8,7 +8,7 @@ import FiltrosPanel            from '../components/busca/FiltrosPanel'
 
 export default function BuscarReceitas() {
   const [mobileOpen,     setMobileOpen]     = useState(false)
-  const [selectedReceita, setSelectedReceita] = useState(null)   // ← modal
+  const [selectedReceita, setSelectedReceita] = useState(null)
 
   const {
     filtros,
@@ -51,7 +51,6 @@ export default function BuscarReceitas() {
   return (
     <div className="min-h-screen bg-amber-50">
 
-      {/* ── Page header ──────────────────────────── */}
       <div className="bg-white border-b border-gray-100">
         <div className="container-page py-8 md:py-12">
           <h1 className="section-title mb-2">Buscar Receitas</h1>
@@ -63,7 +62,6 @@ export default function BuscarReceitas() {
 
       <div className="container-page py-6">
 
-        {/* SearchBar */}
         <div className="mb-4">
           <SearchBar
             value={filtros.busca}
@@ -108,7 +106,6 @@ export default function BuscarReceitas() {
           )}
         </div>
 
-        {/* Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
           {/* Sidebar desktop */}
@@ -131,7 +128,7 @@ export default function BuscarReceitas() {
               temIngredientes={temIngredientes}
               temFiltrosAtivos={temFiltrosAtivos}
               onLimparFiltros={limparFiltros}
-              onReceitaClick={setSelectedReceita}        // ← conecta o modal
+              onReceitaClick={setSelectedReceita}
             />
           </div>
         </div>

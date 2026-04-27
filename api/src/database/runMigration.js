@@ -15,7 +15,6 @@ async function run() {
       join(__dirname, 'migrations/001_create_tables.sql'), 'utf8'
     )
 
-    // executa cada statement separado por ;
     const statements = migration
       .split(';')
       .map(s => s.trim())

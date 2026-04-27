@@ -15,13 +15,11 @@ function SecaoCardFeatured({ secao, count, onClick }) {
                   hover:-translate-y-1 hover:shadow-2xl
                   transition-all duration-300 shadow-lg`}
     >
-      {/* Fundo decorativo */}
       <span className="absolute right-0 top-0 bottom-0 flex items-center pr-6
                        text-[120px] opacity-[0.10] select-none pointer-events-none">
         {secao.emoji}
       </span>
 
-      {/* Brilho de hover */}
       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5
                       transition-colors duration-300 rounded-2xl" />
 
@@ -65,11 +63,9 @@ function SecaoCardNormal({ secao, count, onClick }) {
                   hover:-translate-y-1 hover:shadow-xl
                   transition-all duration-300 shadow-md`}
     >
-      {/* Brilho de hover */}
       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5
                       transition-colors duration-300 rounded-2xl" />
 
-      {/* Emoji decorativo de fundo */}
       <span className="absolute -right-3 -bottom-2 text-[72px] opacity-[0.10]
                        select-none pointer-events-none leading-none">
         {secao.emoji}

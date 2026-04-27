@@ -1,4 +1,3 @@
--- Ingredientes base
 INSERT IGNORE INTO ingredientes (nome) VALUES
   ('Arroz'), ('Feijão'), ('Farinha de mandioca'), ('Carne seca'), ('Frango'),
   ('Camarão'), ('Cuxá'), ('Vinagreira'), ('Leite de coco'), ('Dendê'),
@@ -6,7 +5,6 @@ INSERT IGNORE INTO ingredientes (nome) VALUES
   ('Mandioca'), ('Milho'), ('Ovo'), ('Queijo coalho'), ('Bacon'),
   ('Tapioca'), ('Coco ralado'), ('Açúcar'), ('Canela'), ('Feijão fradinho'),
   ('Camarão seco'), ('Manteiga de garrafa'), ('Pimenta do reino'), ('Limão'),
-  -- novos ingredientes para as receitas adicionais
   ('Peixe fresco'), ('Batata'), ('Ovos cozidos'), ('Carne de sol'),
   ('Pimenta-de-cheiro'), ('Camarão fresco'), ('Azeite de dendê'), ('Lula'),
   ('Polvo'), ('Mexilhão'), ('Leite de coco de babaçu'),
@@ -24,9 +22,6 @@ INSERT IGNORE INTO ingredientes (nome) VALUES
   ('Leite condensado'), ('Creme de leite'), ('Polpa de cupuaçu'),
   ('Caju'), ('Cravo'), ('Arroz demolhado'), ('Queijo coalho');
 
--- ============================================================
--- RECEITAS
--- ============================================================
 INSERT INTO receitas (
   nome, descricao, emoji, categoria,
   tempo_minutos, tempo, porcoes,
@@ -261,7 +256,6 @@ INSERT INTO receitas (
 ('Sorvete de Cupuaçu','Polpa de cupuaçu batida com leite condensado e creme de leite, levada ao freezer.','🍦','Sobremesa',20,'20 min',6,'Fácil',1,0,0,JSON_ARRAY('Bata a polpa de cupuaçu no liquidificador.','Adicione o leite condensado e o creme de leite.','Bata por 3 minutos até ficar homogêneo.','Despeje em pote com tampa.','Leve ao freezer por no mínimo 4 horas.','Sirva em bolas com coco ralado se desejar.'),JSON_ARRAY('Cotidiano','Final de semana')),
 ('Compota de Caju','Cajus inteiros cozidos em calda de açúcar com cravo e canela até ficarem macios.','🍑','Sobremesa',35,'35 min',6,'Fácil',0,1,0,JSON_ARRAY('Lave os cajus e faça furos com garfo para não murcharem.','Prepare uma calda com açúcar, água, cravo e canela.','Coloque os cajus na calda fervente.','Cozinhe em fogo médio por 20 minutos.','Os cajus devem ficar macios mas inteiros.','Sirva frio com a calda por cima.'),JSON_ARRAY('Natal','Festa'));
 
--- Relações das 8 receitas originais
 INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
 SELECT 1, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Cuxá','Vinagreira','Camarão seco','Alho','Cebola','Farinha de mandioca');
 INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
