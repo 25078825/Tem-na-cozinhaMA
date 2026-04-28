@@ -1,5 +1,6 @@
 import express         from 'express'
 import cors            from 'cors'
+import helmet          from 'helmet'
 import dotenv          from 'dotenv'
 import { testConnection }   from './database/connection.js'
 import receitasRoutes       from './routes/receitas.routes.js'
@@ -11,6 +12,7 @@ const app          = express()
 const PORT         = process.env.PORT         || 3333
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173'
 
+app.use(helmet())
 app.use(cors({ origin: FRONTEND_URL }))
 app.use(express.json())
 
