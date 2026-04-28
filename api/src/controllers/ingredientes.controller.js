@@ -48,9 +48,12 @@ export async function receitasPorIngrediente(req, res) {
   try {
     const { id } = req.params
 
-    // confirma que o ingrediente existe
+    if (!id || !/^\d+$/.test(id)) {
+      return res.status(400).json({ success: false, message: 'ID inválido.' })
+    }
+
     const [ing] = await pool.query(
-      'SELECT id, nome FROM ingredientes WHERE id = ?', [id]
+      'SELECT id, nome FROM ingredientes WHERE id = ?', [Number(id)]
     )
 
     if (!ing.length) {

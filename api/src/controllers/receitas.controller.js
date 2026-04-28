@@ -134,8 +134,12 @@ export async function buscarReceitaPorId(req, res) {
   try {
     const { id } = req.params
 
+    if (!id || !/^\d+$/.test(id)) {
+      return res.status(400).json({ success: false, message: 'ID inválido.' })
+    }
+
     const [rows] = await pool.query(
-      'SELECT * FROM receitas WHERE id = ?', [id]
+      'SELECT * FROM receitas WHERE id = ?', [Number(id)]
     )
 
     if (!rows.length) {
