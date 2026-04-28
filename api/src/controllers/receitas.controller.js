@@ -81,6 +81,10 @@ export async function buscarPorIngredientes(req, res) {
       return res.status(400).json({ success: false, message: 'Lista vazia.' })
     }
 
+    if (lista.length > 50) {
+      return res.status(400).json({ success: false, message: 'Máximo de 50 ingredientes por busca.' })
+    }
+
     const [todasReceitas] = await pool.query(`
       SELECT
         r.id, r.nome, r.emoji, r.categoria, r.tempo, r.tempo_minutos,
