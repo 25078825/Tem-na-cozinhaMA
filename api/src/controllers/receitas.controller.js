@@ -143,7 +143,10 @@ export async function buscarReceitaPorId(req, res) {
     }
 
     const [rows] = await pool.query(
-      'SELECT * FROM receitas WHERE id = ?', [Number(id)]
+      `SELECT id, nome, descricao, emoji, categoria,
+              tempo_minutos, tempo, porcoes, dificuldade,
+              rapida, tipica_festa, destaque, ocasioes, modo_preparo
+       FROM receitas WHERE id = ?`, [Number(id)]
     )
 
     if (!rows.length) {
