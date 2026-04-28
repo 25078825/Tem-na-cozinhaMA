@@ -28,6 +28,13 @@ export async function buscarIngrediente(req, res) {
       })
     }
 
+    if (q.trim().length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: 'Busca muito longa. Máximo de 100 caracteres.',
+      })
+    }
+
     const [rows] = await pool.query(
       'SELECT id, nome FROM ingredientes WHERE nome LIKE ? ORDER BY nome',
       [`%${q.trim()}%`]
