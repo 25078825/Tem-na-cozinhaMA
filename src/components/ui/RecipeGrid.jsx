@@ -166,7 +166,7 @@ export default function RecipeGrid({
             <SectionHeader
               icon="🧩" bgIcon="bg-yellow-100"
               title="Quase lá"
-              subtitle="Faltam até 3 ingredientes para completar"
+              subtitle="Contém pelo menos um dos seus ingredientes"
               count={receitasQuase.length}
               countCls="bg-yellow-100 text-yellow-700"
             />
