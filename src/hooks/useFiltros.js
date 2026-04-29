@@ -103,7 +103,7 @@ export function useFiltros() {
     })
 
     return {
-      receitasCompletas: comMatch.filter(r => r.faltando === 0),
+      receitasCompletas: comMatch.filter(r => r.faltando === 0 && r.ingredientes.length > 0),
       receitasQuase:     comMatch.filter(r => r.faltando > 0 && r.faltando < r.ingredientes.length),
     }
   }, [todasFiltradas, filtros.ingredientes])
