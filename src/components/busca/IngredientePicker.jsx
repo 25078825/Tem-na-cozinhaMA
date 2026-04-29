@@ -8,7 +8,7 @@ export default function IngredientePicker({
   onClear,
 }) {
   const [busca, setBusca] = useState('')
-  const { ingredientes: todosIngredientes, loading } = useIngredientes()
+  const { ingredientes: todosIngredientes, loading, error } = useIngredientes()
 
   const sugeridos = useMemo(() => {
     const q = busca.toLowerCase().trim()
@@ -112,7 +112,13 @@ export default function IngredientePicker({
         </div>
       )}
 
-      {!loading && busca && sugeridos.length === 0 && (
+      {error && (
+        <p className="text-xs text-red-500 text-center py-4">
+          Erro ao carregar ingredientes: {error}
+        </p>
+      )}
+
+      {!loading && !error && busca && sugeridos.length === 0 && (
         <p className="text-xs text-gray-400 text-center py-4">
           Nenhum ingrediente encontrado para "<strong>{busca}</strong>"
         </p>
