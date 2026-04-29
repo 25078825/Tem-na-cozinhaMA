@@ -199,12 +199,9 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
             {/* Título */}
             <h1 className="font-display font-bold text-gray-900 text-2xl sm:text-3xl
-                           leading-tight mb-2">
+                           leading-tight">
               {receita.nome}
             </h1>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {receita.descricao}
-            </p>
           </div>
 
           {/* ── Info bar ───────────────────────────── */}
