@@ -160,7 +160,7 @@ export async function buscarReceitaPorId(req, res) {
       FROM receita_ingredientes ri
       JOIN ingredientes i ON i.id = ri.ingrediente_id
       WHERE ri.receita_id = ?
-    `, [id])
+    `, [Number(id)])
 
     const receita = {
       ...r,

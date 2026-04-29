@@ -76,7 +76,7 @@ export async function receitasPorIngrediente(req, res) {
       JOIN receita_ingredientes ri ON ri.receita_id = r.id
       WHERE ri.ingrediente_id = ? AND ri.opcional = 0
       ORDER BY r.nome
-    `, [id])
+    `, [Number(id)])
 
     res.json({
       success: true,
