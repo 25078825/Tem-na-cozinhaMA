@@ -16,7 +16,7 @@ function sortReceitas(receitas, sortBy) {
   const arr = [...receitas]
   switch (sortBy) {
     case 'nome':           return arr.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))
-    case 'mais-rapidas':   return arr.sort((a, b) => a.tempoMinutos - b.tempoMinutos)
+    case 'mais-rapidas':   return arr.sort((a, b) => a.tempo_minutos - b.tempo_minutos)
     case 'mais-faceis':    return arr.sort((a, b) =>
       (DIFFICULTY_ORDER[a.dificuldade] ?? 9) - (DIFFICULTY_ORDER[b.dificuldade] ?? 9))
     case 'menos-faltando': return arr.sort((a, b) => (a.faltando ?? 0) - (b.faltando ?? 0))
