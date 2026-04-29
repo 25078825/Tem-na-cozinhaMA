@@ -293,3 +293,221 @@ INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
 SELECT 8, id, 0 FROM ingredientes WHERE nome IN ('Carne seca','Farinha de mandioca','Cebola','Alho','Coentro');
 INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
 SELECT 8, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Manteiga de garrafa');
+
+-- Receita 9: Peixada Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 9, id, 0 FROM ingredientes WHERE nome IN ('Peixe fresco','Leite de coco','Batata','Ovos cozidos','Cebola','Tomate','Pimentão','Alho','Coentro','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 9, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Sal');
+
+-- Receita 10: Arroz de Maria Isabel
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 10, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Carne de sol','Cebola','Pimenta-de-cheiro','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 10, id, 1 FROM ingredientes WHERE nome IN ('Coentro');
+
+-- Receita 11: Caldeirada de Camarão
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 11, id, 0 FROM ingredientes WHERE nome IN ('Camarão fresco','Leite de coco','Azeite de dendê','Pimentão','Cebola','Alho','Sal','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 11, id, 1 FROM ingredientes WHERE nome IN ('Coentro','Pimenta do reino');
+
+-- Receita 12: Torta de Caranguejo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 12, id, 0 FROM ingredientes WHERE nome IN ('Carne de caranguejo','Ovo','Farinha de trigo','Tomate','Pimentão','Cebola','Alho','Coentro','Leite de coco');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 12, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Limão');
+
+-- Receita 13: Arroz do Mar
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 13, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Lula','Polvo','Mexilhão','Camarão fresco','Alho','Coentro','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 13, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 14: Moqueca Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 14, id, 0 FROM ingredientes WHERE nome IN ('Peixe fresco','Leite de coco de babaçu','Azeite de dendê','Camarão fresco','Cebola','Tomate','Sal','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 14, id, 1 FROM ingredientes WHERE nome IN ('Coentro','Alho');
+
+-- Receita 15: Sururu ao Leite de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 15, id, 0 FROM ingredientes WHERE nome IN ('Sururu','Leite de coco','Azeite de dendê','Alho','Cebola','Tempero verde','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 15, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 16: Caranguejada
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 16, id, 0 FROM ingredientes WHERE nome IN ('Caranguejo inteiro','Leite de coco','Tomate','Cebola','Alho','Coentro','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 16, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 17: Carne de Sol Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 17, id, 0 FROM ingredientes WHERE nome IN ('Carne de sol','Banana frita','Queijo coalho','Sal','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 17, id, 1 FROM ingredientes WHERE nome IN ('Mandioca');
+
+-- Receita 18: Paçoca de Carne de Sol
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 18, id, 0 FROM ingredientes WHERE nome IN ('Carne de sol frita','Farinha de mandioca','Cebola','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 18, id, 1 FROM ingredientes WHERE nome IN ('Alho','Pimenta do reino');
+
+-- Receita 19: Cozidão
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 19, id, 0 FROM ingredientes WHERE nome IN ('Carne bovina','Maxixe','Quiabo','Abóbora','Batata','Alho','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 19, id, 1 FROM ingredientes WHERE nome IN ('Arroz','Farinha de mandioca','Pimenta do reino');
+
+-- Receita 20: Sarrabulho
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 20, id, 0 FROM ingredientes WHERE nome IN ('Miúdos de porco','Sangue coalhado','Vinho tinto','Alho','Sal','Pimenta do reino');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 20, id, 1 FROM ingredientes WHERE nome IN ('Cebola','Coentro');
+
+-- Receita 21: Sarapatel
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 21, id, 0 FROM ingredientes WHERE nome IN ('Miúdos de porco','Sangue picado','Cominho','Alho','Sal','Pimenta do reino');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 21, id, 1 FROM ingredientes WHERE nome IN ('Cebola');
+
+-- Receita 22: Baião de Dois Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 22, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Feijão-de-corda','Toucinho','Queijo coalho','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 22, id, 1 FROM ingredientes WHERE nome IN ('Cebola','Alho');
+
+-- Receita 23: Arroz de Toucinho
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 23, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Toucinho','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 23, id, 1 FROM ingredientes WHERE nome IN ('Alho','Cebola');
+
+-- Receita 24: Mocotó
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 24, id, 0 FROM ingredientes WHERE nome IN ('Pata de boi','Feijão branco','Alho','Cebola','Tomate','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 24, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 25: Rabada
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 25, id, 0 FROM ingredientes WHERE nome IN ('Rabo de boi','Batata','Agrião','Alho','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 25, id, 1 FROM ingredientes WHERE nome IN ('Cebola','Pimenta do reino');
+
+-- Receita 26: Feijão Verde
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 26, id, 0 FROM ingredientes WHERE nome IN ('Feijão verde fresco','Nata','Sal','Coentro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 26, id, 1 FROM ingredientes WHERE nome IN ('Leite de coco');
+
+-- Receita 27: Vatapá Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 27, id, 0 FROM ingredientes WHERE nome IN ('Camarão seco','Pão','Leite de coco','Amendoim','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 27, id, 1 FROM ingredientes WHERE nome IN ('Azeite de dendê','Cebola','Alho');
+
+-- Receita 28: Sarnambi no Leite de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 28, id, 0 FROM ingredientes WHERE nome IN ('Marisco sarnambi','Leite de coco','Alho','Cebola','Sal','Tempero verde');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 28, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 29: Peixe Frito no Azeite de Babaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 29, id, 0 FROM ingredientes WHERE nome IN ('Peixe fresco','Óleo de babaçu','Sal','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 29, id, 1 FROM ingredientes WHERE nome IN ('Alho','Farinha de mandioca');
+
+-- Receita 30: Caldo de Ovos
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 30, id, 0 FROM ingredientes WHERE nome IN ('Carne moída','Ovo','Alho','Cebola','Coentro','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 30, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 31: Beiju de Tapioca
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 31, id, 0 FROM ingredientes WHERE nome IN ('Goma de mandioca','Coco ralado','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 31, id, 1 FROM ingredientes WHERE nome IN ('Açúcar');
+
+-- Receita 32: Patola de Caranguejo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 32, id, 0 FROM ingredientes WHERE nome IN ('Carne de caranguejo','Farinha de rosca','Ovo','Sal','Limão','Alho');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 32, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 33: Casquinha de Caranguejo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 33, id, 0 FROM ingredientes WHERE nome IN ('Carne de caranguejo','Farinha de rosca','Leite de coco','Cebola','Tomate','Tempero verde','Sal');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 33, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 34: Tripinha Frita
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 34, id, 0 FROM ingredientes WHERE nome IN ('Tripa de porco','Sal','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 34, id, 1 FROM ingredientes WHERE nome IN ('Alho','Farinha de mandioca');
+
+-- Receita 35: Cachorro-Quente Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 35, id, 0 FROM ingredientes WHERE nome IN ('Salsicha','Carne moída','Cebola','Tomate','Repolho','Sal','Pão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 35, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino');
+
+-- Receita 36: Doce de Espécie
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 36, id, 0 FROM ingredientes WHERE nome IN ('Coco ralado','Açúcar','Farinha de trigo','Ovo','Manteiga de garrafa');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 36, id, 1 FROM ingredientes WHERE nome IN ('Cravo','Canela');
+
+-- Receita 37: Arroz Doce com Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 37, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Leite de coco','Açúcar','Canela','Coco ralado');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 37, id, 1 FROM ingredientes WHERE nome IN ('Leite');
+
+-- Receita 38: Bolo de Arroz (Orelha de Macaco)
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 38, id, 0 FROM ingredientes WHERE nome IN ('Arroz demolhado','Coco ralado','Açúcar','Óleo de babaçu');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 38, id, 1 FROM ingredientes WHERE nome IN ('Sal');
+
+-- Receita 39: Bolo de Tapioca
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 39, id, 0 FROM ingredientes WHERE nome IN ('Tapioca granulada','Leite','Ovo','Coco ralado','Açúcar');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 39, id, 1 FROM ingredientes WHERE nome IN ('Leite de coco');
+
+-- Receita 40: Doce de Bacuri
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 40, id, 0 FROM ingredientes WHERE nome IN ('Polpa de bacuri','Açúcar');
+
+-- Receita 41: Doce de Buriti
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 41, id, 0 FROM ingredientes WHERE nome IN ('Polpa de buriti','Açúcar');
+
+-- Receita 42: Mingau de Milho
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 42, id, 0 FROM ingredientes WHERE nome IN ('Milho verde','Leite de coco','Açúcar','Canela','Coco ralado');
+
+-- Receita 43: Mingau de Tapioca
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 43, id, 0 FROM ingredientes WHERE nome IN ('Tapioca granulada','Leite de coco','Açúcar');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 43, id, 1 FROM ingredientes WHERE nome IN ('Canela','Leite');
+
+-- Receita 44: Queijadinha
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 44, id, 0 FROM ingredientes WHERE nome IN ('Coco ralado','Queijo parmesão','Leite condensado','Ovo','Manteiga de garrafa');
+
+-- Receita 45: Sorvete de Cupuaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 45, id, 0 FROM ingredientes WHERE nome IN ('Polpa de cupuaçu','Leite condensado','Creme de leite');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 45, id, 1 FROM ingredientes WHERE nome IN ('Coco ralado');
+
+-- Receita 46: Compota de Caju
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 46, id, 0 FROM ingredientes WHERE nome IN ('Caju','Açúcar','Cravo','Canela');
