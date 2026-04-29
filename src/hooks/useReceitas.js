@@ -8,6 +8,7 @@ function normalizar(r) {
     rapida:                Boolean(r.rapida),
     tipicaFesta:           Boolean(r.tipica_festa),
     destaque:              Boolean(r.destaque),
+    imagemUrl:             r.imagem_url ?? null,
     ocasioes:              Array.isArray(r.ocasioes)    ? r.ocasioes    : [],
     modoPreparo:           Array.isArray(r.modo_preparo) ? r.modo_preparo : [],
     ingredientes:          ingredientesRaw.filter(i => !i.opcional).map(i => i.nome),

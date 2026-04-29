@@ -500,3 +500,51 @@ SELECT 43, id, 1 FROM ingredientes WHERE nome IN ('Coco ralado');
 -- 44: Compota de Caju
 INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
 SELECT 44, id, 0 FROM ingredientes WHERE nome IN ('Caju','Açúcar','Cravo','Canela');
+
+-- ─────────────────────────────────────────────────────────────
+-- Fotos das receitas (Unsplash)
+-- ─────────────────────────────────────────────────────────────
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=400&fit=crop&q=80' WHERE id = 1;  -- Arroz de Cuxá
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1544025162-d76538b7b90c?w=600&h=400&fit=crop&q=80' WHERE id = 2;  -- Carne de Sol com Mandioca
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1559181567-c3190958d3c8?w=600&h=400&fit=crop&q=80' WHERE id = 3;  -- Torta de Camarão
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&h=400&fit=crop&q=80' WHERE id = 4;  -- Maria Isabel
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=400&fit=crop&q=80' WHERE id = 5;  -- Farofa de Camarão
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1515003197210-e00f7095ef78?w=600&h=400&fit=crop&q=80' WHERE id = 6;  -- Canjica de Milho
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 7;  -- Tapioca Recheada
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&h=400&fit=crop&q=80' WHERE id = 8;  -- Paçoca de Carne Seca
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&h=400&fit=crop&q=80' WHERE id = 9;  -- Peixada Maranhense
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop&q=80' WHERE id = 10; -- Caldeirada de Camarão
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=600&h=400&fit=crop&q=80' WHERE id = 11; -- Torta de Caranguejo
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&h=400&fit=crop&q=80' WHERE id = 12; -- Arroz do Mar
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&q=80' WHERE id = 13; -- Moqueca Maranhense
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&h=400&fit=crop&q=80' WHERE id = 14; -- Sururu ao Leite de Coco
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1580476262798-28787b08a9ff?w=600&h=400&fit=crop&q=80' WHERE id = 15; -- Caranguejada
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&q=80' WHERE id = 16; -- Carne de Sol Maranhense
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1551218372-a8789b81b253?w=600&h=400&fit=crop&q=80' WHERE id = 17; -- Cozidão
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1574484284002-5b647b80c0d2?w=600&h=400&fit=crop&q=80' WHERE id = 18; -- Sarrabulho
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1574484284002-5b647b80c0d2?w=600&h=400&fit=crop&q=80' WHERE id = 19; -- Sarapatel
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&q=80' WHERE id = 20; -- Baião de Dois
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&h=400&fit=crop&q=80' WHERE id = 21; -- Arroz de Toucinho
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&q=80' WHERE id = 22; -- Mocotó
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1544025162-d76538b7b90c?w=600&h=400&fit=crop&q=80' WHERE id = 23; -- Rabada
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop&q=80' WHERE id = 24; -- Feijão Verde
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=600&h=400&fit=crop&q=80' WHERE id = 25; -- Vatapá Maranhense
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&h=400&fit=crop&q=80' WHERE id = 26; -- Sarnambi no Leite de Coco
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&h=400&fit=crop&q=80' WHERE id = 27; -- Peixe Frito
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1612927601601-6638404737ce?w=600&h=400&fit=crop&q=80' WHERE id = 28; -- Caldo de Ovos
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 29; -- Beiju de Tapioca
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1580476262798-28787b08a9ff?w=600&h=400&fit=crop&q=80' WHERE id = 30; -- Patola de Caranguejo
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=600&h=400&fit=crop&q=80' WHERE id = 31; -- Casquinha de Caranguejo
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&h=400&fit=crop&q=80' WHERE id = 32; -- Tripinha Frita
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1568901346729-58977e182f16?w=600&h=400&fit=crop&q=80' WHERE id = 33; -- Cachorro-Quente Maranhense
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=400&fit=crop&q=80' WHERE id = 34; -- Doce de Espécie
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=400&fit=crop&q=80' WHERE id = 35; -- Arroz Doce com Coco
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&q=80' WHERE id = 36; -- Bolo de Arroz
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop&q=80' WHERE id = 37; -- Bolo de Tapioca
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=600&h=400&fit=crop&q=80' WHERE id = 38; -- Doce de Bacuri
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1469893836999-f38a8d84246f?w=600&h=400&fit=crop&q=80' WHERE id = 39; -- Doce de Buriti
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1515003197210-e00f7095ef78?w=600&h=400&fit=crop&q=80' WHERE id = 40; -- Mingau de Milho
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 41; -- Mingau de Tapioca
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=400&fit=crop&q=80' WHERE id = 42; -- Queijadinha
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 43; -- Sorvete de Cupuaçu
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=600&h=400&fit=crop&q=80' WHERE id = 44; -- Compota de Caju

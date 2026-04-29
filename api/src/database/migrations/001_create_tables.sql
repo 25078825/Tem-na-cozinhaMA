@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS receitas (
   destaque        TINYINT(1)   DEFAULT 0,
   modo_preparo    JSON,
   ocasioes        JSON,
+  imagem_url      VARCHAR(500) NULL,
   created_at      TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
 );
 

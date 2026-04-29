@@ -14,7 +14,8 @@ export async function listarReceitas(req, res) {
       SELECT
         r.id, r.nome, r.descricao, r.emoji, r.categoria,
         r.tempo_minutos, r.tempo, r.porcoes, r.dificuldade,
-        r.rapida, r.tipica_festa, r.destaque, r.ocasioes, r.modo_preparo
+        r.rapida, r.tipica_festa, r.destaque, r.ocasioes, r.modo_preparo,
+        r.imagem_url
       FROM receitas r
       WHERE 1=1
     `
