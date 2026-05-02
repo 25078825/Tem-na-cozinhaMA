@@ -9,7 +9,7 @@ const CATEGORY_GRADIENT = {
 }
 
 const CATEGORY_BADGE = {
-  'Prato Principal': 'bg-orange-100 text-orange-700',
+  'Prato Principal': 'bg-amber-100 text-amber-700',
   'Entrada':         'bg-blue-100   text-blue-700',
   'Acompanhamento':  'bg-green-100  text-green-700',
   'Sobremesa':       'bg-pink-100   text-pink-700',
@@ -17,7 +17,7 @@ const CATEGORY_BADGE = {
 
 const DIFFICULTY_STYLE = {
   'Fácil':   'bg-green-100  text-green-700',
-  'Média':   'bg-yellow-100 text-yellow-700',
+  'Média':   'bg-amber-100 text-amber-700',
   'Difícil': 'bg-red-100    text-red-700',
 }
 
@@ -49,7 +49,7 @@ function IngredientItem({ nome, possui, temIngredientes }) {
     return (
       <li className="flex items-center gap-3 py-2.5 px-3.5 rounded-xl
                      bg-gray-50 border border-gray-100">
-        <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
         <span className="text-sm text-gray-700">{nome}</span>
       </li>
     )
@@ -121,8 +121,8 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
   const barColor =
     pct === 100  ? 'bg-green-500'
-    : pct >= 60  ? 'bg-yellow-500'
-    :               'bg-orange-400'
+    : pct >= 60  ? 'bg-amber-500'
+    :               'bg-amber-400'
 
   const statusMsg =
     pct === 100  ? '✅ Você tem todos os ingredientes!'
@@ -242,21 +242,21 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
             {/* Progresso de ingredientes */}
             {temIngredientes && (
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl
-                              p-4 border border-orange-100">
+              <div className="bg-gradient-to-br from-amber-50 to-amber-50 rounded-2xl
+                              p-4 border border-amber-100">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-sm font-semibold text-orange-800 leading-snug pr-2">
+                  <p className="text-sm font-semibold text-amber-800 leading-snug pr-2">
                     {statusMsg}
                   </p>
                   <span className={`text-sm font-bold flex-shrink-0 ${
-                    pct === 100 ? 'text-green-600' : pct >= 60 ? 'text-yellow-600' : 'text-orange-500'
+                    pct === 100 ? 'text-green-600' : pct >= 60 ? 'text-amber-600' : 'text-amber-500'
                   }`}>
                     {pct}%
                   </span>
                 </div>
 
                 {/* Barra */}
-                <div className="h-2.5 bg-white rounded-full overflow-hidden border border-orange-100">
+                <div className="h-2.5 bg-white rounded-full overflow-hidden border border-amber-100">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${barColor}`}
                     style={{ width: `${pct}%` }}
@@ -266,7 +266,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                 {/* Lista do que falta */}
                 {nomesFaltando.length > 0 && (
                   <div className="mt-2.5">
-                    <p className="text-[11px] font-semibold text-orange-600 mb-1.5">
+                    <p className="text-[11px] font-semibold text-amber-600 mb-1.5">
                       Ingredientes faltando:
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -351,9 +351,9 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                 <ol className="space-y-4">
                   {receita.modoPreparo.map((passo, i) => (
                     <li key={i} className="flex gap-4">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-orange-500
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-500
                                        text-white text-xs font-bold flex items-center
-                                       justify-center shadow-sm shadow-orange-200 mt-0.5">
+                                       justify-center shadow-sm shadow-amber-200 mt-0.5">
                         {i + 1}
                       </span>
                       <p className="text-sm text-gray-700 leading-relaxed pt-0.5">

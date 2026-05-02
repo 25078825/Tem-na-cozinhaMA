@@ -50,7 +50,7 @@ export default function Home() {
     <div>
       {/* ── Hero ───────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br
-                          from-orange-500 via-orange-600 to-orange-700 text-white">
+                          from-amber-500 via-amber-600 to-amber-700 text-white">
         <div className="absolute inset-0"
              style={{
                backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
@@ -67,17 +67,17 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold
                            leading-[1.1] mb-6 tracking-tight">
               O que tem<br />
-              <span className="text-orange-200">na sua cozinha?</span>
+              <span className="text-amber-200">na sua cozinha?</span>
             </h1>
-            <p className="text-base md:text-lg text-orange-100/90 leading-relaxed mb-8 max-w-lg">
+            <p className="text-base md:text-lg text-amber-100/90 leading-relaxed mb-8 max-w-lg">
               Informe os ingredientes que você tem em casa e descubra receitas
               deliciosas da culinária maranhense para preparar agora.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <button onClick={() => navigate('/buscar')}
-                      className="bg-white text-orange-600 font-bold px-8 py-3.5 rounded-xl
-                                 hover:bg-orange-50 active:scale-[0.97] transition-all
-                                 shadow-xl shadow-orange-900/20 text-sm md:text-base
+                      className="bg-white text-amber-600 font-bold px-8 py-3.5 rounded-xl
+                                 hover:bg-amber-50 active:scale-[0.97] transition-all
+                                 shadow-xl shadow-amber-900/20 text-sm md:text-base
                                  flex items-center justify-center gap-2">
                 Buscar Receitas
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,7 +109,7 @@ export default function Home() {
             {STATS.map((s, i) => (
               <div key={i} className="text-center group">
                 <div className="inline-flex items-center justify-center w-10 h-10
-                                bg-orange-50 rounded-xl text-xl mb-2
+                                bg-amber-50 rounded-xl text-xl mb-2
                                 group-hover:scale-110 transition-transform duration-300">
                   {s.emoji}
                 </div>
@@ -127,7 +127,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-amber-50">
         <div className="container-page">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-orange-500 uppercase tracking-widest mb-2">
+            <p className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">
               Como funciona
             </p>
             <h2 className="section-title mb-3">Em 3 passos simples</h2>
@@ -138,7 +138,7 @@ export default function Home() {
                    className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm
                               hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-orange-500 rounded-xl flex items-center
+                  <div className="w-8 h-8 bg-amber-500 rounded-xl flex items-center
                                   justify-center text-white text-sm font-black shadow-sm">
                     {item.step}
                   </div>
@@ -159,14 +159,14 @@ export default function Home() {
         <div className="container-page">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1">
+              <p className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1">
                 Receitas
               </p>
               <h2 className="section-title">Em destaque</h2>
             </div>
             <button onClick={() => navigate('/buscar')}
                     className="hidden sm:flex items-center gap-1.5 text-sm font-semibold
-                               text-gray-500 hover:text-orange-600 transition-colors group">
+                               text-gray-500 hover:text-amber-600 transition-colors group">
               Ver todas
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -192,14 +192,14 @@ export default function Home() {
         <div className="container-page">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <p className="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1">
+              <p className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1">
                 Categorias
               </p>
               <h2 className="section-title">Seções Especiais</h2>
             </div>
             <button onClick={() => navigate('/secoes')}
                     className="hidden sm:flex items-center gap-1.5 text-sm font-semibold
-                               text-gray-500 hover:text-orange-600 transition-colors group">
+                               text-gray-500 hover:text-amber-600 transition-colors group">
               Ver todas
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -231,9 +231,9 @@ export default function Home() {
             Descubra o que você pode preparar com os ingredientes que já tem em casa.
           </p>
           <button onClick={() => navigate('/buscar')}
-                  className="bg-orange-500 hover:bg-orange-400 active:scale-[0.97]
+                  className="bg-amber-500 hover:bg-amber-400 active:scale-[0.97]
                              text-white font-bold px-10 py-4 rounded-xl
-                             transition-all shadow-xl shadow-orange-900/30 text-base
+                             transition-all shadow-xl shadow-amber-900/30 text-base
                              inline-flex items-center gap-2">
             Começar agora
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

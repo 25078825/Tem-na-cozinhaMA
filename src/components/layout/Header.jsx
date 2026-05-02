@@ -14,17 +14,17 @@ export default function Header() {
   const navClass = ({ isActive }) =>
     `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
       isActive
-        ? 'bg-orange-100 text-orange-700'
-        : 'text-gray-600 hover:text-orange-600 hover:bg-orange-50'
+        ? 'bg-amber-100 text-amber-700'
+        : 'text-gray-600 hover:text-amber-600 hover:bg-amber-50'
     }`
 
   return (
-    <header className="bg-white border-b border-orange-100 sticky top-0 z-50 shadow-sm">
+    <header className="bg-white border-b border-amber-100 sticky top-0 z-50 shadow-sm">
       <div className="container-page">
         <div className="flex items-center justify-between h-16">
 
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-orange-500 group-hover:bg-orange-600 rounded-xl
+            <div className="w-9 h-9 bg-amber-500 group-hover:bg-amber-600 rounded-xl
                             flex items-center justify-center text-lg shadow-sm transition-colors">
               🍳
             </div>
@@ -32,7 +32,7 @@ export default function Header() {
               <span className="text-base font-bold text-gray-800 font-display">
                 Tem na Cozinha
               </span>
-              <span className="text-[10px] font-bold text-orange-500 tracking-widest uppercase">
+              <span className="text-[10px] font-bold text-amber-500 tracking-widest uppercase">
                 Maranhão
               </span>
             </div>
@@ -53,8 +53,8 @@ export default function Header() {
           </nav>
 
           <button
-            className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-orange-50
-                       hover:text-orange-600 transition-colors"
+            className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-amber-50
+                       hover:text-amber-600 transition-colors"
             onClick={() => setMenuOpen(v => !v)}
             aria-label="Abrir menu"
           >
@@ -73,7 +73,7 @@ export default function Header() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden border-t border-orange-100 py-3 space-y-1 pb-4">
+          <div className="md:hidden border-t border-amber-100 py-3 space-y-1 pb-4">
             {NAV_LINKS.map(link => (
               <NavLink
                 key={link.to} to={link.to} end={link.end}

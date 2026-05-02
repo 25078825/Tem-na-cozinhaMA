@@ -1,8 +1,8 @@
 const ILLUSTRATIONS = {
   '🔍': { bg: 'bg-blue-50',   ring: 'ring-blue-100'   },
-  '😅': { bg: 'bg-yellow-50', ring: 'ring-yellow-100' },
+  '😅': { bg: 'bg-amber-50', ring: 'ring-amber-100' },
   '🤷': { bg: 'bg-gray-50',   ring: 'ring-gray-100'   },
-  '🍽️': { bg: 'bg-orange-50', ring: 'ring-orange-100' },
+  '🍽️': { bg: 'bg-amber-50', ring: 'ring-amber-100' },
 }
 
 export default function EmptyState({ icon, title, desc, action, compact = false }) {
@@ -22,8 +22,8 @@ export default function EmptyState({ icon, title, desc, action, compact = false 
         {action && (
           <button
             onClick={action.onClick}
-            className="mt-3 text-xs font-semibold text-orange-500
-                       hover:text-orange-700 transition-colors"
+            className="mt-3 text-xs font-semibold text-amber-500
+                       hover:text-amber-700 transition-colors"
           >
             {action.label}
           </button>

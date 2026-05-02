@@ -10,7 +10,7 @@ const OPCOES_TEMPO = [
 
 const DIFICULDADE_CONFIG = {
   'Fácil':   { inactive: 'border-green-200  text-green-700  bg-green-50',  active: 'bg-green-500  border-green-500  text-white shadow-sm shadow-green-200'  },
-  'Média':   { inactive: 'border-yellow-200 text-yellow-700 bg-yellow-50', active: 'bg-yellow-500 border-yellow-500 text-white shadow-sm shadow-yellow-200' },
+  'Média':   { inactive: 'border-amber-200 text-amber-700 bg-amber-50', active: 'bg-amber-500 border-amber-500 text-white shadow-sm shadow-amber-200' },
   'Difícil': { inactive: 'border-red-200    text-red-700    bg-red-50',    active: 'bg-red-500    border-red-500    text-white shadow-sm shadow-red-200'    },
 }
 
@@ -50,21 +50,21 @@ function Toggle({ emoji, label, desc, active, onChange }) {
       className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl
                   border text-left transition-all duration-200 ${
         active
-          ? 'bg-orange-50 border-orange-200 shadow-sm shadow-orange-100'
-          : 'bg-white border-gray-200 hover:border-orange-200 hover:bg-gray-50'
+          ? 'bg-amber-50 border-amber-200 shadow-sm shadow-amber-100'
+          : 'bg-white border-gray-200 hover:border-amber-200 hover:bg-gray-50'
       }`}
     >
       <span className={`text-base flex-shrink-0 transition-all ${active ? '' : 'grayscale opacity-70'}`}>
         {emoji}
       </span>
       <div className="flex-1 min-w-0">
-        <p className={`text-sm font-medium leading-tight ${active ? 'text-orange-700' : 'text-gray-700'}`}>
+        <p className={`text-sm font-medium leading-tight ${active ? 'text-amber-700' : 'text-gray-700'}`}>
           {label}
         </p>
         <p className="text-[11px] text-gray-400 mt-0.5">{desc}</p>
       </div>
       <div className={`relative flex-shrink-0 w-9 h-5 rounded-full
-                       transition-colors duration-200 ${active ? 'bg-orange-500' : 'bg-gray-200'}`}>
+                       transition-colors duration-200 ${active ? 'bg-amber-500' : 'bg-gray-200'}`}>
         <span className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow-sm
                           transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0.5'}`} />
       </div>
@@ -88,7 +88,7 @@ export default function FiltrosPanel({
                        flex items-center gap-2">
           <span>🎛️</span> Filtros
           {temFiltrosAtivos && (
-            <span className="bg-orange-500 text-white text-[10px] font-bold
+            <span className="bg-amber-500 text-white text-[10px] font-bold
                              w-4 h-4 rounded-full flex items-center justify-center">
               ✓
             </span>

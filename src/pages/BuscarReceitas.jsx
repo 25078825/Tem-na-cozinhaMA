@@ -77,8 +77,8 @@ export default function BuscarReceitas() {
             className={`flex items-center justify-center gap-2 flex-1 px-4 py-2.5
                         rounded-xl border font-medium text-sm transition-all shadow-sm ${
               contadorFiltrosAtivos > 0
-                ? 'bg-orange-500 border-orange-500 text-white'
-                : 'bg-white border-gray-200 text-gray-600 hover:border-orange-300'
+                ? 'bg-amber-500 border-amber-500 text-white'
+                : 'bg-white border-gray-200 text-gray-600 hover:border-amber-300'
             }`}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,7 +88,7 @@ export default function BuscarReceitas() {
             </svg>
             Ingredientes &amp; Filtros
             {contadorFiltrosAtivos > 0 && (
-              <span className="bg-white text-orange-600 text-xs font-bold
+              <span className="bg-white text-amber-600 text-xs font-bold
                                w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0">
                 {contadorFiltrosAtivos}
               </span>

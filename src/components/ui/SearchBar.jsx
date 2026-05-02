@@ -14,7 +14,7 @@ export default function SearchBar({ value, onChange, placeholder = 'Buscar recei
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
         className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 bg-white
-                   focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400
+                   focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-400
                    text-sm shadow-sm transition-all placeholder:text-gray-400"
       />
 

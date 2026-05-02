@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 const CATEGORY_STYLE = {
   'Prato Principal': {
     gradient: 'linear-gradient(145deg, #FFF8F0 0%, #FFE0B2 100%)',
-    badge: 'bg-orange-100 text-orange-700',
+    badge: 'bg-amber-100 text-amber-700',
     accent: '#FB923C',
   },
   'Entrada': {
@@ -31,7 +31,7 @@ const DEFAULT_STYLE = {
 
 const DIFFICULTY_STYLE = {
   'Fácil':   'bg-green-100  text-green-700  border-green-200',
-  'Média':   'bg-yellow-100 text-yellow-700 border-yellow-200',
+  'Média':   'bg-amber-100 text-amber-700 border-amber-200',
   'Difícil': 'bg-red-100    text-red-700    border-red-200',
 }
 
@@ -55,21 +55,21 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
   const cardBorder =
     !match              ? 'border-gray-100'
     : match.pct === 100 ? 'border-green-200 ring-1 ring-green-100'
-    : match.faltando <= 2 ? 'border-yellow-200 ring-1 ring-yellow-100'
+    : match.faltando <= 2 ? 'border-amber-200 ring-1 ring-amber-100'
     :                     'border-gray-100'
 
   const statusBadge =
     !match                 ? null
     : match.pct === 100    ? { label: '✓ Você tem tudo',               cls: 'bg-green-500  text-white' }
-    : match.faltando === 1 ? { label: 'Falta 1 ingrediente',           cls: 'bg-yellow-500 text-white' }
-    : match.faltando <= 3  ? { label: `Faltam ${match.faltando} ingredientes`, cls: 'bg-orange-500 text-white' }
+    : match.faltando === 1 ? { label: 'Falta 1 ingrediente',           cls: 'bg-amber-500 text-white' }
+    : match.faltando <= 3  ? { label: `Faltam ${match.faltando} ingredientes`, cls: 'bg-amber-500 text-white' }
     :                        { label: `${match.possuidos}/${match.total} ingredientes`, cls: 'bg-gray-600 text-white' }
 
   const barColor =
     !match              ? ''
     : match.pct === 100 ? 'bg-green-500'
-    : match.pct >= 60   ? 'bg-yellow-500'
-    :                     'bg-orange-400'
+    : match.pct >= 60   ? 'bg-amber-500'
+    :                     'bg-amber-400'
 
   return (
     <article
@@ -149,7 +149,7 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
       <div className="p-4 flex flex-col gap-2.5 flex-1">
 
         <h3 className="font-display font-semibold text-gray-900 text-[15px]
-                       leading-snug group-hover:text-orange-600 transition-colors
+                       leading-snug group-hover:text-amber-600 transition-colors
                        line-clamp-2">
           {receita.nome}
         </h3>
@@ -219,8 +219,8 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
                 </span>
                 <span className={`text-xs font-bold ${
                   match.pct === 100 ? 'text-green-600'
-                  : match.pct >= 60  ? 'text-yellow-600'
-                  :                   'text-orange-500'
+                  : match.pct >= 60  ? 'text-amber-600'
+                  :                   'text-amber-500'
                 }`}>
                   {match.possuidos}/{match.total}
                 </span>

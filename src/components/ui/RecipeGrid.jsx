@@ -101,8 +101,8 @@ export default function RecipeGrid({
               onChange={e => setSortBy(e.target.value)}
               className="text-xs bg-white border border-gray-200 rounded-xl px-3 py-2
                          text-gray-700 font-medium shadow-sm cursor-pointer
-                         focus:outline-none focus:ring-2 focus:ring-orange-300
-                         focus:border-orange-400 transition-all hover:border-gray-300"
+                         focus:outline-none focus:ring-2 focus:ring-amber-300
+                         focus:border-amber-400 transition-all hover:border-gray-300"
             >
               {sortOptions.map(o => (
                 <option key={o.value} value={o.value}>{o.label}</option>
@@ -164,11 +164,11 @@ export default function RecipeGrid({
           {/* Quase lá */}
           <section>
             <SectionHeader
-              icon="🧩" bgIcon="bg-yellow-100"
+              icon="🧩" bgIcon="bg-amber-100"
               title="Quase lá"
               subtitle="Contém pelo menos um dos seus ingredientes"
               count={receitasQuase.length}
-              countCls="bg-yellow-100 text-yellow-700"
+              countCls="bg-amber-100 text-amber-700"
             />
             {receitasQuase.length > 0 ? (
               <CardGrid
@@ -188,17 +188,17 @@ export default function RecipeGrid({
       {!temIngredientes && totalVisivel > 0 && (
         <>
           {!temFiltrosAtivos && (
-            <div className="bg-gradient-to-r from-orange-50 to-amber-50
-                            border border-orange-100 rounded-2xl p-4 flex gap-3.5 mb-6">
-              <div className="w-9 h-9 bg-orange-100 rounded-xl flex items-center
+            <div className="bg-gradient-to-r from-amber-50 to-amber-50
+                            border border-amber-100 rounded-2xl p-4 flex gap-3.5 mb-6">
+              <div className="w-9 h-9 bg-amber-100 rounded-xl flex items-center
                               justify-center text-lg flex-shrink-0">
                 💡
               </div>
               <div>
-                <p className="font-semibold text-orange-800 text-sm">
+                <p className="font-semibold text-amber-800 text-sm">
                   Dica: adicione seus ingredientes
                 </p>
-                <p className="text-xs text-orange-600 leading-relaxed mt-0.5">
+                <p className="text-xs text-amber-600 leading-relaxed mt-0.5">
                   Use o painel ao lado para descobrir quais receitas você pode preparar agora!
                 </p>
               </div>

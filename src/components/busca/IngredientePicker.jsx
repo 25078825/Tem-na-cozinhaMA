@@ -30,7 +30,7 @@ export default function IngredientePicker({
                        flex items-center gap-2">
           <span>🧅</span> Meus ingredientes
           {selecionados.length > 0 && (
-            <span className="bg-orange-500 text-white text-[10px] font-bold
+            <span className="bg-amber-500 text-white text-[10px] font-bold
                              px-1.5 py-0.5 rounded-full">
               {selecionados.length}
             </span>
@@ -58,8 +58,8 @@ export default function IngredientePicker({
           disabled={loading}
           className="w-full pl-9 pr-4 py-2.5 text-sm bg-gray-50 border border-gray-200
                      rounded-xl placeholder-gray-400 text-gray-700
-                     focus:outline-none focus:ring-2 focus:ring-orange-300
-                     focus:border-orange-400 transition-all"
+                     focus:outline-none focus:ring-2 focus:ring-amber-300
+                     focus:border-amber-400 transition-all"
         />
       </div>
 
@@ -74,7 +74,7 @@ export default function IngredientePicker({
                 key={ing}
                 onClick={() => onRemove(ing)}
                 className="flex items-center gap-1 text-xs font-medium px-2.5 py-1
-                           bg-orange-100 text-orange-700 rounded-full border border-orange-200
+                           bg-amber-100 text-amber-700 rounded-full border border-amber-200
                            hover:bg-red-100 hover:text-red-600 hover:border-red-200
                            transition-colors group"
               >
@@ -102,7 +102,7 @@ export default function IngredientePicker({
                 onClick={() => handleAdd(ing)}
                 className="text-xs font-medium px-2.5 py-1 rounded-full border
                            bg-white border-gray-200 text-gray-600
-                           hover:border-orange-300 hover:text-orange-700 hover:bg-orange-50
+                           hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50
                            transition-all duration-150"
               >
                 + {ing}

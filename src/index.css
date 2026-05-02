@@ -20,7 +20,7 @@
 
   /* Seleção de texto */
   ::selection {
-    @apply bg-orange-200 text-orange-900;
+    @apply bg-amber-200 text-amber-900;
   }
 
   /* Scrollbar sutil */
@@ -31,7 +31,7 @@
 
   /* Focus ring global */
   :focus-visible {
-    @apply outline-none ring-2 ring-orange-400 ring-offset-2 ring-offset-white rounded-lg;
+    @apply outline-none ring-2 ring-amber-400 ring-offset-2 ring-offset-white rounded-lg;
   }
 
   /* Headings com font-display */
@@ -43,7 +43,7 @@
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-orange-500 hover:bg-orange-600 active:scale-[0.97]
+           bg-amber-500 hover:bg-amber-600 active:scale-[0.97]
            text-white font-semibold px-6 py-3 rounded-xl
            transition-all duration-200 shadow-sm hover:shadow-md
            select-none;
@@ -51,8 +51,8 @@
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           bg-white hover:bg-orange-50 active:scale-[0.97]
-           text-orange-600 border-2 border-orange-400
+           bg-white hover:bg-amber-50 active:scale-[0.97]
+           text-amber-600 border-2 border-amber-400
            font-semibold px-6 py-3 rounded-xl
            transition-all duration-200
            select-none;
@@ -60,15 +60,15 @@
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2
-           text-gray-600 hover:text-orange-600
-           hover:bg-orange-50 px-3 py-2 rounded-xl
+           text-gray-600 hover:text-amber-600
+           hover:bg-amber-50 px-3 py-2 rounded-xl
            transition-all duration-200 font-medium text-sm
            select-none;
   }
 
   .card {
     @apply bg-white rounded-2xl border border-gray-100
-           hover:border-orange-200 hover:shadow-lg
+           hover:border-amber-200 hover:shadow-lg
            transition-all duration-300;
   }
 
@@ -89,12 +89,12 @@
 
   .chip-default {
     @apply chip bg-white border-gray-200 text-gray-600
-           hover:border-orange-300 hover:text-orange-700 hover:bg-orange-50;
+           hover:border-amber-300 hover:text-amber-700 hover:bg-amber-50;
   }
 
   .chip-active {
-    @apply chip bg-orange-500 border-orange-500 text-white
-           shadow-sm shadow-orange-200;
+    @apply chip bg-amber-500 border-amber-500 text-white
+           shadow-sm shadow-amber-200;
   }
 }
 

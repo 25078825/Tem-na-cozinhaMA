@@ -2,18 +2,18 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-orange-100 mt-auto">
+    <footer className="bg-white border-t border-amber-100 mt-auto">
       <div className="container-page py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-sm shadow-sm">
+              <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-sm shadow-sm">
                 🍳
               </div>
               <div className="leading-none">
                 <p className="font-bold text-gray-800 font-display text-sm">Tem na Cozinha</p>
-                <p className="text-[10px] text-orange-500 font-bold uppercase tracking-widest">Maranhão</p>
+                <p className="text-[10px] text-amber-500 font-bold uppercase tracking-widest">Maranhão</p>
               </div>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed">
@@ -28,13 +28,13 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/"
-                  className="text-sm text-gray-500 hover:text-orange-500 transition-colors">
+                  className="text-sm text-gray-500 hover:text-amber-500 transition-colors">
                   Início
                 </Link>
               </li>
               <li>
                 <Link to="/buscar"
-                  className="text-sm text-gray-500 hover:text-orange-500 transition-colors">
+                  className="text-sm text-gray-500 hover:text-amber-500 transition-colors">
                   Buscar Receitas
                 </Link>
               </li>
@@ -57,7 +57,7 @@ export default function Footer() {
             © 2025 Tem na Cozinha MA. Todos os direitos reservados.
           </p>
           <p className="text-xs text-gray-400 flex items-center gap-1">
-            Feito com <span className="text-orange-400">❤️</span> no Maranhão
+            Feito com <span className="text-amber-400">❤️</span> no Maranhão
           </p>
         </div>
       </div>

@@ -81,7 +81,7 @@ function SecaoDetalhe({ secao, receitas, onVoltar }) {
                 <select value={sortBy} onChange={e => setSortBy(e.target.value)}
                         className="text-xs bg-white border border-gray-200 rounded-xl px-3 py-2
                                    text-gray-700 font-medium shadow-sm cursor-pointer
-                                   focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all">
+                                   focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all">
                   {SORT_OPTIONS.map(o => (
                     <option key={o.value} value={o.value}>{o.label}</option>
                   ))}
@@ -131,7 +131,7 @@ export default function SecoesEspeciais() {
       <div className="bg-white border-b border-gray-100">
         <div className="container-page py-10 md:py-14">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700
+            <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700
                             text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
               <span>🌿</span> Categorias especiais
             </div>
