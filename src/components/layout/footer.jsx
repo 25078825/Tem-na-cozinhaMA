@@ -40,6 +40,18 @@ export default function Footer() {
                   Buscar Receitas
                 </Link>
               </li>
+              <li>
+                <Link to="/secoes"
+                  className="text-sm text-gray-500 hover:text-amber-500 transition-colors">
+                  Seções
+                </Link>
+              </li>
+              <li>
+                <Link to="/sugerir"
+                  className="text-sm text-gray-500 hover:text-amber-500 transition-colors">
+                  Sugerir Receita
+                </Link>
+              </li>
             </ul>
           </div>
 
