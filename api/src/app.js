@@ -5,6 +5,7 @@ import dotenv          from 'dotenv'
 import { testConnection }   from './database/connection.js'
 import receitasRoutes       from './routes/receitas.routes.js'
 import ingredientesRoutes   from './routes/ingredientes.routes.js'
+import sugestoesRoutes      from './routes/sugestoes.routes.js'
 
 dotenv.config()
 
@@ -26,6 +27,7 @@ app.get('/health', (req, res) => {
 
 app.use('/receitas',     receitasRoutes)
 app.use('/ingredientes', ingredientesRoutes)
+app.use('/sugestoes',    sugestoesRoutes)
 
 app.use((req, res) => {
   res.status(404).json({

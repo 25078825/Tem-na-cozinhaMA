@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { to: '/',       label: 'Início',         end: true  },
-  { to: '/buscar', label: 'Buscar Receitas', end: false },
-  { to: '/secoes', label: 'Seções',          end: false },
+  { to: '/',        label: 'Início',         end: true  },
+  { to: '/buscar',  label: 'Buscar Receitas', end: false },
+  { to: '/secoes',  label: 'Seções',          end: false },
+  { to: '/sugerir', label: 'Sugerir Receita', end: false },
 ]
 
 export default function Header() {
