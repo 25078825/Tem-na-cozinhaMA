@@ -83,51 +83,37 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
       <div className="h-44 relative flex items-center justify-center flex-shrink-0 overflow-hidden"
            style={{ background: catStyle.gradient }}>
 
-        {/* Emoji fallback (sempre no DOM, visível quando sem foto ou foto falha) */}
+        {/* Círculo decorativo de fundo */}
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.06]"
              style={{ transform: 'scale(1.5)' }}>
           <span className="text-[180px] leading-none select-none pointer-events-none">
             {receita.emoji}
           </span>
         </div>
+
+        {/* Emoji principal */}
         <span className="relative text-6xl select-none
                          group-hover:scale-110 transition-transform duration-500
                          drop-shadow-sm z-10">
           {receita.emoji}
         </span>
 
-        {/* Foto real (cobre o emoji; some se der erro de carregamento) */}
-        {receita.imagemUrl && (
-          <img
-            src={receita.imagemUrl}
-            alt={receita.nome}
-            className="absolute inset-0 w-full h-full object-cover z-20"
-            onError={e => { e.currentTarget.style.display = 'none' }}
-          />
-        )}
-
-        {/* Gradiente sobre a foto para legibilidade das badges */}
-        {receita.imagemUrl && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent
-                          z-30 pointer-events-none" />
-        )}
-
         {/* Badge categoria */}
-        <span className={`absolute top-3 left-3 z-40 text-[11px] font-semibold
+        <span className={`absolute top-3 left-3 text-[11px] font-semibold
                           px-2.5 py-1 rounded-full backdrop-blur-sm ${catStyle.badge}`}>
           {receita.categoria}
         </span>
 
         {/* Badge status de match */}
         {statusBadge && (
-          <span className={`absolute top-3 right-3 z-40 text-[11px] font-bold
+          <span className={`absolute top-3 right-3 text-[11px] font-bold
                             px-2.5 py-1 rounded-full shadow-md ${statusBadge.cls}`}>
             {statusBadge.label}
           </span>
         )}
 
         {/* Feature badges */}
-        <div className="absolute bottom-3 left-3 z-40 flex items-center gap-1.5">
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
           {receita.rapida && (
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-amber-600
@@ -145,7 +131,7 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
         </div>
 
         {/* CTA hover overlay */}
-        <div className="absolute inset-0 z-40 bg-black/0 group-hover:bg-black/20
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10
                         transition-colors duration-300 flex items-center justify-center">
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300
                            bg-white text-gray-800 text-xs font-semibold px-4 py-1.5

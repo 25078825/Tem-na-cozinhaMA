@@ -155,88 +155,53 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
           </div>
 
           {/* ── Hero ───────────────────────────────── */}
-          <div className="relative flex-shrink-0 overflow-hidden"
+          <div className="relative flex-shrink-0 px-6 pt-4 pb-6"
                style={{ background: gradient }}>
 
-            {/* Foto real (quando disponível) */}
-            {receita.imagemUrl && (
-              <img
-                src={receita.imagemUrl}
-                alt={receita.nome}
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={e => { e.currentTarget.style.display = 'none' }}
-              />
-            )}
+            {/* Botão fechar */}
+            <button
+              onClick={onClose}
+              aria-label="Fechar"
+              className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center
+                         bg-white/80 hover:bg-white backdrop-blur-sm rounded-full
+                         shadow-md text-gray-600 hover:text-gray-900 transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-            {/* Gradiente sobre a foto para legibilidade */}
-            {receita.imagemUrl && (
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 pointer-events-none" />
-            )}
+            {/* Emoji */}
+            <span className="block text-6xl sm:text-7xl mb-4 select-none">
+              {receita.emoji}
+            </span>
 
-            {/* Conteúdo do hero */}
-            <div className="relative px-6 pt-4 pb-6">
-              {/* Botão fechar */}
-              <button
-                onClick={onClose}
-                aria-label="Fechar"
-                className="absolute top-0 right-0 w-9 h-9 flex items-center justify-center
-                           bg-white/80 hover:bg-white backdrop-blur-sm rounded-full
-                           shadow-md text-gray-600 hover:text-gray-900 transition-all"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              {/* Emoji (menor quando há foto) */}
-              <span className={`block select-none mb-4 ${
-                receita.imagemUrl
-                  ? 'text-4xl sm:text-5xl drop-shadow-lg'
-                  : 'text-6xl sm:text-7xl'
-              }`}>
-                {receita.emoji}
+            {/* Badges */}
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full
+                                ${CATEGORY_BADGE[receita.categoria] ?? 'bg-gray-100 text-gray-600'}`}>
+                {receita.categoria}
               </span>
-
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                  receita.imagemUrl
-                    ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
-                    : (CATEGORY_BADGE[receita.categoria] ?? 'bg-gray-100 text-gray-600')
-                }`}>
-                  {receita.categoria}
+              {receita.rapida && (
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full
+                                 bg-amber-100 text-amber-700">
+                  ⚡ Receita rápida
                 </span>
-                {receita.rapida && (
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                    receita.imagemUrl
-                      ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
-                      : 'bg-amber-100 text-amber-700'
-                  }`}>
-                    ⚡ Receita rápida
-                  </span>
-                )}
-                {receita.tipicaFesta && (
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                    receita.imagemUrl
-                      ? 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
-                      : 'bg-purple-100 text-purple-700'
-                  }`}>
-                    🎉 Típica de festa
-                  </span>
-                )}
-              </div>
-
-              {/* Título */}
-              <h1 className={`font-display font-bold text-2xl sm:text-3xl leading-tight ${
-                receita.imagemUrl ? 'text-white drop-shadow-md' : 'text-gray-900'
-              }`}>
-                {receita.nome}
-              </h1>
-
-              {/* Espaço extra quando há foto para afastar o título do bottom */}
-              {receita.imagemUrl && <div className="h-2" />}
+              )}
+              {receita.tipicaFesta && (
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full
+                                 bg-purple-100 text-purple-700">
+                  🎉 Típica de festa
+                </span>
+              )}
             </div>
+
+            {/* Título */}
+            <h1 className="font-display font-bold text-gray-900 text-2xl sm:text-3xl
+                           leading-tight">
+              {receita.nome}
+            </h1>
           </div>
 
           {/* ── Info bar ───────────────────────────── */}
