@@ -21,6 +21,7 @@ const STEPS = [
 
 const SECOES_TEASER_IDS = ['rapidas', 'festas', 'sao-joao', 'dia-a-dia']
 
+
 function LoadingSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
@@ -57,7 +58,7 @@ export default function Home() {
                                   radial-gradient(circle at 80% 20%, rgba(255,200,50,0.08) 0%, transparent 40%)`,
              }} />
         <div className="relative container-page py-20 md:py-28 lg:py-32">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm
                             border border-white/25 text-white/90 text-xs font-semibold
                             px-4 py-1.5 rounded-full mb-6 tracking-wide uppercase">
@@ -69,11 +70,11 @@ export default function Home() {
               O que tem<br />
               <span className="text-amber-200">na sua cozinha?</span>
             </h1>
-            <p className="text-base md:text-lg text-amber-100/90 leading-relaxed mb-8 max-w-lg">
+            <p className="text-base md:text-lg text-amber-100/90 leading-relaxed mb-8 max-w-lg mx-auto">
               Informe os ingredientes que você tem em casa e descubra receitas
               deliciosas da culinária maranhense para preparar agora.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button onClick={() => navigate('/buscar')}
                       className="bg-white text-amber-600 font-bold px-8 py-3.5 rounded-xl
                                  hover:bg-amber-50 active:scale-[0.97] transition-all
@@ -93,10 +94,6 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </div>
-        <div className="hidden lg:flex absolute right-0 top-0 bottom-0
-                        items-center pr-16 xl:pr-24 pointer-events-none select-none">
-          <span className="text-[220px] opacity-[0.12] leading-none">🍲</span>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-8 bg-white"
              style={{ clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
