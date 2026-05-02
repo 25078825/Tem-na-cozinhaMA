@@ -24,10 +24,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
 
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-amber-500 group-hover:bg-amber-600 rounded-xl
-                            flex items-center justify-center text-lg shadow-sm transition-colors">
-              🍳
-            </div>
+            <img
+              src="/logo.svg"
+              alt="Tem na Cozinha MA"
+              className="w-10 h-10 drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+            />
             <div className="flex flex-col leading-none">
               <span className="text-base font-bold text-gray-800 font-display">
                 Tem na Cozinha

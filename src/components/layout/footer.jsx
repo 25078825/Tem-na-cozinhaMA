@@ -8,9 +8,11 @@ export default function Footer() {
 
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-sm shadow-sm">
-                🍳
-              </div>
+              <img
+                src="/logo.svg"
+                alt="Tem na Cozinha MA"
+                className="w-9 h-9 drop-shadow-sm"
+              />
               <div className="leading-none">
                 <p className="font-bold text-gray-800 font-display text-sm">Tem na Cozinha</p>
                 <p className="text-[10px] text-amber-500 font-bold uppercase tracking-widest">Maranhão</p>
