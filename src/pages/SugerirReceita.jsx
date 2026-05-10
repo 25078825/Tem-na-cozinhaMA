@@ -8,7 +8,7 @@ const FIELD = 'w-full px-4 py-3 text-sm bg-gray-50 border border-gray-200 rounde
 export default function SugerirReceita() {
   const [form, setForm] = useState({
     nome: '', descricao: '', ingredientes: '', modoPreparo: '',
-    nomeAutor: '', emailAutor: '',
+    nomeAutor: '', emailAutor: '', cpfAutor: '',
   })
   const [status, setStatus] = useState(null) // null | 'sending' | 'ok' | 'erro'
 
@@ -22,7 +22,7 @@ export default function SugerirReceita() {
     try {
       await api.post('/sugestoes', form)
       setStatus('ok')
-      setForm({ nome: '', descricao: '', ingredientes: '', modoPreparo: '', nomeAutor: '', emailAutor: '' })
+      setForm({ nome: '', descricao: '', ingredientes: '', modoPreparo: '', nomeAutor: '', emailAutor: '', cpfAutor: '' })
     } catch {
       setStatus('erro')
     }
@@ -130,15 +130,15 @@ export default function SugerirReceita() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                  Seu nome
+                  CPF
                 </label>
                 <input
                   type="text"
-                  value={form.nomeAutor}
-                  onChange={set('nomeAutor')}
-                  placeholder="Nome ou apelido"
+                  value={form.cpfAutor}
+                  onChange={set('cpfAutor')}
+                  placeholder="000.000.000-00"
                   className={FIELD}
-                  maxLength={100}
+                  maxLength={14}
                 />
               </div>
               <div>

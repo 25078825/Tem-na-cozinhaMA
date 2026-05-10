@@ -16,7 +16,7 @@ function stripNewlines(str) {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function sugerirReceita(req, res) {
-  const { nome, descricao, ingredientes, modoPreparo, nomeAutor, emailAutor } = req.body
+  const { nome, descricao, ingredientes, modoPreparo, cpfAutor, emailAutor } = req.body
 
   if (!nome?.trim() || !ingredientes?.trim() || !modoPreparo?.trim()) {
     return res.status(400).json({
@@ -37,8 +37,8 @@ export async function sugerirReceita(req, res) {
   if (modoPreparo.trim().length > 5000) {
     return res.status(400).json({ success: false, message: 'Modo de preparo muito longo (máx. 5000 caracteres).' })
   }
-  if (nomeAutor && nomeAutor.trim().length > 100) {
-    return res.status(400).json({ success: false, message: 'Nome do autor muito longo (máx. 100 caracteres).' })
+  if (cpfAutor && !/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/.test(cpfAutor.trim())) {
+    return res.status(400).json({ success: false, message: 'CPF inválido.' })
   }
   if (emailAutor && !EMAIL_REGEX.test(emailAutor.trim())) {
     return res.status(400).json({ success: false, message: 'E-mail do autor inválido.' })
@@ -48,7 +48,7 @@ export async function sugerirReceita(req, res) {
   const safeDescricao   = descricao   ? escapeHtml(descricao.trim())   : null
   const safeIngredientes = escapeHtml(ingredientes.trim())
   const safePreparo     = escapeHtml(modoPreparo.trim())
-  const safeNomeAutor   = nomeAutor   ? escapeHtml(stripNewlines(nomeAutor))   : null
+  const safeCpfAutor    = cpfAutor    ? escapeHtml(stripNewlines(cpfAutor))    : null
   const safeEmailAutor  = emailAutor  ? escapeHtml(stripNewlines(emailAutor))  : null
 
   try {
@@ -64,9 +64,10 @@ export async function sugerirReceita(req, res) {
         <pre style="background:#f9f9f9;padding:12px;border-radius:8px;white-space:pre-wrap">${safeIngredientes}</pre>
         <h3>Modo de preparo</h3>
         <pre style="background:#f9f9f9;padding:12px;border-radius:8px;white-space:pre-wrap">${safePreparo}</pre>
-        ${safeNomeAutor || safeEmailAutor ? `
+        ${safeCpfAutor || safeEmailAutor ? `
         <hr/>
-        <p><strong>Enviado por:</strong> ${safeNomeAutor || '—'} ${safeEmailAutor ? `(${safeEmailAutor})` : ''}</p>
+        ${safeCpfAutor ? `<p><strong>CPF:</strong> ${safeCpfAutor}</p>` : ''}
+        ${safeEmailAutor ? `<p><strong>E-mail:</strong> ${safeEmailAutor}</p>` : ''}
         ` : ''}
       `,
     })
