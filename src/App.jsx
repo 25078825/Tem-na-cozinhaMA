@@ -5,10 +5,11 @@ import BuscarReceitas  from './pages/BuscarReceitas'
 import SecoesEspeciais from './pages/SecoesEspeciais'
 import SugerirReceita  from './pages/SugerirReceita'
 import ScrollToTop     from './components/ScrollToTop'
+import { TimerProvider } from './context/TimerContext'
 
 export default function App() {
   return (
-    <>
+    <TimerProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -18,6 +19,6 @@ export default function App() {
           <Route path="sugerir"    element={<SugerirReceita />}  />
         </Route>
       </Routes>
-    </>
+    </TimerProvider>
   )
 }

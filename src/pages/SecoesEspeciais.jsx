@@ -6,7 +6,7 @@ import RecipeCard          from '../components/ui/RecipeCard'
 import RecipeDetailModal   from '../components/ui/RecipeDetailModal'
 import EmptyState          from '../components/ui/EmptyState'
 
-const FEATURED_IDS  = ['rapidas', 'festas']
+const FEATURED_IDS  = ['rapidas', 'festas', 'vegano', 'diet']
 const SEASONAL_IDS  = ['sao-joao', 'natal', 'pascoa', 'semana-santa', 'dia-a-dia', 'domingo']
 const SORT_OPTIONS  = [
   { value: 'default',      label: 'Padrão'      },

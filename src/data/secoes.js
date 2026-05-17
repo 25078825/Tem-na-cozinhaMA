@@ -77,6 +77,24 @@ export const SECOES = [
     tipo: 'ocasiao',
     ocasiao: 'Almoço de domingo',
   },
+  {
+    id: 'vegano',
+    titulo: 'Vegano',
+    subtitulo: 'Sem ingredientes de origem animal',
+    descricao: 'Receitas 100% vegetais da culinária maranhense, cheias de sabor e tradição.',
+    emoji: '🌱',
+    gradient: 'from-green-400 to-emerald-600',
+    tipo: 'vegano',
+  },
+  {
+    id: 'diet',
+    titulo: 'Diet / Diabético',
+    subtitulo: 'Leve e naturalmente saudável',
+    descricao: 'Receitas naturalmente leves, ideais para quem controla o açúcar ou busca uma alimentação mais saudável.',
+    emoji: '🥗',
+    gradient: 'from-teal-400 to-cyan-600',
+    tipo: 'diet',
+  },
 ]
 
 /* ── recebe receitas como parâmetro (sem importar mockData) */
@@ -90,6 +108,12 @@ export function getReceitasDaSecao(secao, receitas = []) {
 
     case 'tipicaFesta':
       return receitas.filter(r => r.tipicaFesta)
+
+    case 'vegano':
+      return receitas.filter(r => r.vegano)
+
+    case 'diet':
+      return receitas.filter(r => r.diet)
 
     case 'incluirIngredientes':
       return receitas.filter(r =>

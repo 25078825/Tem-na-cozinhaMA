@@ -68,7 +68,7 @@ export default function Footer() {
         <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col sm:flex-row
                         justify-between items-center gap-2">
           <p className="text-xs text-gray-400">
-            © 2025 Tem na Cozinha MA. Todos os direitos reservados.
+            © 2026 Tem na Cozinha MA. Todos os direitos reservados.
           </p>
           <p className="text-xs text-gray-400 flex items-center gap-1">
             Feito com <span className="text-amber-400">❤️</span> no Maranhão

@@ -10,42 +10,33 @@ function SecaoCardFeatured({ secao, count, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${secao.gradient}
-                  p-7 md:p-8 text-left w-full group cursor-pointer
-                  hover:-translate-y-1 hover:shadow-2xl
-                  transition-all duration-300 shadow-lg`}
+      className="relative overflow-hidden rounded-2xl bg-white border border-gray-100
+                 p-7 md:p-8 text-left w-full group cursor-pointer shadow-sm
+                 hover:-translate-y-1 hover:shadow-lg hover:border-gray-200
+                 transition-all duration-300"
     >
-      <span className="absolute right-0 top-0 bottom-0 flex items-center pr-6
-                       text-[120px] opacity-[0.10] select-none pointer-events-none">
-        {secao.emoji}
-      </span>
+      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${secao.gradient}`} />
 
-      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5
-                      transition-colors duration-300 rounded-2xl" />
+      <div className={`absolute inset-0 bg-gradient-to-br ${secao.gradient} opacity-[0.04]
+                       group-hover:opacity-[0.07] transition-opacity duration-300 rounded-2xl`} />
 
       <div className="relative">
-        <span className="text-4xl md:text-5xl mb-4 block
-                         group-hover:scale-110 transition-transform duration-300
-                         origin-left">
-          {secao.emoji}
-        </span>
-        <h3 className="text-xl md:text-2xl font-display font-bold text-white
-                       mb-1 leading-tight">
+        <h3 className="text-xl md:text-2xl font-display font-bold text-gray-900
+                       mb-1 leading-tight group-hover:text-gray-700 transition-colors">
           {secao.titulo}
         </h3>
-        <p className="text-sm text-white/75 mb-2 font-medium">{secao.subtitulo}</p>
-        <p className="text-xs text-white/55 leading-relaxed mb-6 max-w-xs">
+        <p className="text-sm text-gray-500 mb-2 font-medium">{secao.subtitulo}</p>
+        <p className="text-xs text-gray-400 leading-relaxed mb-6 max-w-xs">
           {secao.descricao}
         </p>
-
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center bg-black/20 backdrop-blur-sm
-                           text-white text-xs font-bold px-3 py-1.5 rounded-full
-                           border border-white/20">
+          <span className={`inline-flex items-center text-xs font-bold px-3 py-1.5
+                            rounded-full bg-gradient-to-r ${secao.gradient}
+                            text-white shadow-sm`}>
             {count} receitas
           </span>
-          <span className="flex items-center gap-1 text-white/70 text-xs font-medium
-                           group-hover:text-white group-hover:gap-2 transition-all duration-200">
+          <span className="flex items-center gap-1 text-gray-400 text-xs font-medium
+                           group-hover:text-gray-600 group-hover:gap-2 transition-all duration-200">
             Ver todas <ArrowIcon />
           </span>
         </div>
@@ -58,37 +49,28 @@ function SecaoCardNormal({ secao, count, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${secao.gradient}
-                  p-5 text-left w-full group cursor-pointer
-                  hover:-translate-y-1 hover:shadow-xl
-                  transition-all duration-300 shadow-md`}
+      className="relative overflow-hidden rounded-2xl bg-white border border-gray-100
+                 p-5 text-left w-full group cursor-pointer shadow-sm
+                 hover:-translate-y-1 hover:shadow-md hover:border-gray-200
+                 transition-all duration-300"
     >
-      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5
-                      transition-colors duration-300 rounded-2xl" />
+      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${secao.gradient}`} />
 
-      <span className="absolute -right-3 -bottom-2 text-[72px] opacity-[0.10]
-                       select-none pointer-events-none leading-none">
-        {secao.emoji}
-      </span>
+      <div className={`absolute inset-0 bg-gradient-to-br ${secao.gradient} opacity-[0.04]
+                       group-hover:opacity-[0.07] transition-opacity duration-300 rounded-2xl`} />
 
       <div className="relative">
-        <span className="text-3xl mb-3 block
-                         group-hover:scale-105 transition-transform duration-300
-                         origin-left">
-          {secao.emoji}
-        </span>
-        <h3 className="font-display font-bold text-white text-sm md:text-base
-                       leading-tight mb-1">
+        <h3 className="font-display font-bold text-gray-900 text-sm md:text-base
+                       leading-tight mb-1 group-hover:text-gray-700 transition-colors">
           {secao.titulo}
         </h3>
-        <p className="text-[11px] text-white/65 font-medium">{secao.subtitulo}</p>
-
+        <p className="text-[11px] text-gray-400 font-medium">{secao.subtitulo}</p>
         <div className="mt-4 flex items-center justify-between">
-          <span className="inline-flex items-center bg-black/15 text-white text-[10px]
-                           font-bold px-2 py-0.5 rounded-full border border-white/15">
+          <span className={`inline-flex items-center text-[10px] font-bold px-2 py-0.5
+                            rounded-full bg-gradient-to-r ${secao.gradient} text-white shadow-sm`}>
             {count}
           </span>
-          <span className="text-white/60 group-hover:text-white
+          <span className="text-gray-300 group-hover:text-gray-500
                            group-hover:translate-x-1 transition-all duration-200">
             <ArrowIcon />
           </span>

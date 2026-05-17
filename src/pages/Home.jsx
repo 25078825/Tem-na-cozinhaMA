@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import RecipeCard  from '../components/ui/RecipeCard'
-import SecaoCard   from '../components/secoes/SecaoCard'
+import RecipeCard        from '../components/ui/RecipeCard'
+import SecaoCard         from '../components/secoes/SecaoCard'
+import RecipeDetailModal from '../components/ui/RecipeDetailModal'
 import { useReceitas }           from '../hooks/useReceitas'
 import { SECOES, getReceitasDaSecao } from '../data/secoes'
 
@@ -43,6 +45,7 @@ function LoadingSkeleton() {
 export default function Home() {
   const navigate = useNavigate()
   const { receitas, loading } = useReceitas()
+  const [selectedReceita, setSelectedReceita] = useState(null)
 
   const destaques    = receitas.filter(r => r.destaque).slice(0, 4)
   const secoesTeaser = SECOES.filter(s => SECOES_TEASER_IDS.includes(s.id))
@@ -177,7 +180,7 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {destaques.map(receita => (
-                <RecipeCard key={receita.id} receita={receita} />
+                <RecipeCard key={receita.id} receita={receita} onClick={setSelectedReceita} />
               ))}
             </div>
           )}
@@ -217,7 +220,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────── */}
+      {selectedReceita && (
+        <RecipeDetailModal
+          receita={selectedReceita}
+          onClose={() => setSelectedReceita(null)}
+        />
+      )}
+
+
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="container-page text-center">
           <span className="text-5xl mb-6 block">🍳</span>

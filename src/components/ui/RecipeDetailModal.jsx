@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react'
+import { useTimer } from '../../context/TimerContext'
 
-/* ── Estilos por categoria ─────────────────────────────── */
 const CATEGORY_GRADIENT = {
   'Prato Principal': 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)',
   'Entrada':         'linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%)',
@@ -20,8 +20,6 @@ const DIFFICULTY_STYLE = {
   'Média':   'bg-amber-100 text-amber-700',
   'Difícil': 'bg-red-100    text-red-700',
 }
-
-/* ── Sub-componentes internos ──────────────────────────── */
 
 function InfoStat({ icon, label, value }) {
   return (
@@ -84,9 +82,9 @@ function IngredientItem({ nome, possui, temIngredientes }) {
   )
 }
 
-/* ── Componente principal ──────────────────────────────── */
-
 export default function RecipeDetailModal({ receita, ingredientesUsuario = [], onClose }) {
+  const { abrirModoGuiado } = useTimer()
+
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') onClose()
   }, [onClose])
@@ -102,42 +100,39 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
   if (!receita) return null
 
-  const gradient       = CATEGORY_GRADIENT[receita.categoria] ?? 'linear-gradient(135deg, #F5F5F5, #EEEEEE)'
+  const gradient        = CATEGORY_GRADIENT[receita.categoria] ?? 'linear-gradient(135deg, #F5F5F5, #EEEEEE)'
   const temIngredientes = ingredientesUsuario.length > 0
 
-  /* Cálculo de match */
   const ingredientesStatus = receita.ingredientes.map(ing => ({
     nome:   ing,
     possui: temIngredientes && ingredientesUsuario.some(
       u => u.toLowerCase() === ing.toLowerCase()
     ),
   }))
-  const possuidos          = ingredientesStatus.filter(i => i.possui).length
-  const totalObrigatorios  = receita.ingredientes.length
-  const pct                = temIngredientes
+  const possuidos         = ingredientesStatus.filter(i => i.possui).length
+  const totalObrigatorios = receita.ingredientes.length
+  const pct               = temIngredientes
     ? Math.round((possuidos / totalObrigatorios) * 100)
     : null
-  const nomesFaltando      = ingredientesStatus.filter(i => !i.possui).map(i => i.nome)
+  const nomesFaltando     = ingredientesStatus.filter(i => !i.possui).map(i => i.nome)
 
   const barColor =
-    pct === 100  ? 'bg-green-500'
-    : pct >= 60  ? 'bg-amber-500'
-    :               'bg-amber-400'
+    pct === 100 ? 'bg-green-500'
+    : pct >= 60 ? 'bg-amber-500'
+    :              'bg-amber-400'
 
   const statusMsg =
-    pct === 100  ? '✅ Você tem todos os ingredientes!'
+    pct === 100    ? '✅ Você tem todos os ingredientes!'
     : possuidos === 0 ? 'Você ainda não tem nenhum ingrediente desta receita'
-    :                  `Você tem ${possuidos} de ${totalObrigatorios} ingredientes`
+    :                   `Você tem ${possuidos} de ${totalObrigatorios} ingredientes`
 
   return (
     <>
-      {/* ── Overlay ────────────────────────────────── */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
         onClick={onClose}
       />
 
-      {/* ── Container do modal ─────────────────────── */}
       <div className="fixed inset-0 z-50 flex items-end sm:items-center
                       justify-center p-0 sm:p-4 pointer-events-none">
         <div
@@ -148,17 +143,13 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                      pointer-events-auto animate-slide-up"
           onClick={e => e.stopPropagation()}
         >
-
-          {/* ── Handle mobile ──────────────────────── */}
           <div className="flex justify-center pt-3 pb-0 sm:hidden flex-shrink-0">
             <div className="w-10 h-1.5 bg-gray-200 rounded-full" />
           </div>
 
-          {/* ── Hero ───────────────────────────────── */}
           <div className="relative flex-shrink-0 px-6 pt-4 pb-6"
                style={{ background: gradient }}>
 
-            {/* Botão fechar */}
             <button
               onClick={onClose}
               aria-label="Fechar"
@@ -172,12 +163,10 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </svg>
             </button>
 
-            {/* Emoji */}
             <span className="block text-6xl sm:text-7xl mb-4 select-none">
               {receita.emoji}
             </span>
 
-            {/* Badges */}
             <div className="flex flex-wrap gap-2 mb-3">
               <span className={`text-xs font-semibold px-2.5 py-1 rounded-full
                                 ${CATEGORY_BADGE[receita.categoria] ?? 'bg-gray-100 text-gray-600'}`}>
@@ -195,20 +184,30 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                   🎉 Típica de festa
                 </span>
               )}
+              {receita.vegano && (
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full
+                                 bg-green-100 text-green-700">
+                  🌱 Vegano
+                </span>
+              )}
+              {receita.diet && (
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full
+                                 bg-teal-100 text-teal-700">
+                  🥗 Diet
+                </span>
+              )}
             </div>
 
-            {/* Título */}
             <h1 className="font-display font-bold text-gray-900 text-2xl sm:text-3xl
                            leading-tight">
               {receita.nome}
             </h1>
           </div>
 
-          {/* ── Info bar ───────────────────────────── */}
           <div className="flex-shrink-0 bg-white border-y border-gray-100">
             <div className="flex items-stretch divide-x divide-gray-100">
-              <InfoStat icon="⏱️" label="Tempo"     value={receita.tempo} />
-              <InfoStat icon="🍽️" label="Porções"   value={`${receita.porcoes} pessoas`} />
+              <InfoStat icon="⏱️" label="Tempo"   value={receita.tempo} />
+              <InfoStat icon="🍽️" label="Porções" value={`${receita.porcoes} pessoas`} />
               <div className="flex-1 flex flex-col items-center justify-center py-3 px-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider mb-1.5">
                   Dificuldade
@@ -221,10 +220,8 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
             </div>
           </div>
 
-          {/* ── Corpo scrollável ───────────────────── */}
           <div className="overflow-y-auto flex-1 px-6 py-6 space-y-7">
 
-            {/* Épocas e ocasiões */}
             {receita.ocasioes?.length > 0 && (
               <div>
                 <SectionTitle icon="📅">Épocas &amp; Ocasiões</SectionTitle>
@@ -240,7 +237,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </div>
             )}
 
-            {/* Progresso de ingredientes */}
             {temIngredientes && (
               <div className="bg-gradient-to-br from-amber-50 to-amber-50 rounded-2xl
                               p-4 border border-amber-100">
@@ -255,7 +251,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                   </span>
                 </div>
 
-                {/* Barra */}
                 <div className="h-2.5 bg-white rounded-full overflow-hidden border border-amber-100">
                   <div
                     className={`h-full rounded-full transition-all duration-700 ${barColor}`}
@@ -263,7 +258,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                   />
                 </div>
 
-                {/* Lista do que falta */}
                 {nomesFaltando.length > 0 && (
                   <div className="mt-2.5">
                     <p className="text-[11px] font-semibold text-amber-600 mb-1.5">
@@ -283,7 +277,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </div>
             )}
 
-            {/* Ingredientes obrigatórios */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <SectionTitle icon="🧂">Ingredientes</SectionTitle>
@@ -304,7 +297,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </ul>
             </div>
 
-            {/* Ingredientes opcionais */}
             {receita.ingredientesOpcionais?.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -338,7 +330,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </div>
             )}
 
-            {/* Modo de preparo */}
             {receita.modoPreparo?.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -348,6 +339,24 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
                     {receita.modoPreparo.length} passos
                   </span>
                 </div>
+
+                <button
+                  onClick={() => { onClose(); abrirModoGuiado(receita) }}
+                  className="w-full flex items-center justify-center gap-2 mb-5
+                             bg-amber-500 hover:bg-amber-400 active:scale-[0.98]
+                             text-white font-bold py-3 rounded-2xl transition-all
+                             shadow-md shadow-amber-200 text-sm"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}
+                          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832
+                             l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Iniciar modo guiado
+                </button>
+
                 <ol className="space-y-4">
                   {receita.modoPreparo.map((passo, i) => (
                     <li key={i} className="flex gap-4">
@@ -365,7 +374,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </div>
             )}
 
-            {/* Espaço final */}
             <div className="h-4" />
           </div>
 
