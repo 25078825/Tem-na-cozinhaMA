@@ -7,6 +7,8 @@ function normalizar(r) {
     ...r,
     rapida:                Boolean(r.rapida),
     tipicaFesta:           Boolean(r.tipica_festa),
+    vegano:                Boolean(r.vegano),
+    diet:                  Boolean(r.diet),
     destaque:              Boolean(r.destaque),
     imagemUrl:             r.imagem_url ?? null,
     ocasioes:              Array.isArray(r.ocasioes)    ? r.ocasioes    : [],

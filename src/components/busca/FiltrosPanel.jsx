@@ -186,6 +186,20 @@ export default function FiltrosPanel({
               active={filtros.tipicaFesta}
               onChange={v => onSetFiltro('tipicaFesta', v)}
             />
+            <Toggle
+              emoji="🌱"
+              label="Vegano"
+              desc="Sem nenhum ingrediente de origem animal"
+              active={filtros.vegano}
+              onChange={v => onSetFiltro('vegano', v)}
+            />
+            <Toggle
+              emoji="🥗"
+              label="Diet / Diabético"
+              desc="Adequada para quem controla o açúcar"
+              active={filtros.diet}
+              onChange={v => onSetFiltro('diet', v)}
+            />
           </div>
         </Section>
 

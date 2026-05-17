@@ -2,13 +2,15 @@ import { useState, useMemo } from 'react'
 import { useReceitas } from './useReceitas'
 
 const FILTROS_INICIAIS = {
-  busca:       '',
-  categoria:   'Todos',
-  dificuldade: [],
-  ocasioes:    [],
-  tempo:       null,
-  rapida:      false,
-  tipicaFesta: false,
+  busca:        '',
+  categoria:    'Todos',
+  dificuldade:  [],
+  ocasioes:     [],
+  tempo:        null,
+  rapida:       false,
+  tipicaFesta:  false,
+  vegano:       false,
+  diet:         false,
   ingredientes: [],
 }
 
@@ -76,6 +78,8 @@ export function useFiltros() {
 
       if (filtros.rapida      && !r.rapida)      return false
       if (filtros.tipicaFesta && !r.tipicaFesta) return false
+      if (filtros.vegano      && !r.vegano)      return false
+      if (filtros.diet        && !r.diet)        return false
 
       if (filtros.tempo) {
         if (filtros.tempo === '30'   && r.tempo_minutos > 30)  return false
@@ -115,7 +119,9 @@ export function useFiltros() {
     filtros.ocasioes.length > 0    ||
     filtros.tempo !== null         ||
     filtros.rapida                 ||
-    filtros.tipicaFesta
+    filtros.tipicaFesta            ||
+    filtros.vegano                 ||
+    filtros.diet
   , [filtros])
 
   const contadorFiltrosAtivos = useMemo(() => {
@@ -127,6 +133,8 @@ export function useFiltros() {
     if (filtros.tempo)               c++
     if (filtros.rapida)              c++
     if (filtros.tipicaFesta)         c++
+    if (filtros.vegano)              c++
+    if (filtros.diet)                c++
     if (filtros.ingredientes.length) c++
     return c
   }, [filtros])

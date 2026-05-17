@@ -8,13 +8,13 @@ function toArray(value) {
 
 export async function listarReceitas(req, res) {
   try {
-    const { categoria, dificuldade, rapida, tipica_festa } = req.query
+    const { categoria, dificuldade, rapida, tipica_festa, vegano, diet } = req.query
 
     let sql = `
       SELECT
         r.id, r.nome, r.descricao, r.emoji, r.categoria,
         r.tempo_minutos, r.tempo, r.porcoes, r.dificuldade,
-        r.rapida, r.tipica_festa, r.destaque, r.ocasioes, r.modo_preparo,
+        r.rapida, r.tipica_festa, r.vegano, r.diet, r.destaque, r.ocasioes, r.modo_preparo,
         r.imagem_url
       FROM receitas r
       WHERE 1=1
@@ -32,6 +32,8 @@ export async function listarReceitas(req, res) {
     }
     if (rapida === 'true')       sql += ' AND r.rapida = 1'
     if (tipica_festa === 'true') sql += ' AND r.tipica_festa = 1'
+    if (vegano === 'true')       sql += ' AND r.vegano = 1'
+    if (diet === 'true')         sql += ' AND r.diet = 1'
 
     sql += ' ORDER BY r.nome'
 
@@ -53,6 +55,8 @@ export async function listarReceitas(req, res) {
       ...r,
       rapida:       Boolean(r.rapida),
       tipica_festa: Boolean(r.tipica_festa),
+      vegano:       Boolean(r.vegano),
+      diet:         Boolean(r.diet),
       destaque:     Boolean(r.destaque),
       ocasioes:     toArray(r.ocasioes),
       ingredientes: ingMap[r.id] ?? [],
@@ -146,7 +150,7 @@ export async function buscarReceitaPorId(req, res) {
     const [rows] = await pool.query(
       `SELECT id, nome, descricao, emoji, categoria,
               tempo_minutos, tempo, porcoes, dificuldade,
-              rapida, tipica_festa, destaque, ocasioes, modo_preparo
+              rapida, tipica_festa, vegano, diet, destaque, ocasioes, modo_preparo
        FROM receitas WHERE id = ?`, [Number(id)]
     )
 
@@ -167,6 +171,8 @@ export async function buscarReceitaPorId(req, res) {
       ...r,
       rapida:       Boolean(r.rapida),
       tipica_festa: Boolean(r.tipica_festa),
+      vegano:       Boolean(r.vegano),
+      diet:         Boolean(r.diet),
       destaque:     Boolean(r.destaque),
       ocasioes:     toArray(r.ocasioes),
       modo_preparo: toArray(r.modo_preparo),

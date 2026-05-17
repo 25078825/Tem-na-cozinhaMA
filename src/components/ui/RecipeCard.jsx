@@ -113,7 +113,7 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
         )}
 
         {/* Feature badges */}
-        <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 flex-wrap max-w-[calc(100%-1.5rem)]">
           {receita.rapida && (
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-amber-600
@@ -126,6 +126,20 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
                              bg-white/90 backdrop-blur-sm text-purple-600
                              border border-purple-200/70 shadow-sm">
               🎉 Festa
+            </span>
+          )}
+          {receita.vegano && (
+            <span className="text-[11px] font-semibold px-2 py-1 rounded-full
+                             bg-white/90 backdrop-blur-sm text-green-700
+                             border border-green-300/70 shadow-sm">
+              🌱 Vegano
+            </span>
+          )}
+          {receita.diet && (
+            <span className="text-[11px] font-semibold px-2 py-1 rounded-full
+                             bg-white/90 backdrop-blur-sm text-teal-700
+                             border border-teal-300/70 shadow-sm">
+              🥗 Diet
             </span>
           )}
         </div>

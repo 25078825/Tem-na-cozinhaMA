@@ -959,3 +959,664 @@ UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7
 UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&h=400&fit=crop&q=80' WHERE id = 42;
 UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 43;
 UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=600&h=400&fit=crop&q=80' WHERE id = 44;
+
+-- ─────────────────────────────────────────────────────────────
+-- Novos ingredientes para receitas veganas
+-- ─────────────────────────────────────────────────────────────
+INSERT IGNORE INTO ingredientes (nome) VALUES
+  ('Cogumelo seco'), ('Jenipapo'), ('Murici'), ('Gengibre'),
+  ('Palmito'), ('Alecrim'), ('Tomilho'), ('Fermento em pó'),
+  ('Açúcar demerara');
+
+-- ─────────────────────────────────────────────────────────────
+-- 30 Receitas Veganas Maranhenses (ids 45–74)
+-- ─────────────────────────────────────────────────────────────
+INSERT INTO receitas (
+  nome, descricao, emoji, categoria,
+  tempo_minutos, tempo, porcoes,
+  dificuldade, rapida, tipica_festa, vegano, destaque,
+  modo_preparo, ocasioes
+) VALUES
+(
+  'Arroz de Cuxá Vegano',
+  'Versão 100% vegana do prato símbolo do Maranhão: arroz cozido com folhas de vinagreira, gergelim torrado e temperos regionais, sem camarão.',
+  '🌿', 'Prato Principal', 40, '40 min', 4, 'Média', 0, 0, 1, 1,
+  JSON_ARRAY(
+    'Lave bem as folhas de vinagreira e retire os talos mais grossos. Reserve. Toste o gergelim branco em frigideira seca em fogo baixo por 2 minutos, mexendo sempre, até dourar levemente. Reserve.',
+    'Em uma panela média, aqueça 2 colheres de sopa de óleo de babaçu em fogo médio. Refogue 1 cebola picada e 3 dentes de alho amassados até ficarem dourados e macios.',
+    'Adicione 1 tomate picado e 1/2 pimentão verde picado. Cozinhe por 3 minutos, mexendo, até formar um refogado aromático.',
+    'Acrescente as folhas de vinagreira picadas grosseiramente e metade do gergelim. Refogue por 5 minutos em fogo médio-baixo até as folhas murcharem e escurecerem, soltando sabor ácido característico.',
+    'Adicione 2 xícaras de arroz já lavado e refogue por 1 minuto. Despeje 4 xícaras de água fervente, tempere com sal e cozinhe tampado em fogo baixo por 18 a 20 minutos.',
+    'Desligue o fogo e deixe descansar tampado por 5 minutos. Sirva polvilhado com o restante do gergelim torrado e, se desejar, farinha de mandioca por cima.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Almoço de domingo')
+),
+(
+  'Baião de Dois Vegano',
+  'Clássico nordestino reinventado: feijão-de-corda e arroz cozidos juntos com abóbora, pimentão e temperos do Maranhão, sem carne nem laticínios.',
+  '🫘', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Deixe 2 xícaras de feijão-de-corda de molho por 4 horas. Escorra e cozinhe na panela de pressão com água e sal por 15 minutos. O feijão deve ficar macio mas inteiro. Reserve com o caldo.',
+    'Em uma panela grande, aqueça 3 colheres de sopa de óleo de babaçu em fogo médio. Refogue 1 cebola grande picada e 4 dentes de alho amassados até dourarem.',
+    'Adicione 1/2 pimentão vermelho e 1/2 pimentão verde picados e 2 tomates picados. Refogue por 3 minutos. Adicione 300 g de abóbora cortada em cubos de 2 cm e cozinhe por 5 minutos.',
+    'Acrescente 2 xícaras de arroz lavado e misture bem com o refogado por 1 minuto. Adicione o feijão cozido junto com seu caldo, completando com água se necessário para dar 4 xícaras de líquido total.',
+    'Tempere com sal e pimenta-de-cheiro picada. Tampe a panela e cozinhe em fogo médio-baixo por 20 minutos, até o arroz absorver o líquido.',
+    'Desligue o fogo e deixe repousar tampado por 5 minutos. Abra e finalize com coentro fresco picado. Sirva quente.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Almoço de domingo')
+),
+(
+  'Arroz de Batipuru Vegano',
+  'Versão vegana do tradicional arroz maranhense com vinagreira, quiabo e maxixe refogados, substituindo o camarão seco por legumes da região.',
+  '🌱', 'Prato Principal', 45, '45 min', 4, 'Média', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Lave 1 maço de vinagreira e corte em tiras. Corte 200 g de quiabo em rodelas de 1 cm e 150 g de maxixe ao meio. Lave quiabo e maxixe com água e vinagre para reduzir a baba.',
+    'Em uma panela, aqueça 3 colheres de sopa de óleo de babaçu. Refogue 1 cebola picada e 3 dentes de alho até dourar. Adicione 1/2 pimentão verde e 2 tomates picados, refogando por 3 minutos.',
+    'Acrescente o quiabo e o maxixe. Refogue em fogo médio por 5 minutos, mexendo levemente para não desmanchar os legumes.',
+    'Junte a vinagreira picada e refogue por mais 3 minutos. Os legumes vão absorver o sabor ácido da vinagreira, criando um caldo aromático característico.',
+    'Adicione 2 xícaras de arroz lavado, misture delicadamente e cubra com 4 xícaras de água fervente. Tempere com sal. Cozinhe tampado em fogo baixo por 20 minutos.',
+    'Desligue e deixe descansar por 5 minutos antes de abrir. Finalize com coentro fresco e sirva com farinha de mandioca à parte.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Almoço de domingo')
+),
+(
+  'Arroz Maria Isabel Vegano',
+  'Releitura vegana do clássico maranhense: arroz temperado com cogumelo seco defumado no lugar da carne de sol, com cebola e coentro.',
+  '🍄', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Hidrate 150 g de cogumelo seco em 2 xícaras de água morna por 20 minutos. Escorra, esprema levemente e pique em cubinhos. Reserve a água de hidratação coada.',
+    'Misture os cogumelos com 2 colheres de sopa de shoyu e 1/2 colher de chá de cominho. Marine por 10 minutos.',
+    'Em uma panela grande, aqueça 3 colheres de sopa de óleo de babaçu em fogo alto. Adicione os cogumelos marinados e refogue por 5 minutos até ficarem dourados.',
+    'Adicione 1 cebola grande e 4 dentes de alho picados. Refogue por 2 minutos. Acrescente 1 pimentão vermelho e 2 tomates picados e cozinhe por 3 minutos.',
+    'Junte 3 xícaras de arroz lavado e misture bem. Adicione a água reservada dos cogumelos mais água quente até completar 6 xícaras de líquido. Tempere com sal.',
+    'Cozinhe em fogo médio com tampa entreaberta por 20 minutos. Desligue, tampe e deixe descansar por 5 minutos. Abra e finalize com coentro fresco picado.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Almoço de domingo')
+),
+(
+  'Moqueca da Horta',
+  'Moqueca vegana com legumes coloridos cozidos no leite de coco e azeite de dendê. Toda a riqueza da moqueca maranhense sem peixe nem frutos do mar.',
+  '🥦', 'Prato Principal', 45, '45 min', 5, 'Média', 0, 0, 1, 1,
+  JSON_ARRAY(
+    'Corte 300 g de abóbora e 300 g de batata-doce em cubos de 3 cm. Corte 2 pimentões em tiras largas. Fatie 2 cebolas em meia-lua. Corte 3 tomates ao meio. Reserve.',
+    'Em uma panela de barro ou panela funda, aqueça 3 colheres de sopa de azeite de dendê em fogo médio. Refogue a cebola em meia-lua e 4 dentes de alho fatiados por 3 minutos.',
+    'Adicione os tomates e os pimentões. Cozinhe por 5 minutos até começarem a amolecer e soltar sucos aromáticos.',
+    'Acrescente a abóbora e a batata-doce. Misture delicadamente para não desmanchar. Tempere com sal e pimenta-de-cheiro.',
+    'Despeje 400 ml de leite de coco e misture. Tampe a panela e cozinhe em fogo baixo por 20 a 25 minutos, até os legumes ficarem macios mas íntegros.',
+    'Abra e ajuste o sal. Finalize com coentro fresco picado e cebolinha. Sirva com arroz branco e farofa de mandioca.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana', 'Almoço de domingo')
+),
+(
+  'Vatapá Vegano de Abóbora',
+  'Vatapá cremoso feito com purê de abóbora, leite de coco, amendoim e castanha de caju. Sabor profundo e cor dourada incrível, sem camarão.',
+  '🎃', 'Prato Principal', 55, '55 min', 6, 'Média', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Corte 800 g de abóbora em cubos, tempere com sal e asse no forno a 200°C por 25 minutos ou cozinhe no vapor até ficar macia. Faça um purê e reserve.',
+    'Hidrate 2 fatias de pão amanhecido sem casca em 1/2 xícara de leite de coco. Triture 1/2 xícara de amendoim torrado sem casca e 1/2 xícara de castanha de caju crua no processador até virar pasta.',
+    'Em uma panela grande, aqueça 2 colheres de sopa de azeite de dendê. Refogue 1 cebola picada, 4 dentes de alho e 1 colher de chá de gengibre ralado por 3 minutos.',
+    'Adicione 1/2 pimentão vermelho picado e refogue por 2 minutos. Acrescente o purê de abóbora, a pasta de castanhas e o pão hidratado. Misture tudo muito bem.',
+    'Despeje 400 ml de leite de coco e cozinhe em fogo médio-baixo por 15 minutos, mexendo sempre até engrossar e ficar com textura cremosa. Ajuste o sal.',
+    'Finalize com coentro picado e sirva sobre arroz branco. O vatapá deve ter consistência pastosa e cor dourada intensa.'
+  ),
+  JSON_ARRAY('Festa', 'Final de semana', 'Almoço de domingo')
+),
+(
+  'Caruru Vegano de Quiabo',
+  'Caruru preparado com quiabo, leite de coco e amendoim torrado. Releitura vegana do clássico afro-brasileiro com toques maranhenses.',
+  '🌿', 'Prato Principal', 40, '40 min', 5, 'Média', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Lave 500 g de quiabo, seque bem e corte em rodelas de 1 cm. Deixe descansar por 10 minutos em uma peneira (reduz a baba). Triture 1/2 xícara de amendoim e 1/2 xícara de castanha de caju com 150 ml de leite de coco até virar pasta.',
+    'Em uma panela, aqueça 3 colheres de sopa de azeite de dendê em fogo médio. Refogue 3 dentes de alho picados, 1 cebola pequena e 1 colher de chá de gengibre ralado por 3 minutos.',
+    'Adicione o quiabo ao refogado e mexa em fogo médio-baixo por 10 minutos, até ficar macio e a baba incorporar ao molho.',
+    'Despeje a pasta de amendoim com leite de coco sobre o quiabo. Misture bem. Adicione mais 200 ml de leite de coco.',
+    'Cozinhe em fogo baixo por mais 10 minutos, mexendo delicadamente até o molho engrossar e envolver o quiabo. Adicione pimenta dedo-de-moça picada e ajuste o sal.',
+    'Finalize com suco de 1/2 limão e coentro picado. Sirva quente acompanhado de arroz branco e farofa de babaçu.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Feijão Maranhense com Maxixe, Abóbora e Quiabo',
+  'Feijão de caldo grosso com os legumes típicos do Maranhão: maxixe, abóbora e quiabo, temperado com coentro e alho frito.',
+  '🫘', 'Prato Principal', 60, '60 min', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Deixe 2 xícaras de feijão mulatinho de molho por 2 horas. Escorra e cozinhe na panela de pressão com 1,5 litro de água e sal por 20 minutos. Reserve com o caldo.',
+    'Corte 200 g de abóbora em cubos de 2 cm, 150 g de maxixe ao meio e 150 g de quiabo em rodelas. Lave o quiabo com vinagre para reduzir a baba.',
+    'Em uma panela grande, aqueça 3 colheres de sopa de óleo de babaçu. Refogue 1 cebola picada e 4 dentes de alho amassados até dourarem bem.',
+    'Adicione 2 tomates picados e pimenta-de-cheiro. Refogue por 3 minutos. Acrescente a abóbora e o maxixe, cozinhando por 5 minutos.',
+    'Transfira o feijão com seu caldo para a panela. Adicione o quiabo. Cozinhe em fogo médio por 20 minutos até os legumes ficarem macios e o caldo engrossar naturalmente.',
+    'Ajuste o sal e finalize com coentro e cebolinha picados. Sirva com arroz branco e farinha de mandioca.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Almoço de domingo')
+),
+(
+  'Feijão-de-Corda Refogado com Cheiro-Verde',
+  'Feijão-de-corda cozido no ponto e refogado com alho, cebola e muito cheiro-verde. Simples, nutritivo e cheio de sabor maranhense.',
+  '🌿', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Deixe 2 xícaras de feijão-de-corda de molho por 4 horas. Cozinhe na panela de pressão com água e sal por 10 a 12 minutos. O grão deve ficar macio mas inteiro. Escorra e reserve.',
+    'Em uma frigideira grande, aqueça 3 colheres de sopa de óleo de babaçu em fogo médio. Refogue 1 cebola média picada e 4 dentes de alho amassados até ficarem dourados.',
+    'Adicione 1/2 pimentão vermelho picado e 2 tomates picados. Refogue por 3 minutos até formar um molho de base aromático.',
+    'Acrescente o feijão-de-corda cozido e misture delicadamente com os temperos. Adicione pimenta-de-cheiro picada a gosto.',
+    'Cozinhe em fogo médio por 5 minutos, mexendo levemente para o feijão absorver os sabores sem desmanchar. Ajuste o sal.',
+    'Desligue o fogo e finalize com coentro e cebolinha verde picados generosamente. Sirva como acompanhamento de arroz ou tapioca.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Cuxá Refogado com Gergelim',
+  'O molho cuxá na sua versão mais pura: folhas de vinagreira refogadas com gergelim torrado, alho e óleo de babaçu. Acompanhamento essencial maranhense.',
+  '🌿', 'Acompanhamento', 20, '20 min', 4, 'Fácil', 1, 0, 1, 0,
+  JSON_ARRAY(
+    'Lave bem 1 maço grande de vinagreira (cerca de 300 g). Retire os talos mais grossos e pique as folhas grosseiramente. A vinagreira vai murchar bastante no cozimento, então use sempre um maço generoso.',
+    'Toste 4 colheres de sopa de gergelim branco em frigideira seca em fogo baixo por 2 a 3 minutos, mexendo sempre até dourar. Desligue e reserve.',
+    'Na mesma frigideira, aqueça 3 colheres de sopa de óleo de babaçu. Refogue 3 dentes de alho picados e 1 cebola pequena por 2 minutos até ficarem transparentes.',
+    'Adicione 1 tomate picado e 1/2 pimentão verde picado. Refogue por 2 minutos. Acrescente a vinagreira picada e mexa bem.',
+    'Cozinhe em fogo médio por 8 a 10 minutos, mexendo sempre, até as folhas murcharem completamente e o molho escurecer e ficar cremoso.',
+    'Adicione o gergelim torrado, ajuste o sal e finalize com pimenta do reino. Sirva quente sobre arroz branco ou acompanhando tapioca.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Farofa de Mandioca no Azeite de Babaçu',
+  'Farofa dourada e crocante de farinha de mandioca preparada no óleo de babaçu com alho, cebola e ervas. Acompanhamento clássico maranhense vegano.',
+  '🥄', 'Acompanhamento', 20, '20 min', 4, 'Fácil', 1, 0, 1, 0,
+  JSON_ARRAY(
+    'Separe 2 xícaras de farinha de mandioca torrada (a torrada resulta em farofa mais crocante). Pique 1 cebola média, 3 dentes de alho e 1 tomate em cubos pequenos. Reserve.',
+    'Em uma frigideira grande, aqueça 4 colheres de sopa de óleo de babaçu em fogo médio. Refogue o alho por 1 minuto até dourar levemente.',
+    'Adicione a cebola e refogue por 2 minutos. Acrescente o tomate e cozinhe por mais 2 minutos, até amolecer e incorporar ao refogado.',
+    'Abaixe o fogo e adicione a farinha de mandioca aos poucos, mexendo constantemente com uma espátula para distribuir o tempero de forma homogênea.',
+    'Toste a farofa em fogo médio-baixo por 4 a 5 minutos, mexendo sempre, até ficar dourada e crocante. Ajuste o sal e adicione pimenta do reino.',
+    'Desligue o fogo e finalize com coentro e cebolinha picados. Acrescente castanha de caju torrada picada se desejar mais crocância. Sirva imediatamente.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Purê de Macaxeira com Azeite de Babaçu',
+  'Purê cremoso de macaxeira preparado com óleo de babaçu, alho e leite de coco. Acompanhamento suave e saboroso da culinária maranhense.',
+  '🍠', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Descasque e corte 800 g de mandioca em pedaços médios. Retire o fio central. Lave bem e cozinhe em panela com água fria e sal por 25 a 30 minutos, até ficar bem macia.',
+    'Escorra a mandioca e descarte a água. Enquanto ainda estiver quente, amasse com um garfo ou passe pelo espremedor de batatas até obter massa homogênea sem grumos.',
+    'Em uma panela pequena, aqueça 3 colheres de sopa de óleo de babaçu em fogo baixo. Refogue 3 dentes de alho picados até ficarem dourados e aromáticos. Reserve.',
+    'Adicione o óleo de babaçu com alho à mandioca amassada. Misture bem e vá incorporando 200 ml de leite de coco aos poucos, mexendo até atingir consistência cremosa e aveludada.',
+    'Tempere com sal e pimenta do reino. Mexa em fogo baixo por 2 minutos até aquecer e incorporar todos os sabores.',
+    'Sirva imediatamente polvilhado com coentro fresco picado e algumas gotas de limão. Acompanha feijão, moqueca de legumes ou grelhados.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Beiju de Coco',
+  'Beiju tradicional maranhense feito na frigideira com tapioca granulada e coco ralado hidratado no leite de coco. Lanche rústico e naturalmente vegano.',
+  '🥥', 'Entrada', 25, '25 min', 4, 'Fácil', 1, 0, 1, 1,
+  JSON_ARRAY(
+    'Em uma tigela, misture 2 xícaras de tapioca granulada com 1 pitada de sal e 2 colheres de sopa de açúcar. Misture bem.',
+    'Aqueça 300 ml de leite de coco de babaçu sem ferver (bem quente, mas sem borbulhar). Despeje sobre a tapioca granulada e misture com colher. Deixe descansar por 5 minutos para hidratar.',
+    'Acrescente 1 xícara de coco ralado sem açúcar à mistura e incorpore bem.',
+    'Aqueça uma frigideira antiaderente em fogo médio. Não adicione óleo. Espalhe uma camada de 1 cm da mistura de tapioca na frigideira, formando um disco.',
+    'Deixe cozinhar por 3 a 4 minutos até as bordas soltarem e a base ficar firme e levemente dourada. Com cuidado, vire o beiju e cozinhe o outro lado por mais 2 a 3 minutos.',
+    'Retire e sirva quente. Pode ser saboreado puro ou acompanhado de doce de buriti, geleia regional ou polvilhado com canela em pó.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Cuscuz Maranhense de Milho',
+  'Cuscuz de farinha de milho preparado na cuscuzeira, úmido e soltinho. Um dos lanches mais tradicionais do Maranhão, naturalmente vegano.',
+  '🌽', 'Entrada', 25, '25 min', 4, 'Fácil', 1, 0, 1, 0,
+  JSON_ARRAY(
+    'Em uma tigela, coloque 2 xícaras de farinha de milho fina. Adicione 1 pitada de sal e misture.',
+    'Regue a farinha com leite de coco (ou água) aos poucos, amassando com os dedos até obter textura úmida parecida com areia molhada. A farinha deve se aglomerar quando pressionada, mas não virar massa.',
+    'Unte a cuscuzeira com um fio de óleo de coco. Coloque a mistura de farinha de milho dentro, nivelando levemente. Tampe e cozinhe no vapor por 10 a 12 minutos.',
+    'Se não tiver cuscuzeira, use panela com cestinha de vapor: coloque a farinha hidratada em um pano limpo sobre a cestinha e cozinhe no vapor por 12 minutos.',
+    'Retire da cuscuzeira e desenforme em um prato. O cuscuz deve estar firme por fora e úmido por dentro.',
+    'Sirva quente polvilhado com coco ralado e açúcar, ou com uma colher de doce regional (buriti, bacuri). Também pode ser servido com leite de coco por cima.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Pastel de Forno Vegano',
+  'Pastel assado com massa leve de óleo de babaçu e recheio vegano de palmito, tomate e temperos maranhenses. Lanche saboroso e prático.',
+  '🥟', 'Entrada', 50, '50 min', 20, 'Média', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Prepare a massa: misture 3 xícaras de farinha de trigo, 1 colher de chá de sal e 1 colher de chá de açúcar. Adicione 1/2 xícara de óleo de babaçu e 1/2 xícara de água morna aos poucos, sovando até obter massa lisa e não pegajosa. Descanse por 15 minutos coberta.',
+    'Prepare o recheio: aqueça 2 colheres de sopa de óleo em uma frigideira. Refogue 1 cebola e 3 dentes de alho picados. Adicione 2 tomates, 1/2 pimentão e 1 vidro de palmito (200 g) picado. Cozinhe por 5 minutos.',
+    'Tempere o recheio com sal e coentro picado. Deixe esfriar completamente antes de usar.',
+    'Abra a massa com rolo sobre superfície enfarinhada até 2 mm de espessura. Corte círculos com copo ou cortador de 10 cm de diâmetro.',
+    'Coloque 1 colher de chá do recheio no centro de cada círculo. Dobre ao meio e feche as bordas pressionando com um garfo. Disponha em forma untada.',
+    'Polvilhe gergelim branco por cima. Asse em forno preaquecido a 200°C por 20 a 25 minutos até dourar.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Festa', 'Final de semana')
+),
+(
+  'Bolo de Macaxeira Vegano',
+  'Bolo úmido e cremoso de macaxeira com leite de coco e coco ralado. Sobremesa vegana autêntica do Maranhão, sem ovos nem laticínios.',
+  '🎂', 'Sobremesa', 60, '60 min', 10, 'Fácil', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Descasque e rale 500 g de mandioca crua no ralo fino. Esprema levemente em um pano para retirar o excesso de umidade. Reserve.',
+    'No liquidificador, bata 400 ml de leite de coco, 1 xícara de açúcar, 1/4 de xícara de óleo de babaçu e 1 colher de chá de baunilha até ficar homogêneo.',
+    'Em uma tigela grande, misture a mandioca ralada, a mistura batida do liquidificador e 1 xícara de coco ralado sem açúcar. Misture bem com uma colher.',
+    'Adicione 1/2 xícara de farinha de trigo e 1 colher de sopa de fermento em pó. Misture delicadamente, apenas até incorporar.',
+    'Despeje a massa em forma untada com óleo e enfarinhada. Polvilhe coco ralado por cima.',
+    'Asse em forno preaquecido a 180°C por 40 a 45 minutos, até dourar e o palito sair limpo. Deixe esfriar por 20 minutos antes de desenformar.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Festa', 'Final de semana')
+),
+(
+  'Bolo de Tapioca Vegano',
+  'Bolo gelado de tapioca com leite de coco, sem forno e sem ovos. Sobremesa refrescante e cremosa muito apreciada no Maranhão.',
+  '🍮', 'Sobremesa', 30, '30 min + geladeira', 8, 'Fácil', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Em uma tigela grande, coloque 2 xícaras de tapioca granulada. Despeje 2 xícaras de leite de coco quente sobre a tapioca. Misture e deixe descansar por 30 minutos, mexendo ocasionalmente para hidratar uniformemente.',
+    'Após a tapioca hidratar, adicione mais 400 ml de leite de coco, 1 xícara de açúcar, 1 xícara de coco ralado sem açúcar e uma pitada de sal. Misture bem.',
+    'Transfira a mistura para uma panela e leve ao fogo médio, mexendo constantemente com espátula de silicone para não grudar.',
+    'Cozinhe por 10 a 15 minutos, mexendo sempre, até a mistura engrossar e a tapioca ficar completamente translúcida e gelatinosa.',
+    'Unte uma forma retangular com óleo. Despeje a mistura ainda quente e alise a superfície. Deixe esfriar em temperatura ambiente por 30 minutos.',
+    'Leve à geladeira por pelo menos 4 horas. Desenforme e sirva polvilhado com coco ralado e canela. Pode ser servido com calda de frutas regionais.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Festa', 'Final de semana')
+),
+(
+  'Abóbora Assada com Ervas',
+  'Abóbora moranga assada com óleo de babaçu, alho, alecrim e tomilho. Acompanhamento simples e nutritivo da culinária maranhense.',
+  '🎃', 'Acompanhamento', 40, '40 min', 4, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Preaqueça o forno a 200°C. Lave bem 800 g de abóbora moranga. Corte em fatias ou cubos de 3 cm de espessura.',
+    'Em uma tigela pequena, misture 4 colheres de sopa de óleo de babaçu, 4 dentes de alho amassados, 1 colher de chá de alecrim seco, 1 colher de chá de tomilho, sal e pimenta do reino a gosto.',
+    'Arrume os pedaços de abóbora em uma assadeira grande. Regue com a mistura de óleo e ervas, virando os pedaços para temperar todos os lados.',
+    'Espalhe uniformemente na assadeira sem sobrepor as peças.',
+    'Asse por 25 a 30 minutos, virando os pedaços na metade do tempo. A abóbora deve ficar macia por dentro e levemente caramelizada por fora.',
+    'Retire do forno e finalize com salsinha fresca picada e algumas gotas de limão. Sirva quente como acompanhamento.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Vinagrete Maranhense',
+  'Vinagrete fresco e bem temperado à moda maranhense, com muito coentro, pimenta-de-cheiro e vinagre. Acompanhamento versátil e refrescante.',
+  '🥗', 'Acompanhamento', 15, '15 min', 6, 'Fácil', 1, 0, 1, 0,
+  JSON_ARRAY(
+    'Pique 4 tomates maduros sem sementes em cubos pequenos e uniformes de 0,5 cm. Pique 1 cebola roxa e 1 cebola branca em cubos igualmente pequenos. Reserve em uma tigela grande.',
+    'Pique 1/2 pimentão verde e 1/2 pimentão vermelho em cubos pequenos. Pique 2 pimentas-de-cheiro sem sementes a gosto. Adicione à tigela.',
+    'Pique generosamente 1 maço de coentro fresco (folhas e talinhos finos) e adicione ao vinagrete. Acrescente também cebolinha picada a gosto.',
+    'Tempere com 3 colheres de sopa de vinagre branco ou de maçã, sal a gosto e uma pitada de açúcar para equilibrar a acidez.',
+    'Misture tudo delicadamente com uma colher. Prove e ajuste o sal e o vinagre conforme preferência. Adicione suco de limão se desejar mais acidez.',
+    'Leve à geladeira por pelo menos 15 minutos antes de servir para os sabores se integrarem. Mexa bem antes de servir.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana', 'Festa')
+),
+(
+  'Doce de Espécie de Alcântara Vegano',
+  'O famoso doce de espécie da cidade de Alcântara no Maranhão: recheio de cocada densa envolvido em massa fina de trigo e óleo de babaçu, assado até dourar.',
+  '🍬', 'Sobremesa', 50, '50 min', 20, 'Média', 0, 1, 1, 1,
+  JSON_ARRAY(
+    'Prepare o recheio: em uma panela, misture 3 xícaras de coco ralado, 2 xícaras de açúcar e 1/2 xícara de água. Adicione 5 cravos e 1 pau de canela. Cozinhe em fogo médio mexendo sempre até a mistura desgrudar da panela (ponto de brigadeiro). Retire os cravos e a canela. Deixe esfriar.',
+    'Prepare a massa: misture 2 xícaras de farinha de trigo, 1/2 colher de chá de sal e 1/2 colher de chá de canela em pó. Adicione 5 colheres de sopa de óleo de babaçu e misture até formar uma farofa.',
+    'Adicione 1/2 xícara de água morna aos poucos, sovando delicadamente até a massa ficar maleável e não grudenta. Descanse por 10 minutos coberta com pano.',
+    'Preaqueça o forno a 180°C. Abra a massa em porções pequenas, coloque uma colher de recheio de coco no centro de cada porção e modele fechando bem as bordas em formato oval.',
+    'Disponha em forma untada com óleo. Pincele a superfície com leite de coco para dar brilho e cor. Polvilhe gergelim branco se desejar.',
+    'Asse por 20 a 25 minutos até ficarem dourados. Deixe esfriar antes de servir. Tradicional na Festa do Divino de Alcântara.'
+  ),
+  JSON_ARRAY('Festa', 'Final de semana', 'Natal')
+),
+(
+  'Buriti Caramelado',
+  'Polpa de buriti caramelada com açúcar e especiarias. Sobremesa exótica com o fruto símbolo do cerrado maranhense.',
+  '🌴', 'Sobremesa', 30, '30 min', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Obtenha 400 g de polpa de buriti fresca ou descongelada. Se estiver usando buriti fresco, cozinhe os frutos em água por 10 minutos, descasque e retire a polpa fibrosa. Escorra o excesso de água.',
+    'Em uma panela de fundo grosso, derreta 1 xícara de açúcar cristal em fogo médio sem mexer, apenas girando a panela, até formar um caramelo dourado.',
+    'Com cuidado, adicione 1/2 xícara de água morna ao caramelo. Cuidado com os respingos! Mexa com colher de pau até dissolver e formar uma calda.',
+    'Adicione a polpa de buriti à calda, 1 pau de canela e 3 cravos. Mexa delicadamente em fogo médio-baixo para o buriti absorver o caramelo.',
+    'Cozinhe por 15 a 20 minutos, mexendo ocasionalmente, até a calda engrossar e o buriti ficar macio e caramelado. Ajuste a doçura.',
+    'Retire a canela e os cravos. Sirva quente ou em temperatura ambiente. Fica ótimo acompanhado de beiju de coco ou cuscuz maranhense.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Doce de Bacuri Vegano',
+  'Polpa de bacuri cozida somente com açúcar até virar doce cremoso e levemente ácido, sem laticínios. Sabor único e exótico do Maranhão.',
+  '🍑', 'Sobremesa', 45, '45 min', 8, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Use 500 g de polpa de bacuri fresca ou descongelada. Se for fresco, abra os frutos e retire a polpa branca com uma colher. Descarte as sementes e a casca.',
+    'Em uma tigela, misture a polpa de bacuri com 1 xícara de açúcar e 1/2 xícara de água. Deixe descansar por 15 minutos para soltar o suco natural.',
+    'Transfira para uma panela de fundo grosso e leve ao fogo médio, mexendo até o açúcar dissolver completamente.',
+    'Continue cozinhando em fogo médio-baixo por 25 a 30 minutos, mexendo constantemente com colher de pau para não grudar. O doce deve começar a desgrudar do fundo da panela.',
+    'Adicione o suco de 1/2 limão e, se desejar, castanha de caju picada. Mexa bem e cozinhe por mais 5 minutos.',
+    'O doce está pronto quando estiver bem espesso e desgrudar facilmente do fundo da panela. Despeje em potes de vidro. Sirva frio ou em temperatura ambiente.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Doce de Cupuaçu',
+  'Polpa de cupuaçu cozida com açúcar até atingir ponto de doce cremoso. Sabor tropical intenso e levemente ácido, sem laticínios.',
+  '🍈', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Utilize 500 g de polpa de cupuaçu fresca ou descongelada em temperatura ambiente. A polpa deve estar sem sementes.',
+    'Em uma panela de fundo grosso, coloque a polpa, 300 g de açúcar e 1/2 xícara de água. Misture e leve ao fogo médio, mexendo até o açúcar dissolver.',
+    'Quando começar a ferver, abaixe para fogo médio-baixo. A polpa de cupuaçu soltará água — continue mexendo sem parar para proteger o açúcar de queimar.',
+    'Cozinhe por 30 a 40 minutos, mexendo sempre. O doce vai engrossando gradualmente. Quando começar a desgrudar do fundo da panela, está próximo do ponto.',
+    'Adicione o suco de 1/2 limão para realçar o sabor e ajudar na conservação. Mexa bem e cozinhe por mais 5 a 10 minutos até atingir consistência de doce cremoso.',
+    'Despeje em potes de vidro previamente esterilizados. Sirva frio, acompanhado de biscoito de tapioca, beiju ou como recheio de tortas veganas.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Doce de Murici',
+  'Polpa de murici cozida com açúcar e especiarias. Fruta típica do cerrado maranhense com sabor único, levemente fermentado e aromático.',
+  '🫐', 'Sobremesa', 35, '35 min', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Selecione 500 g de murici bem maduros. Lave bem e retire os caroços: esprema cada fruto para separar a polpa da semente. Reserve a polpa.',
+    'Bata a polpa de murici no liquidificador com 1/4 de xícara de água no modo pulsar apenas para soltar os fios, sem triturar demais. Coe em peneira grossa para retirar fios mais duros.',
+    'Em uma panela, junte a polpa coada, 250 g de açúcar, 1/2 xícara de água, 1 pau de canela e 4 cravos. Leve ao fogo médio, mexendo até o açúcar dissolver.',
+    'Cozinhe em fogo médio-baixo por 20 a 25 minutos, mexendo frequentemente. O doce vai escurecer levemente e engrossar.',
+    'Quando o doce começar a desgrudar do fundo da panela, adicione o suco de 1/4 de limão. Mexa bem por mais 2 minutos. Retire o pau de canela e os cravos.',
+    'Despeje em potes de vidro e deixe esfriar. O doce de murici tem sabor intenso e ligeiramente fermentado, ótimo com tapioca ou beiju.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Geleia de Jenipapo',
+  'Geleia artesanal feita com jenipapo, fruta típica do Maranhão e Nordeste. Cor escura intensa e sabor adocicado com notas tânicas.',
+  '🫙', 'Sobremesa', 50, '50 min', 10, 'Média', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Escolha 5 jenipapos bem maduros e firmes. Descasque com faca e retire as sementes. Corte a polpa em pedaços médios. Lave bem para reduzir o amargor.',
+    'Coloque a polpa em uma panela com 2 xícaras de água e leve ao fogo médio por 15 minutos até ficar bem macia. Deixe esfriar, bata no liquidificador e coe em peneira fina.',
+    'Meça o volume de suco obtido. Para cada xícara de suco, use 3/4 de xícara de açúcar. Coloque o suco e o açúcar em uma panela.',
+    'Adicione o suco de 1 limão. Leve ao fogo médio, mexendo até o açúcar dissolver por completo.',
+    'Cozinhe em fogo médio-alto por 20 a 25 minutos sem mexer muito. Faça o teste da geada: coloque uma gota em prato frio — se firmar ao inclinar, a geleia está pronta.',
+    'Despeje ainda quente em potes de vidro esterilizados e feche imediatamente. Vire os potes de cabeça para baixo por 5 minutos para fazer vácuo. Deixe esfriar.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana')
+),
+(
+  'Sorvete Artesanal de Coco Babaçu',
+  'Sorvete cremoso feito com leite de coco babaçu e coco fresco ralado. Sobremesa refrescante e 100% vegana com o fruto símbolo do Maranhão.',
+  '🍦', 'Sobremesa', 30, '30 min + freezer', 6, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Em uma panela pequena, aqueça 800 ml de leite de coco de babaçu com 150 g de açúcar em fogo baixo, mexendo até o açúcar dissolver completamente. Não deixe ferver.',
+    'Adicione 1 colher de sopa de óleo de babaçu. Misture bem. Retire do fogo e deixe esfriar completamente em temperatura ambiente.',
+    'Incorpore 1 xícara de coco ralado sem açúcar à mistura. Misture bem.',
+    'Despeje a mistura em recipiente com tampa. Leve ao freezer por 2 horas. Retire e bata com um garfo ou mixer para quebrar os cristais de gelo. Repita esse processo 2 a 3 vezes de hora em hora.',
+    'Após a última batida, deixe o sorvete firmar no freezer por mais 2 a 3 horas até atingir a consistência desejada.',
+    'Retire do freezer 5 a 10 minutos antes de servir para amolecer levemente. Sirva em taças com raspas de coco fresco ou calda de buriti caramelado.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Final de semana', 'Festa')
+),
+(
+  'Mingau de Tapioca com Leite de Coco',
+  'Mingau cremoso de tapioca granulada cozida somente no leite de coco com canela e cravo. Versão vegana do tradicional mingau maranhense.',
+  '🥣', 'Sobremesa', 30, '30 min', 4, 'Fácil', 0, 0, 1, 0,
+  JSON_ARRAY(
+    'Em uma tigela grande, coloque 1 xícara de tapioca granulada. Despeje 2 xícaras de leite de coco morno sobre a tapioca. Misture e deixe hidratar por 20 minutos, mexendo de vez em quando.',
+    'Em uma panela, junte a tapioca hidratada com mais 400 ml de leite de coco, 1/2 xícara de açúcar, 1 pau de canela e 4 cravos. Misture bem.',
+    'Leve ao fogo médio, mexendo constantemente com colher de pau para não grudar no fundo.',
+    'Cozinhe por 10 a 15 minutos, sem parar de mexer, até a tapioca ficar completamente translúcida e a mistura atingir consistência de mingau cremoso.',
+    'Retire o pau de canela e os cravos. Ajuste a doçura conforme preferência.',
+    'Sirva quente em tigelas polvilhado com canela em pó e coco ralado. Para servir frio, leve à geladeira por 2 horas — o mingau vai firmar levemente.'
+  ),
+  JSON_ARRAY('Cotidiano')
+),
+(
+  'Mingau de Milho Verde com Leite de Coco',
+  'Mingau cremoso de milho verde com leite de coco e especiarias. Versão vegana do clássico maranhense, sem leite animal.',
+  '🌽', 'Sobremesa', 45, '45 min', 6, 'Fácil', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Corte a polpa de 4 espigas de milho verde. Bata no liquidificador com 2 xícaras de leite de coco até obter um líquido homogêneo.',
+    'Coe a mistura em peneira fina, pressionando com uma colher para extrair todo o caldo. Descarte o bagaço ou guarde para outro preparo.',
+    'Coloque o caldo de milho coado em uma panela grande. Adicione mais 400 ml de leite de coco, 1 xícara de açúcar, 1 pau de canela e 3 cravos.',
+    'Leve ao fogo médio-baixo, mexendo constantemente com colher de pau para não grudar nem empelotar. O milho vai engrossando gradualmente.',
+    'Cozinhe por 30 a 35 minutos, mexendo sem parar. Quando o mingau estiver cremoso e desgrudar levemente das bordas da panela, retire os cravos e a canela.',
+    'Adicione 1/2 xícara de coco ralado, misture e sirva quente em tigelas. Polvilhe com canela em pó. Para servir frio, leve à geladeira por 2 horas.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Festa Junina')
+),
+(
+  'Manjar de Milho Verde',
+  'Manjar delicado feito com leite de milho e leite de coco, firme e cremoso. Sobremesa vegana de textura aveludada servida com calda de frutas regionais.',
+  '🍮', 'Sobremesa', 40, '40 min + geladeira', 8, 'Média', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Bata no liquidificador a polpa de 4 espigas de milho verde com 400 ml de leite de coco até ficar bem homogêneo. Coe em peneira fina e reserve o leite de milho obtido.',
+    'Em uma panela, dissolva 5 colheres de sopa de amido de milho em 200 ml de leite de coco frio. Misture bem sem deixar grumos.',
+    'Acrescente o leite de milho coado, 1 xícara de açúcar e 1 xícara de coco ralado. Misture tudo e leve ao fogo médio.',
+    'Cozinhe mexendo constantemente com um fouet por 10 a 15 minutos até engrossar bastante e começar a borbulhar. O manjar deve se desprender das bordas da panela.',
+    'Unte uma forma de pudim com óleo. Despeje a mistura quente e deixe esfriar em temperatura ambiente por 30 minutos.',
+    'Leve à geladeira por pelo menos 4 horas. Para desenformar, passe uma faca nas bordas e vire sobre um prato. Sirva com calda de bacuri, buriti ou cupuaçu.'
+  ),
+  JSON_ARRAY('Festa', 'Final de semana', 'Natal')
+),
+(
+  'Arroz Doce Maranhense com Leite de Coco',
+  'Arroz doce cremoso preparado somente com leite de coco e especiarias, sem leite animal. Versão vegana da sobremesa mais amada do Maranhão.',
+  '🍚', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 1, 1, 0,
+  JSON_ARRAY(
+    'Lave 2 xícaras de arroz branco agulhinha e coloque em uma panela com 3 xícaras de água, 1 pau de canela e 4 cravos. Leve ao fogo médio até a água ferver.',
+    'Abaixe o fogo, tampe parcialmente e cozinhe por 15 minutos até o arroz absorver quase toda a água, ficando al dente.',
+    'Em outra panela, aqueça 800 ml de leite de coco com 1 xícara de açúcar, mexendo até o açúcar dissolver. Não deixe ferver.',
+    'Transfira o arroz al dente para a panela com o leite de coco quente. Misture bem. Cozinhe em fogo médio-baixo, mexendo frequentemente para não grudar no fundo.',
+    'Cozinhe por 20 a 25 minutos até o arroz ficar bem macio e o arroz doce atingir consistência cremosa. Retire a canela e os cravos.',
+    'Sirva quente ou em temperatura ambiente polvilhado com canela em pó e coco ralado. Para servir frio, leve à geladeira — o arroz doce vai engrossar mais ao esfriar.'
+  ),
+  JSON_ARRAY('Cotidiano', 'Festa', 'Final de semana')
+);
+
+-- ─────────────────────────────────────────────────────────────
+-- Ingredientes das receitas veganas (45–74)
+-- ─────────────────────────────────────────────────────────────
+
+-- 45: Arroz de Cuxá Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 45, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Vinagreira','Gergelim branco','Cebola','Alho','Tomate','Pimentão','Pimenta-de-cheiro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 45, id, 1 FROM ingredientes WHERE nome IN ('Óleo de babaçu','Coentro','Pimenta do reino');
+
+-- 46: Baião de Dois Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 46, id, 0 FROM ingredientes WHERE nome IN ('Feijão-de-corda','Arroz','Abóbora','Cebola','Alho','Pimentão','Coentro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 46, id, 1 FROM ingredientes WHERE nome IN ('Pimenta-de-cheiro','Óleo de babaçu','Tomate');
+
+-- 47: Arroz de Batipuru Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 47, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Vinagreira','Quiabo','Maxixe','Cebola','Alho','Pimentão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 47, id, 1 FROM ingredientes WHERE nome IN ('Tomate','Óleo de babaçu','Coentro','Pimenta do reino');
+
+-- 48: Arroz Maria Isabel Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 48, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Cogumelo seco','Cebola','Alho','Tomate','Pimentão','Coentro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 48, id, 1 FROM ingredientes WHERE nome IN ('Pimenta-de-cheiro','Óleo de babaçu');
+
+-- 49: Moqueca da Horta
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 49, id, 0 FROM ingredientes WHERE nome IN ('Abóbora','Batata-doce','Pimentão','Tomate','Cebola','Leite de coco','Azeite de dendê');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 49, id, 1 FROM ingredientes WHERE nome IN ('Quiabo','Maxixe','Coentro','Pimenta-de-cheiro');
+
+-- 50: Vatapá Vegano de Abóbora
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 50, id, 0 FROM ingredientes WHERE nome IN ('Abóbora','Leite de coco','Amendoim','Castanha de caju','Cebola','Alho','Gengibre');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 50, id, 1 FROM ingredientes WHERE nome IN ('Azeite de dendê','Pimentão','Coentro','Pão');
+
+-- 51: Caruru Vegano de Quiabo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 51, id, 0 FROM ingredientes WHERE nome IN ('Quiabo','Leite de coco','Amendoim','Castanha de caju','Alho','Cebola','Azeite de dendê');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 51, id, 1 FROM ingredientes WHERE nome IN ('Gengibre','Pimenta dedo-de-moça','Coentro','Limão');
+
+-- 52: Feijão Maranhense com Maxixe, Abóbora e Quiabo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 52, id, 0 FROM ingredientes WHERE nome IN ('Feijão','Maxixe','Abóbora','Quiabo','Alho','Cebola','Coentro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 52, id, 1 FROM ingredientes WHERE nome IN ('Pimenta-de-cheiro','Óleo de babaçu','Tomate');
+
+-- 53: Feijão-de-Corda Refogado com Cheiro-Verde
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 53, id, 0 FROM ingredientes WHERE nome IN ('Feijão-de-corda','Alho','Cebola','Coentro','Cebolinha','Tomate','Pimentão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 53, id, 1 FROM ingredientes WHERE nome IN ('Óleo de babaçu','Pimenta-de-cheiro');
+
+-- 54: Cuxá Refogado com Gergelim
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 54, id, 0 FROM ingredientes WHERE nome IN ('Vinagreira','Gergelim branco','Alho','Cebola','Tomate','Pimentão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 54, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Coentro','Limão');
+
+-- 55: Farofa de Mandioca no Azeite de Babaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 55, id, 0 FROM ingredientes WHERE nome IN ('Farinha de mandioca','Óleo de babaçu','Cebola','Alho','Coentro','Cebolinha','Tomate');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 55, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Pimentão','Castanha de caju');
+
+-- 56: Purê de Macaxeira com Azeite de Babaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 56, id, 0 FROM ingredientes WHERE nome IN ('Mandioca','Óleo de babaçu','Leite de coco','Alho','Coentro','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 56, id, 1 FROM ingredientes WHERE nome IN ('Pimenta do reino','Cebolinha');
+
+-- 57: Beiju de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 57, id, 0 FROM ingredientes WHERE nome IN ('Tapioca','Coco ralado','Leite de coco de babaçu','Açúcar');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 57, id, 1 FROM ingredientes WHERE nome IN ('Canela');
+
+-- 58: Cuscuz Maranhense de Milho
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 58, id, 0 FROM ingredientes WHERE nome IN ('Farinha de milho','Coco ralado','Açúcar','Leite de coco');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 58, id, 1 FROM ingredientes WHERE nome IN ('Canela');
+
+-- 59: Pastel de Forno Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 59, id, 0 FROM ingredientes WHERE nome IN ('Farinha de trigo','Óleo de babaçu','Palmito','Tomate','Cebola','Alho','Coentro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 59, id, 1 FROM ingredientes WHERE nome IN ('Pimentão','Gergelim branco');
+
+-- 60: Bolo de Macaxeira Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 60, id, 0 FROM ingredientes WHERE nome IN ('Mandioca','Leite de coco','Coco ralado','Açúcar','Óleo de babaçu','Farinha de trigo');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 60, id, 1 FROM ingredientes WHERE nome IN ('Fermento em pó');
+
+-- 61: Bolo de Tapioca Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 61, id, 0 FROM ingredientes WHERE nome IN ('Tapioca granulada','Leite de coco','Coco ralado','Açúcar');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 61, id, 1 FROM ingredientes WHERE nome IN ('Canela','Fermento em pó');
+
+-- 62: Abóbora Assada com Ervas
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 62, id, 0 FROM ingredientes WHERE nome IN ('Abóbora','Óleo de babaçu','Alho','Alecrim','Tomilho');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 62, id, 1 FROM ingredientes WHERE nome IN ('Salsinha','Pimenta do reino','Limão');
+
+-- 63: Vinagrete Maranhense
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 63, id, 0 FROM ingredientes WHERE nome IN ('Tomate','Cebola','Pimentão','Coentro','Vinagre','Pimenta-de-cheiro');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 63, id, 1 FROM ingredientes WHERE nome IN ('Limão','Cebolinha');
+
+-- 64: Doce de Espécie de Alcântara Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 64, id, 0 FROM ingredientes WHERE nome IN ('Coco ralado','Açúcar','Farinha de trigo','Óleo de babaçu','Cravo','Canela');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 64, id, 1 FROM ingredientes WHERE nome IN ('Gergelim branco','Leite de coco');
+
+-- 65: Buriti Caramelado
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 65, id, 0 FROM ingredientes WHERE nome IN ('Polpa de buriti','Açúcar','Canela','Cravo');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 65, id, 1 FROM ingredientes WHERE nome IN ('Limão');
+
+-- 66: Doce de Bacuri Vegano
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 66, id, 0 FROM ingredientes WHERE nome IN ('Polpa de bacuri','Açúcar','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 66, id, 1 FROM ingredientes WHERE nome IN ('Canela','Cravo','Castanha de caju');
+
+-- 67: Doce de Cupuaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 67, id, 0 FROM ingredientes WHERE nome IN ('Polpa de cupuaçu','Açúcar','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 67, id, 1 FROM ingredientes WHERE nome IN ('Canela');
+
+-- 68: Doce de Murici
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 68, id, 0 FROM ingredientes WHERE nome IN ('Murici','Açúcar','Canela','Cravo');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 68, id, 1 FROM ingredientes WHERE nome IN ('Limão');
+
+-- 69: Geleia de Jenipapo
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 69, id, 0 FROM ingredientes WHERE nome IN ('Jenipapo','Açúcar','Limão');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 69, id, 1 FROM ingredientes WHERE nome IN ('Canela');
+
+-- 70: Sorvete Artesanal de Coco Babaçu
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 70, id, 0 FROM ingredientes WHERE nome IN ('Leite de coco de babaçu','Coco ralado','Açúcar','Leite de coco');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 70, id, 1 FROM ingredientes WHERE nome IN ('Óleo de babaçu');
+
+-- 71: Mingau de Tapioca com Leite de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 71, id, 0 FROM ingredientes WHERE nome IN ('Tapioca granulada','Leite de coco','Açúcar','Canela','Cravo');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 71, id, 1 FROM ingredientes WHERE nome IN ('Coco ralado');
+
+-- 72: Mingau de Milho Verde com Leite de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 72, id, 0 FROM ingredientes WHERE nome IN ('Milho verde','Leite de coco','Açúcar','Canela','Coco ralado');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 72, id, 1 FROM ingredientes WHERE nome IN ('Cravo');
+
+-- 73: Manjar de Milho Verde
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 73, id, 0 FROM ingredientes WHERE nome IN ('Milho verde','Leite de coco','Açúcar','Amido de milho','Coco ralado');
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 73, id, 1 FROM ingredientes WHERE nome IN ('Canela');
+
+-- 74: Arroz Doce Maranhense com Leite de Coco
+INSERT IGNORE INTO receita_ingredientes (receita_id, ingrediente_id, opcional)
+SELECT 74, id, 0 FROM ingredientes WHERE nome IN ('Arroz','Leite de coco','Açúcar','Canela','Cravo','Coco ralado');
+
+-- ─────────────────────────────────────────────────────────────
+-- Marcar receitas existentes que já são veganas
+-- ─────────────────────────────────────────────────────────────
+UPDATE receitas SET vegano = 1 WHERE nome = 'Doce de Espécie';
+UPDATE receitas SET vegano = 1 WHERE nome = 'Doce de Buriti';
+UPDATE receitas SET vegano = 1 WHERE nome = 'Beiju de Tapioca';
+
+-- ─────────────────────────────────────────────────────────────
+-- Imagens para receitas veganas (ids 45–74)
+-- ─────────────────────────────────────────────────────────────
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&q=80' WHERE id = 45;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&q=80' WHERE id = 46;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&q=80' WHERE id = 47;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&q=80' WHERE id = 48;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&h=400&fit=crop&q=80' WHERE id = 49;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&h=400&fit=crop&q=80' WHERE id = 50;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1544025162-d76538b7b90c?w=600&h=400&fit=crop&q=80' WHERE id = 51;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&q=80' WHERE id = 52;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&q=80' WHERE id = 53;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&q=80' WHERE id = 54;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&h=400&fit=crop&q=80' WHERE id = 55;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&h=400&fit=crop&q=80' WHERE id = 56;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&q=80' WHERE id = 57;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 58;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop&q=80' WHERE id = 59;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&q=80' WHERE id = 60;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&q=80' WHERE id = 61;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&h=400&fit=crop&q=80' WHERE id = 62;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop&q=80' WHERE id = 63;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop&q=80' WHERE id = 64;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&h=400&fit=crop&q=80' WHERE id = 65;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 66;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 67;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 68;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&h=400&fit=crop&q=80' WHERE id = 69;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&h=400&fit=crop&q=80' WHERE id = 70;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 71;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&q=80' WHERE id = 72;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 73;
+UPDATE receitas SET imagem_url = 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop&q=80' WHERE id = 74;
