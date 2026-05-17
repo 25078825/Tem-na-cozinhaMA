@@ -1,3 +1,6 @@
+const PX = (id) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop`
+
 export const SECOES = [
   {
     id: 'rapidas',
@@ -7,6 +10,7 @@ export const SECOES = [
     emoji: '⚡',
     gradient: 'from-amber-400 to-orange-500',
     tipo: 'rapida',
+    foto: PX(1640771),
   },
   {
     id: 'festas',
@@ -16,6 +20,7 @@ export const SECOES = [
     emoji: '🎉',
     gradient: 'from-pink-500 to-purple-600',
     tipo: 'tipicaFesta',
+    foto: PX(4262173),
   },
   {
     id: 'sao-joao',
@@ -26,6 +31,7 @@ export const SECOES = [
     gradient: 'from-yellow-400 to-red-500',
     tipo: 'ocasiao',
     ocasiao: 'Festa Junina',
+    foto: PX(26604443),
   },
   {
     id: 'natal',
@@ -36,6 +42,7 @@ export const SECOES = [
     gradient: 'from-red-500 to-green-700',
     tipo: 'ocasiao',
     ocasiao: 'Natal',
+    foto: PX(5775062),
   },
   {
     id: 'pascoa',
@@ -46,6 +53,7 @@ export const SECOES = [
     gradient: 'from-sky-400 to-teal-500',
     tipo: 'incluirIngredientes',
     ingredientesIncluidos: ['Camarão', 'Camarão seco'],
+    foto: PX(3649208),
   },
   {
     id: 'semana-santa',
@@ -56,6 +64,7 @@ export const SECOES = [
     gradient: 'from-violet-500 to-indigo-600',
     tipo: 'excluirIngredientes',
     ingredientesExcluidos: ['Carne seca', 'Frango', 'Bacon'],
+    foto: PX(6462179),
   },
   {
     id: 'dia-a-dia',
@@ -66,6 +75,7 @@ export const SECOES = [
     gradient: 'from-emerald-400 to-teal-500',
     tipo: 'ocasiao',
     ocasiao: 'Cotidiano',
+    foto: PX(5728162),
   },
   {
     id: 'domingo',
@@ -76,6 +86,7 @@ export const SECOES = [
     gradient: 'from-orange-400 to-amber-500',
     tipo: 'ocasiao',
     ocasiao: 'Almoço de domingo',
+    foto: PX(4262012),
   },
   {
     id: 'vegano',
@@ -85,6 +96,7 @@ export const SECOES = [
     emoji: '🌱',
     gradient: 'from-green-400 to-emerald-600',
     tipo: 'vegano',
+    foto: PX(1640777),
   },
   {
     id: 'diet',
@@ -94,6 +106,7 @@ export const SECOES = [
     emoji: '🥗',
     gradient: 'from-teal-400 to-cyan-600',
     tipo: 'diet',
+    foto: PX(6546429),
   },
 ]
 

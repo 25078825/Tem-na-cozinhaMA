@@ -36,11 +36,15 @@ function SecaoDetalhe({ secao, receitas, onVoltar }) {
 
   return (
     <div className="min-h-screen bg-amber-50">
-      <div className={`bg-gradient-to-br ${secao.gradient} relative overflow-hidden`}>
-        <div className="absolute right-0 top-0 bottom-0 flex items-center pr-10
-                        pointer-events-none select-none opacity-[0.12]">
-          <span className="text-[160px] leading-none">{secao.emoji}</span>
-        </div>
+      <div className="relative overflow-hidden">
+        {secao.foto && (
+          <img
+            src={secao.foto}
+            alt={secao.titulo}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+        <div className={`absolute inset-0 bg-gradient-to-br ${secao.gradient} ${secao.foto ? 'opacity-90' : ''}`} />
         <div className="container-page py-10 md:py-14 relative">
           <button onClick={onVoltar}
                   className="flex items-center gap-1.5 text-white/75 hover:text-white
