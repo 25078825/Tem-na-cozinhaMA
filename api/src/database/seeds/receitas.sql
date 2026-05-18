@@ -45,7 +45,7 @@ INSERT INTO receitas (
 (
   'Arroz de Cuxá',
   'Prato símbolo do Maranhão feito com arroz, folhas de vinagreira, camarão seco e gergelim tostado.',
-  '�?�', 'Prato Principal', 50, '50 min', 4, 'Média', 0, 0, 1,
+  '🍚', 'Prato Principal', 50, '50 min', 4, 'Média', 0, 0, 1,
   JSON_ARRAY(
     'Cozinhe o arroz normalmente e reserve. Lave o camarão seco, retire o excesso de sal em água corrente e pique grosseiramente.',
     'Lave as folhas de vinagreira, retire os talos grossos e cozinhe em água fervente por 5 a 10 minutos até murcharem. Escorra, esprema o excesso de água e pique grosseiramente.',
@@ -73,7 +73,7 @@ INSERT INTO receitas (
 (
   'Torta de Camarão',
   'Torta maranhense com camarão seco dessalgado, batata cozida e extrato de tomate, coberta com camadas de ovos batidos em neve.',
-  '�?', 'Entrada', 60, '60 min', 8, 'Média', 0, 1, 1,
+  '🦐', 'Entrada', 60, '60 min', 8, 'Média', 0, 1, 1,
   JSON_ARRAY(
     'Dessalgue o camarão seco deixando de molho na véspera, trocando a água. Refogue com cebola, alho e extrato de tomate até o camarão soltar do fundo. Acrescente a batata cozida em cubinhos e acerte o sal.',
     'Separe as claras das gemas. Bata as claras em neve bem firme. Adicione as gemas uma a uma, batendo levemente para incorporar.',
@@ -87,7 +87,7 @@ INSERT INTO receitas (
 (
   'Maria Isabel',
   'Arroz refogado no colorau e cozido junto com carne de sol em cubos dourados. Prato simples e saboroso do cotidiano maranhense.',
-  '�?�', 'Prato Principal', 45, '45 min', 6, 'Fácil', 0, 0, 1,
+  '🍚', 'Prato Principal', 45, '45 min', 6, 'Fácil', 0, 0, 1,
   JSON_ARRAY(
     'Dessalgue a carne de sol de molho em água por 4 horas, trocando a água 2 vezes. Escorra e corte em cubinhos pequenos.',
     'Em panela larga, aqueça o óleo em fogo alto e doure os cubos de carne de sol até ficarem bem corados de todos os lados. Retire e reserve.',
@@ -129,7 +129,7 @@ INSERT INTO receitas (
 (
   'Tapioca Recheada',
   'Tapioca feita na frigideira seca recheada com queijo coalho e carne de sol desfiada, regada com manteiga de garrafa.',
-  '🫓', 'Entrada', 15, '15 min', 2, 'Fácil', 1, 0, 0,
+  '🥙', 'Entrada', 15, '15 min', 2, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Peneire a goma de tapioca para deixá-la solta e sem grumos.',
     'Aqueça uma frigideira antiaderente em fogo médio-alto, sem óleo. Espalhe a goma formando um disco uniforme com as costas de uma colher.',
@@ -143,7 +143,7 @@ INSERT INTO receitas (
 (
   'Paçoca de Carne Seca',
   'Carne seca dessalgada, cozida na pressão, desfiada e frita com farinha de mandioca até virar uma farofa grossa e saborosa.',
-  '�?�', 'Acompanhamento', 50, '50 min', 4, 'Fácil', 0, 0, 0,
+  '🥩', 'Acompanhamento', 50, '50 min', 4, 'Fácil', 0, 0, 0,
   JSON_ARRAY(
     'Dessalgue a carne seca de molho em água por 24 horas, trocando a água de 4 em 4 horas. Escorra.',
     'Cozinhe a carne seca na panela de pressão com água limpa por 30 minutos até ficar bem macia. Escorra e desfie grosseiramente.',
@@ -157,7 +157,7 @@ INSERT INTO receitas (
 (
   'Peixada Maranhense',
   'Peixe cozido em camadas de cebola e tomate com leite de coco e pimenta-de-cheiro, finalizado com batata, ovos cozidos e coentro.',
-  '�?�', 'Prato Principal', 50, '50 min', 5, 'Média', 0, 1, 0,
+  '🐟', 'Prato Principal', 50, '50 min', 5, 'Média', 0, 1, 0,
   JSON_ARRAY(
     'Tempere as postas de peixe com sal e suco de limão. Deixe marinar por 15 minutos.',
     'Em panela de barro ou panela comum, aqueça metade do azeite. Forre o fundo com camadas alternadas de rodelas de cebola e tomate.',
@@ -171,7 +171,7 @@ INSERT INTO receitas (
 (
   'Caldeirada de Camarão',
   'Camarões cozidos em caldo rico com extrato de tomate, leite de coco e creme de leite, servidos com arroz branco e pirão.',
-  '�?', 'Prato Principal', 50, '50 min', 5, 'Fácil', 0, 0, 0,
+  '🦐', 'Prato Principal', 50, '50 min', 5, 'Fácil', 0, 0, 0,
   JSON_ARRAY(
     'Lave os camarões com suco de limão. Escorra e tempere com sal e pimenta.',
     'Em panela larga, aqueça o azeite e refogue cebola, alho e tomate por 8 minutos até formarem um molho. Adicione o extrato de tomate e parte do coentro.',
@@ -213,7 +213,7 @@ INSERT INTO receitas (
 (
   'Moqueca Maranhense',
   'Peixe firme cozido em camadas de legumes com azeite, colorau e leite de coco — versão maranhense sem dendê, feita na panela de barro.',
-  '�?�', 'Prato Principal', 50, '50 min', 5, 'Média', 0, 1, 0,
+  '🐟', 'Prato Principal', 50, '50 min', 5, 'Média', 0, 1, 0,
   JSON_ARRAY(
     'Tempere as postas de peixe com sal e suco de limão. Deixe marinar por 20 minutos.',
     'Em panela de barro ou panela larga, aqueça o azeite com o colorau para soltar a cor e o sabor.',
@@ -227,7 +227,7 @@ INSERT INTO receitas (
 (
   'Sururu ao Leite de Coco',
   'Marisco sururu refogado no alho e cebola com extrato de tomate, finalizado no leite de coco cremoso e cheiro-verde farto.',
-  '�?�', 'Prato Principal', 30, '30 min', 4, 'Fácil', 1, 0, 0,
+  '🐚', 'Prato Principal', 30, '30 min', 4, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Lave o sururu em várias águas até sair limpa. Se necessário, escalde brevemente em água fervente por 2 minutos e escorra.',
     'Em panela larga, aqueça o azeite e refogue o alho até dourar levemente. Adicione a cebola e cozinhe até ficar transparente.',
@@ -283,7 +283,7 @@ INSERT INTO receitas (
 (
   'Sarrabulho',
   'Miúdos de porco com toucinho, fígado, coração e sangue coalhado cozidos em caldo temperado com colorau e cheiro-verde.',
-  '�?�', 'Prato Principal', 90, '90 min', 4, 'Difícil', 0, 1, 0,
+  '🍖', 'Prato Principal', 90, '90 min', 4, 'Difícil', 0, 1, 0,
   JSON_ARRAY(
     'Lave todos os miúdos com vinagre e água corrente. Escalde em água fervente por 5 minutos. Escorra e corte em pedaços pequenos.',
     'Em panela larga, aqueça o óleo e doure o alho, a cebola e o tomate por 5 minutos. Acrescente primeiro o toucinho (5 minutos), depois o fígado, o coração e o pulmão.',
@@ -297,7 +297,7 @@ INSERT INTO receitas (
 (
   'Sarapatel',
   'Miúdos suínos picados finamente e cozidos em molho escuro e encorpado com colorau, cominho e coentro — versão maranhense.',
-  '�?�', 'Prato Principal', 90, '90 min', 4, 'Difícil', 0, 1, 0,
+  '🍖', 'Prato Principal', 90, '90 min', 4, 'Difícil', 0, 1, 0,
   JSON_ARRAY(
     'Lave bem todos os miúdos com vinagre e suco de limão. Escalde em água fervente por 10 minutos. Escorra e pique em pedaços bem pequenos.',
     'Em panela de barro ou panela comum, aqueça o azeite e refogue a cebola, alho e pimentão até dourarem levemente.',
@@ -311,7 +311,7 @@ INSERT INTO receitas (
 (
   'Baião de Dois Maranhense',
   'Arroz e feijão-de-corda cozidos juntos com bacon, linguiça calabresa, leite de coco e queijo coalho derretido.',
-  '�?�', 'Prato Principal', 50, '50 min', 4, 'Fácil', 0, 1, 1,
+  '🥘', 'Prato Principal', 50, '50 min', 4, 'Fácil', 0, 1, 1,
   JSON_ARRAY(
     'Cozinhe o feijão-de-corda em água com sal na panela de pressão por 20 a 25 minutos até ficar macio mas inteiro. Reserve com um pouco do caldo.',
     'Em panela larga, frite o bacon em sua própria gordura até dourar. Adicione a linguiça calabresa em rodelas e doure também. Junte o alho e a cebola, refogando até murchar.',
@@ -325,7 +325,7 @@ INSERT INTO receitas (
 (
   'Arroz de Toucinho',
   'Arroz refogado na gordura do toucinho frito até ficar crocante, com alho e cebola. Prato simples com sabor defumado marcante.',
-  '�?�', 'Acompanhamento', 30, '30 min', 4, 'Fácil', 1, 0, 0,
+  '🍚', 'Acompanhamento', 30, '30 min', 4, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Pique o toucinho bem miúdo, quase em pedaços do tamanho de torresmo pequeno.',
     'Coloque o toucinho em panela aquecida com uma pitada de sal. Frite em fogo médio-alto, mexendo, até o toucinho ficar dourado e crocante, soltando muita gordura.',
@@ -367,7 +367,7 @@ INSERT INTO receitas (
 (
   'Feijão Verde',
   'Feijão-de-corda verde cozido e finalizado com nata cremosa, manteiga, cebola dourada e coentro com cebolinha farta.',
-  '🫘', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 1, 0,
+  '🍲', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 1, 0,
   JSON_ARRAY(
     'Debulhe o feijão verde fresco (se estiver em vagem). Cozinhe em água com sal por 20 a 30 minutos até ficar macio mas inteiro. Reserve um pouco do caldo.',
     'Em panela separada, derreta a manteiga e refogue a cebola e o alho até ficarem dourados.',
@@ -381,7 +381,7 @@ INSERT INTO receitas (
 (
   'Vatapá Maranhense',
   'Pasta densa de pão demolhado, amendoim, castanha de caju, camarão seco e leite de coco, cozida até desgrudar da panela.',
-  '�?�', 'Prato Principal', 50, '50 min', 4, 'Média', 0, 1, 0,
+  '🥘', 'Prato Principal', 50, '50 min', 4, 'Média', 0, 1, 0,
   JSON_ARRAY(
     'Rasgue os pães e deixe de molho no leite por 4 horas. Esprema o excesso de leite e amasse até obter uma pasta.',
     'No liquidificador, bata o amendoim e a castanha de caju torrada com um pouco de leite de coco até obter uma pasta grossa. Reserve.',
@@ -395,7 +395,7 @@ INSERT INTO receitas (
 (
   'Sarnambi no Leite de Coco',
   'Marisco sarnambi dos mangues maranhenses refogado com pimentão, colorau e tomate, finalizado em leite de coco cremoso.',
-  '�?�', 'Prato Principal', 30, '30 min', 4, 'Fácil', 1, 0, 0,
+  '🐚', 'Prato Principal', 30, '30 min', 4, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Lave o sarnambi em várias trocas de água até sair limpo. Se estiver na concha, cozinhe em água fervente até as conchas abrirem; descarte as que não abrirem.',
     'Em panela larga, aqueça o azeite com o colorau para soltar a cor. Refogue o alho, a cebola e o pimentão por 5 minutos.',
@@ -409,7 +409,7 @@ INSERT INTO receitas (
 (
   'Peixe Frito no Azeite de Babaçu',
   'Peixe inteiro temperado com alho, limão e colorau, frito no óleo de babaçu que confere sabor adocicado e amendoado único.',
-  '�?�', 'Prato Principal', 40, '40 min', 4, 'Fácil', 0, 0, 0,
+  '🐟', 'Prato Principal', 40, '40 min', 4, 'Fácil', 0, 0, 0,
   JSON_ARRAY(
     'Faça cortes diagonais nas laterais do peixe para o tempero penetrar. Esfregue com sal grosso, alho amassado, suco de limão, pimenta-do-reino e colorau. Deixe marinar por 30 minutos.',
     'Aqueça fartamente o óleo de babaçu em frigideira funda. O óleo deve estar bem quente antes de colocar o peixe.',
@@ -437,7 +437,7 @@ INSERT INTO receitas (
 (
   'Beiju de Tapioca',
   'Disco de tapioca granulada hidratada no leite de coco quente com coco fresco ralado, grelhado na frigideira seca até dourar.',
-  '🫓', 'Lanche', 25, '25 min', 6, 'Fácil', 1, 0, 0,
+  '🥞', 'Lanche', 25, '25 min', 6, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Em tigela grande, coloque a tapioca granulada. Despeje o leite de coco bem quente sobre a tapioca, misturando imediatamente. Deixe repousar por 10 minutos, mexendo a cada 2 minutos.',
     'Adicione o coco fresco ralado e misture bem até obter uma massa mais densa e homogênea. Se ficar seco, acrescente mais leite de coco morno.',
@@ -479,7 +479,7 @@ INSERT INTO receitas (
 (
   'Tripinha Frita',
   'Tripa de porco limpa, dessalgada em vinagre por 12 horas, cozida e frita empanada em farinha de milho até ficar dourada e crocante.',
-  '�?�', 'Prato Principal', 40, '40 min', 4, 'Fácil', 0, 1, 0,
+  '🍖', 'Prato Principal', 40, '40 min', 4, 'Fácil', 0, 1, 0,
   JSON_ARRAY(
     'Lave a tripa de porco esfregando com sal grosso e limão. Deixe de molho em solução de água com vinagre e sal por pelo menos 12 horas para retirar o odor forte. Lave novamente.',
     'Cozinhe a tripa em panela com água e sal por 20 minutos até ficar macia. Escorra e deixe secar.',
@@ -507,7 +507,7 @@ INSERT INTO receitas (
 (
   'Doce de Espécie',
   'Doce típico de Alcântara (MA): cocada densa envolta em massa fina de trigo assada até dourar. Tradicional na Festa do Divino.',
-  '�?�', 'Sobremesa', 75, '75 min', 6, 'Difícil', 0, 1, 0,
+  '🍬', 'Sobremesa', 75, '75 min', 6, 'Difícil', 0, 1, 0,
   JSON_ARRAY(
     'Prepare a cocada: coloque coco ralado, açúcar e água em panela. Leve ao fogo médio, mexendo sem parar até a calda reduzir e ficar bem cremosa e espessa (cerca de 20 minutos). Despeje em assadeira levemente untada e deixe esfriar completamente.',
     'Prepare a massa: em tigela, misture a farinha de trigo com sal e óleo até obter uma farofa. Acrescente água fria aos poucos, amassando até a massa ficar lisa e maleável. Descanse 15 minutos.',
@@ -521,7 +521,7 @@ INSERT INTO receitas (
 (
   'Arroz Doce com Coco',
   'Arroz cozido no leite com canela e cravo, finalizado com leite de coco e coco ralado. Servido frio em tigelinhas com canela em pó.',
-  '�?�', 'Sobremesa', 45, '45 min', 6, 'Fácil', 0, 1, 0,
+  '🍚', 'Sobremesa', 45, '45 min', 6, 'Fácil', 0, 1, 0,
   JSON_ARRAY(
     'Em panela média, cozinhe o arroz em água com a canela em pau, os cravos e uma pitada de sal por 15 minutos até o arroz ficar bem macio e a água secar.',
     'Acrescente o leite integral quente ao arroz cozido, misturando bem. Cozinhe em fogo baixo, mexendo constantemente para não grudar.',
@@ -535,7 +535,7 @@ INSERT INTO receitas (
 (
   'Bolo de Arroz (Orelha de Macaco)',
   'Disco frito de arroz demolhado batido com ovo, açúcar e cravo, frito no óleo de babaçu. Chamado "orelha de macaco" pelo formato irregular.',
-  '�?�', 'Sobremesa', 45, '45 min', 6, 'Média', 0, 1, 0,
+  '🎂', 'Sobremesa', 45, '45 min', 6, 'Média', 0, 1, 0,
   JSON_ARRAY(
     'Deixe o arroz de molho em água por no mínimo 10 horas. Escorra bem.',
     'Bata o arroz escorrido no liquidificador com o ovo, o açúcar, os cravos amassados e o sal. Adicione água morna aos poucos apenas o suficiente para bater. A massa deve ficar espessa.',
@@ -563,7 +563,7 @@ INSERT INTO receitas (
 (
   'Doce de Bacuri',
   'Polpa de bacuri — fruta nativa maranhense de sabor exótico — batida com leite condensado e creme de leite ou cozida com açúcar até firmar.',
-  '�?�', 'Sobremesa', 30, '30 min', 6, 'Fácil', 0, 0, 0,
+  '🍑', 'Sobremesa', 30, '30 min', 6, 'Fácil', 0, 0, 0,
   JSON_ARRAY(
     'Extraia a polpa do bacuri (fruta com casca grossa e polpa esbranquiçada). Descarte a casca e as sementes.',
     'No liquidificador, bata a polpa com o leite condensado e o creme de leite por 2 minutos até ficar completamente homogêneo e cremoso.',
@@ -577,7 +577,7 @@ INSERT INTO receitas (
 (
   'Doce de Buriti',
   'Polpa de buriti do cerrado maranhense cozida com açúcar até firmar em pasta de cor laranja intensa e sabor adocicado característico.',
-  '�?�', 'Sobremesa', 60, '60 min', 6, 'Média', 0, 0, 0,
+  '🌴', 'Sobremesa', 60, '60 min', 6, 'Média', 0, 0, 0,
   JSON_ARRAY(
     'Para extrair a polpa: cozinhe os frutos inteiros em água por 15 minutos até amolecerem. Esprema em peneira com as mãos, separando a polpa laranja-avermelhada dos caroços e da casca.',
     'Coloque a polpa de buriti em panela de fundo grosso. Adicione o açúcar e misture bem (não adicione água — a polpa já tem umidade suficiente).',
@@ -633,7 +633,7 @@ INSERT INTO receitas (
 (
   'Sorvete de Cupuaçu',
   'Polpa de cupuaçu batida com leite condensado e creme de leite, batida duas vezes para quebrar os cristais e ficar cremosa.',
-  '�?�', 'Sobremesa', 30, '30 min', 6, 'Fácil', 1, 0, 0,
+  '🍊', 'Sobremesa', 30, '30 min', 6, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Deixe a polpa de cupuaçu descongelar parcialmente — não completamente, assim o sorvete fica mais cremoso.',
     'No liquidificador, bata a polpa com o leite condensado, creme de leite e leite integral por 3 minutos até ficar completamente homogêneo. Prove e adicione açúcar se necessário.',
@@ -647,7 +647,7 @@ INSERT INTO receitas (
 (
   'Compota de Caju',
   'Cajus inteiros cozidos na pressão com açúcar, cravo e canela, reposados por 12 horas para absorver a calda e atingir a textura correta.',
-  '�?�', 'Sobremesa', 90, '1h30', 6, 'Média', 0, 1, 0,
+  '🍑', 'Sobremesa', 90, '1h30', 6, 'Média', 0, 1, 0,
   JSON_ARRAY(
     'Lave bem os cajus. Retire as castanhas e reserve. Retire o pedúnculo com uma faca pequena. Fure a casca dos cajus com palito em vários pontos para o açúcar penetrar.',
     'Esprema os cajus levemente com as mãos para retirar parte do suco amargo característico. Reserve o suco.',
@@ -939,7 +939,7 @@ INSERT INTO receitas (
 (
   'Baião de Dois Vegano',
   'Clássico nordestino reinventado: feijão-de-corda e arroz cozidos juntos com abóbora, pimentão e temperos do Maranhão, sem carne nem laticínios.',
-  '🫘', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
+  '🍲', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Deixe 2 xícaras de feijão-de-corda de molho por 4 horas. Escorra e cozinhe na panela de pressão com água e sal por 15 minutos. O feijão deve ficar macio mas inteiro. Reserve com o caldo.',
     'Em uma panela grande, aqueça 3 colheres de sopa de óleo de babaçu em fogo médio. Refogue 1 cebola grande picada e 4 dentes de alho amassados até dourarem.',
@@ -967,7 +967,7 @@ INSERT INTO receitas (
 (
   'Arroz Maria Isabel Vegano',
   'Releitura vegana do clássico maranhense: arroz temperado com cogumelo seco defumado no lugar da carne de sol, com cebola e coentro.',
-  '�?�', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
+  '🍚', 'Prato Principal', 50, '50 min', 6, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Hidrate 150 g de cogumelo seco em 2 xícaras de água morna por 20 minutos. Escorra, esprema levemente e pique em cubinhos. Reserve a água de hidratação coada.',
     'Misture os cogumelos com 2 colheres de sopa de shoyu e 1/2 colher de chá de cominho. Marine por 10 minutos.',
@@ -1023,7 +1023,7 @@ INSERT INTO receitas (
 (
   'Feijão Maranhense com Maxixe, Abóbora e Quiabo',
   'Feijão de caldo grosso com os legumes típicos do Maranhão: maxixe, abóbora e quiabo, temperado com coentro e alho frito.',
-  '🫘', 'Prato Principal', 60, '60 min', 6, 'Fácil', 0, 0, 1, 0,
+  '🍲', 'Prato Principal', 60, '60 min', 6, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Deixe 2 xícaras de feijão mulatinho de molho por 2 horas. Escorra e cozinhe na panela de pressão com 1,5 litro de água e sal por 20 minutos. Reserve com o caldo.',
     'Corte 200 g de abóbora em cubos de 2 cm, 150 g de maxixe ao meio e 150 g de quiabo em rodelas. Lave o quiabo com vinagre para reduzir a baba.',
@@ -1079,7 +1079,7 @@ INSERT INTO receitas (
 (
   'Purê de Macaxeira com Azeite de Babaçu',
   'Purê cremoso de macaxeira preparado com óleo de babaçu, alho e leite de coco. Acompanhamento suave e saboroso da culinária maranhense.',
-  '�?�', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🌿', 'Acompanhamento', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Descasque e corte 800 g de mandioca em pedaços médios. Retire o fio central. Lave bem e cozinhe em panela com água fria e sal por 25 a 30 minutos, até ficar bem macia.',
     'Escorra a mandioca e descarte a água. Enquanto ainda estiver quente, amasse com um garfo ou passe pelo espremedor de batatas até obter massa homogênea sem grumos.',
@@ -1149,7 +1149,7 @@ INSERT INTO receitas (
 (
   'Bolo de Tapioca Vegano',
   'Bolo gelado de tapioca com leite de coco, sem forno e sem ovos. Sobremesa refrescante e cremosa muito apreciada no Maranhão.',
-  '�?�', 'Sobremesa', 30, '30 min + geladeira', 8, 'Fácil', 0, 1, 1, 0,
+  '🎂', 'Sobremesa', 30, '30 min + geladeira', 8, 'Fácil', 0, 1, 1, 0,
   JSON_ARRAY(
     'Em uma tigela grande, coloque 2 xícaras de tapioca granulada. Despeje 2 xícaras de leite de coco quente sobre a tapioca. Misture e deixe descansar por 30 minutos, mexendo ocasionalmente para hidratar uniformemente.',
     'Após a tapioca hidratar, adicione mais 400 ml de leite de coco, 1 xícara de açúcar, 1 xícara de coco ralado sem açúcar e uma pitada de sal. Misture bem.',
@@ -1191,7 +1191,7 @@ INSERT INTO receitas (
 (
   'Doce de Espécie de Alcântara Vegano',
   'O famoso doce de espécie da cidade de Alcântara no Maranhão: recheio de cocada densa envolvido em massa fina de trigo e óleo de babaçu, assado até dourar.',
-  '�?�', 'Sobremesa', 50, '50 min', 20, 'Média', 0, 1, 1, 1,
+  '🍬', 'Sobremesa', 50, '50 min', 20, 'Média', 0, 1, 1, 1,
   JSON_ARRAY(
     'Prepare o recheio: em uma panela, misture 3 xícaras de coco ralado, 2 xícaras de açúcar e 1/2 xícara de água. Adicione 5 cravos e 1 pau de canela. Cozinhe em fogo médio mexendo sempre até a mistura desgrudar da panela (ponto de brigadeiro). Retire os cravos e a canela. Deixe esfriar.',
     'Prepare a massa: misture 2 xícaras de farinha de trigo, 1/2 colher de chá de sal e 1/2 colher de chá de canela em pó. Adicione 5 colheres de sopa de óleo de babaçu e misture até formar uma farofa.',
@@ -1219,7 +1219,7 @@ INSERT INTO receitas (
 (
   'Doce de Bacuri Vegano',
   'Polpa de bacuri cozida somente com açúcar até virar doce cremoso e levemente ácido, sem laticínios. Sabor único e exótico do Maranhão.',
-  '�?�', 'Sobremesa', 45, '45 min', 8, 'Fácil', 0, 0, 1, 0,
+  '🍑', 'Sobremesa', 45, '45 min', 8, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Use 500 g de polpa de bacuri fresca ou descongelada. Se for fresco, abra os frutos e retire a polpa branca com uma colher. Descarte as sementes e a casca.',
     'Em uma tigela, misture a polpa de bacuri com 1 xícara de açúcar e 1/2 xícara de água. Deixe descansar por 15 minutos para soltar o suco natural.',
@@ -1233,7 +1233,7 @@ INSERT INTO receitas (
 (
   'Doce de Cupuaçu',
   'Polpa de cupuaçu cozida com açúcar até atingir ponto de doce cremoso. Sabor tropical intenso e levemente ácido, sem laticínios.',
-  '�?�', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 0, 1, 0,
+  '🍊', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Utilize 500 g de polpa de cupuaçu fresca ou descongelada em temperatura ambiente. A polpa deve estar sem sementes.',
     'Em uma panela de fundo grosso, coloque a polpa, 300 g de açúcar e 1/2 xícara de água. Misture e leve ao fogo médio, mexendo até o açúcar dissolver.',
@@ -1247,7 +1247,7 @@ INSERT INTO receitas (
 (
   'Doce de Murici',
   'Polpa de murici cozida com açúcar e especiarias. Fruta típica do cerrado maranhense com sabor único, levemente fermentado e aromático.',
-  '�?', 'Sobremesa', 35, '35 min', 6, 'Fácil', 0, 0, 1, 0,
+  '🍑', 'Sobremesa', 35, '35 min', 6, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Selecione 500 g de murici bem maduros. Lave bem e retire os caroços: esprema cada fruto para separar a polpa da semente. Reserve a polpa.',
     'Bata a polpa de murici no liquidificador com 1/4 de xícara de água no modo pulsar apenas para soltar os fios, sem triturar demais. Coe em peneira grossa para retirar fios mais duros.',
@@ -1261,7 +1261,7 @@ INSERT INTO receitas (
 (
   'Geleia de Jenipapo',
   'Geleia artesanal feita com jenipapo, fruta típica do Maranhão e Nordeste. Cor escura intensa e sabor adocicado com notas tânicas.',
-  '🫙', 'Sobremesa', 50, '50 min', 10, 'Média', 0, 0, 1, 0,
+  '🍯', 'Sobremesa', 50, '50 min', 10, 'Média', 0, 0, 1, 0,
   JSON_ARRAY(
     'Escolha 5 jenipapos bem maduros e firmes. Descasque com faca e retire as sementes. Corte a polpa em pedaços médios. Lave bem para reduzir o amargor.',
     'Coloque a polpa em uma panela com 2 xícaras de água e leve ao fogo médio por 15 minutos até ficar bem macia. Deixe esfriar, bata no liquidificador e coe em peneira fina.',
@@ -1275,7 +1275,7 @@ INSERT INTO receitas (
 (
   'Sorvete Artesanal de Coco Babaçu',
   'Sorvete cremoso feito com leite de coco babaçu e coco fresco ralado. Sobremesa refrescante e 100% vegana com o fruto símbolo do Maranhão.',
-  '�?�', 'Sobremesa', 30, '30 min + freezer', 6, 'Fácil', 0, 0, 1, 0,
+  '🍦', 'Sobremesa', 30, '30 min + freezer', 6, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Em uma panela pequena, aqueça 800 ml de leite de coco de babaçu com 150 g de açúcar em fogo baixo, mexendo até o açúcar dissolver completamente. Não deixe ferver.',
     'Adicione 1 colher de sopa de óleo de babaçu. Misture bem. Retire do fogo e deixe esfriar completamente em temperatura ambiente.',
@@ -1317,7 +1317,7 @@ INSERT INTO receitas (
 (
   'Manjar de Milho Verde',
   'Manjar delicado feito com leite de milho e leite de coco, firme e cremoso. Sobremesa vegana de textura aveludada servida com calda de frutas regionais.',
-  '�?�', 'Sobremesa', 40, '40 min + geladeira', 8, 'Média', 0, 1, 1, 0,
+  '🌽', 'Sobremesa', 40, '40 min + geladeira', 8, 'Média', 0, 1, 1, 0,
   JSON_ARRAY(
     'Bata no liquidificador a polpa de 4 espigas de milho verde com 400 ml de leite de coco até ficar bem homogêneo. Coe em peneira fina e reserve o leite de milho obtido.',
     'Em uma panela, dissolva 5 colheres de sopa de amido de milho em 200 ml de leite de coco frio. Misture bem sem deixar grumos.',
@@ -1331,7 +1331,7 @@ INSERT INTO receitas (
 (
   'Arroz Doce Maranhense com Leite de Coco',
   'Arroz doce cremoso preparado somente com leite de coco e especiarias, sem leite animal. Versão vegana da sobremesa mais amada do Maranhão.',
-  '�?�', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 1, 1, 0,
+  '🍚', 'Sobremesa', 50, '50 min', 8, 'Fácil', 0, 1, 1, 0,
   JSON_ARRAY(
     'Lave 2 xícaras de arroz branco agulhinha e coloque em uma panela com 3 xícaras de água, 1 pau de canela e 4 cravos. Leve ao fogo médio até a água ferver.',
     'Abaixe o fogo, tampe parcialmente e cozinhe por 15 minutos até o arroz absorver quase toda a água, ficando al dente.',
@@ -1542,7 +1542,7 @@ INSERT INTO receitas (
 (
   'Peixe Assado no Azeite de Babaçu',
   'Peixe inteiro marinado no limão e alho, assado no forno com óleo de babaçu e cebola em rodelas. Preparo leve e saboroso, tipicamente maranhense.',
-  '�?�', 'Prato Principal', 70, '1h10', 4, 'Fácil', 0, 0, 1, 0,
+  '🐟', 'Prato Principal', 70, '1h10', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Limpe e lave bem o peixe inteiro (peixe-pedra, tainha ou robalo). Faça cortes laterais na carne para o tempero penetrar melhor.',
     'Tempere com suco de 2 limões, 4 dentes de alho amassado, sal e pimenta do reino. Deixe marinar por 30 minutos.',
@@ -1556,7 +1556,7 @@ INSERT INTO receitas (
 (
   'Peixe Escabeche Maranhense',
   'Filés de peixe grelhados e cobertos com molho de cebola, tomate, pimentão e vinagre temperado com colorau e pimenta-de-cheiro.',
-  '�?�', 'Prato Principal', 40, '40 min', 4, 'Média', 0, 0, 1, 0,
+  '🐟', 'Prato Principal', 40, '40 min', 4, 'Média', 0, 0, 1, 0,
   JSON_ARRAY(
     'Tempere os filés de peixe (cavala ou cação) com suco de limão, alho amassado e sal. Marine por no mínimo 20 minutos.',
     'Aqueça 2 colheres de sopa de azeite em frigideira antiaderente. Grelhe os filés em fogo médio-alto até dourar dos dois lados. Reserve.',
@@ -1612,7 +1612,7 @@ INSERT INTO receitas (
 (
   'Camarão Gigante Cozido',
   'Camarão gigante cozido na casca em caldo temperado e finalizado na grelha. Preparo simples que exalta o sabor natural do camarão maranhense.',
-  '�?', 'Prato Principal', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🦐', 'Prato Principal', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Lave bem os camarões gigantes. Faça um corte longitudinal no dorso para retirar o fio intestinal sem remover a casca.',
     'Tempere com suco de 2 limões, 4 dentes de alho amassado, sal e pimenta-de-cheiro. Marine por 20 minutos.',
@@ -1626,7 +1626,7 @@ INSERT INTO receitas (
 (
   'Caldo de Frango com Macaxeira',
   'Caldo encorpado de frango desfiado com cubos de macaxeira cozida, coentro e temperos maranhenses. Reconfortante e naturalmente nutritivo.',
-  '�?�', 'Prato Principal', 60, '60 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🍗', 'Prato Principal', 60, '60 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Tempere 500 g de coxas e sobrecoxas de frango sem pele com sal, pimenta do reino e metade do alho. Reserve por 15 minutos.',
     'Aqueça o azeite em panela de pressão. Doure o frango por todos os lados. Junte a cebola picada, o alho restante, o pimentão e o tomate picados. Refogue por 3 minutos.',
@@ -1640,7 +1640,7 @@ INSERT INTO receitas (
 (
   'Caldo de Feijão com Maxixe e Quiabo',
   'Caldo rústico de feijão com maxixe e quiabo, temperado com coentro e pimenta-de-cheiro. O quiabo engrossa naturalmente o caldo sem precisar de farinha.',
-  '🫘', 'Prato Principal', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🍲', 'Prato Principal', 35, '35 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Aqueça 2 colheres de sopa de azeite em panela média. Refogue a cebola picada e o alho amassado até dourar levemente.',
     'Junte 2 tomates picados e a pimenta-de-cheiro. Cozinhe por 3 minutos até o tomate amolecer.',
@@ -1668,7 +1668,7 @@ INSERT INTO receitas (
 (
   'Cuscuz de Arroz Maranhense',
   'Cuscuz feito de flocão de arroz na cuscuzeira, úmido e soltinho. Opção de menor índice glicêmico em relação ao cuscuz de milho.',
-  '�?�', 'Entrada', 55, '55 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🍚', 'Entrada', 55, '55 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Em tigela, misture 2 xícaras de farinha de arroz (flocão de arroz) com 1 colher de chá de sal. Misture com garfo.',
     'Regue a farinha com água aos poucos (cerca de 3/4 de xícara), amassando com os dedos até obter textura úmida como areia molhada. Deixe hidratar por 20 minutos.',
@@ -1682,7 +1682,7 @@ INSERT INTO receitas (
 (
   'Macaxeira Cozida',
   'Macaxeira simplesmente cozida em água temperada, regada com azeite e finalizada com coentro fresco. Base da culinária maranhense, naturalmente sem açúcar.',
-  '�?�', 'Acompanhamento', 40, '40 min', 4, 'Fácil', 0, 0, 1, 0,
+  '🌿', 'Acompanhamento', 40, '40 min', 4, 'Fácil', 0, 0, 1, 0,
   JSON_ARRAY(
     'Descasque 800 g de macaxeira, remova o fio central e corte em pedaços de aproximadamente 6 cm.',
     'Lave bem os pedaços em água corrente para remover o excesso de amido.',
@@ -1752,7 +1752,7 @@ INSERT INTO receitas (
 (
   'Juçara com Farinha de Puba',
   'Polpa de juçara (açaí-do-maranhão) servida com farinha de puba fermentada e camarão seco. Combinação única e tradicional do Maranhão.',
-  '�?', 'Entrada', 15, '15 min', 4, 'Fácil', 1, 0, 1, 0,
+  '🍵', 'Entrada', 15, '15 min', 4, 'Fácil', 1, 0, 1, 0,
   JSON_ARRAY(
     'Deixe o camarão seco de molho em água por 1 hora para reduzir o sal. Escorra e reserve.',
     'Bata a polpa de juçara (ou frutos de juçara) no liquidificador com água fria gelada até obter consistência cremosa. Mantenha refrigerada.',

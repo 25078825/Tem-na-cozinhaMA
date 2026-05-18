@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(node -e ' *)",
+      "Bash(docker exec temnacozinha_mysql mysql -u pedro -ppedro123 temnacozinha_ma -e ' *)"
     ]
   }
 }
