@@ -129,7 +129,7 @@ INSERT INTO receitas (
 (
   'Tapioca Recheada',
   'Tapioca feita na frigideira seca recheada com queijo coalho e carne de sol desfiada, regada com manteiga de garrafa.',
-  '🥙', 'Entrada', 15, '15 min', 2, 'Fácil', 1, 0, 0,
+  '🌯', 'Entrada', 15, '15 min', 2, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Peneire a goma de tapioca para deixá-la solta e sem grumos.',
     'Aqueça uma frigideira antiaderente em fogo médio-alto, sem óleo. Espalhe a goma formando um disco uniforme com as costas de uma colher.',
@@ -437,7 +437,7 @@ INSERT INTO receitas (
 (
   'Beiju de Tapioca',
   'Disco de tapioca granulada hidratada no leite de coco quente com coco fresco ralado, grelhado na frigideira seca até dourar.',
-  '🥞', 'Lanche', 25, '25 min', 6, 'Fácil', 1, 0, 0,
+  '🥥', 'Lanche', 25, '25 min', 6, 'Fácil', 1, 0, 0,
   JSON_ARRAY(
     'Em tigela grande, coloque a tapioca granulada. Despeje o leite de coco bem quente sobre a tapioca, misturando imediatamente. Deixe repousar por 10 minutos, mexendo a cada 2 minutos.',
     'Adicione o coco fresco ralado e misture bem até obter uma massa mais densa e homogênea. Se ficar seco, acrescente mais leite de coco morno.',
