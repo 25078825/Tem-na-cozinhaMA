@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTimer } from '../../context/TimerContext'
+import { useSpeech } from '../../hooks/useSpeech'
 
 function detectarIngredientesNoPasso(textoPasso, ingredientes) {
   const texto = textoPasso.toLowerCase()
@@ -140,20 +141,67 @@ function ListaIngredientes({ ingredientes, ingDestacados }) {
   )
 }
 
-function PainelPasso({ passoAtual, passo, passos, total, irPara, onFechar }) {
+function PainelPasso({ passoAtual, passo, passos, total, irPara, onFechar,
+                       falar, parar, falando, autoNarrar, onToggleAuto, suportado }) {
   return (
     <div className="flex-1 flex flex-col overflow-y-auto px-5 py-5 lg:px-10 lg:py-8">
       <div className="flex items-center gap-3 mb-5">
-        <span className="w-10 h-10 rounded-2xl bg-amber-500 flex items-center justify-center
-                         text-white font-black text-lg shadow-lg shadow-amber-500/30 flex-shrink-0">
+        <span className={`w-10 h-10 rounded-2xl flex items-center justify-center
+                         text-white font-black text-lg shadow-lg flex-shrink-0
+                         transition-all duration-300 ${
+                           falando
+                             ? 'bg-amber-400 shadow-amber-400/40 scale-110'
+                             : 'bg-amber-500 shadow-amber-500/30'
+                         }`}>
           {passoAtual + 1}
         </span>
-        <span className="text-gray-500 text-sm font-medium">
+        <span className="text-gray-500 text-sm font-medium flex-1">
           de {total} {total === 1 ? 'passo' : 'passos'}
         </span>
+
+        {suportado && (
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button
+              onClick={() => falando ? parar() : falar(passo)}
+              title={falando ? 'Parar narração' : 'Ouvir este passo'}
+              className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                falando
+                  ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30'
+                  : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
+              }`}
+            >
+              {falando ? (
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M15.536 8.464a5 5 0 010 7.072M12 6a7 7 0 010 12M9 9a3 3 0 000 6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M6 12h.01" />
+                </svg>
+              )}
+            </button>
+
+            <button
+              onClick={onToggleAuto}
+              title={autoNarrar ? 'Desativar narração automática' : 'Ativar narração automática'}
+              className={`h-9 px-3 rounded-xl text-[11px] font-semibold transition-all ${
+                autoNarrar
+                  ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30'
+                  : 'bg-gray-800 text-gray-500 hover:text-gray-300'
+              }`}
+            >
+              Auto
+            </button>
+          </div>
+        )}
       </div>
 
-      <p className="text-white text-base sm:text-xl leading-relaxed font-medium flex-1">
+      <p className={`text-base sm:text-xl leading-relaxed font-medium flex-1 transition-colors ${
+        falando ? 'text-amber-100' : 'text-white'
+      }`}>
         {passo}
       </p>
 
@@ -205,9 +253,11 @@ function PainelPasso({ passoAtual, passo, passos, total, irPara, onFechar }) {
 }
 
 export default function ModoGuiado({ receita, onFechar }) {
-  const [passoAtual, setPassoAtual] = useState(0)
-  const [abaMobile,  setAbaMobile]  = useState('passo')
+  const [passoAtual,  setPassoAtual]  = useState(0)
+  const [abaMobile,   setAbaMobile]   = useState('passo')
+  const [autoNarrar,  setAutoNarrar]  = useState(false)
   const { minimizar } = useTimer()
+  const { falar, parar, falando, suportado } = useSpeech()
 
   const passos        = receita.modoPreparo ?? []
   const ingredientes  = receita.ingredientes ?? []
@@ -221,14 +271,18 @@ export default function ModoGuiado({ receita, onFechar }) {
   }, [total])
 
   useEffect(() => {
+    if (autoNarrar && passo) falar(passo)
+  }, [passoAtual, autoNarrar])
+
+  useEffect(() => {
     function onKey(e) {
       if (e.key === 'ArrowRight' && passoAtual < total - 1) irPara(passoAtual + 1)
       if (e.key === 'ArrowLeft'  && passoAtual > 0)         irPara(passoAtual - 1)
-      if (e.key === 'Escape') onFechar()
+      if (e.key === 'Escape') { parar(); onFechar() }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [passoAtual, total, irPara, onFechar])
+  }, [passoAtual, total, irPara, onFechar, parar])
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -252,7 +306,7 @@ export default function ModoGuiado({ receita, onFechar }) {
             <p className="text-gray-500 text-xs">Modo guiado</p>
           </div>
         </div>
-        <button onClick={onFechar}
+        <button onClick={() => { parar(); onFechar() }}
                 className="w-9 h-9 flex items-center justify-center rounded-xl
                            bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white
                            transition-colors flex-shrink-0">
@@ -271,6 +325,9 @@ export default function ModoGuiado({ receita, onFechar }) {
         <PainelPasso
           passoAtual={passoAtual} passo={passo} passos={passos}
           total={total} irPara={irPara} onFechar={onFechar}
+          falar={falar} parar={parar} falando={falando}
+          autoNarrar={autoNarrar} onToggleAuto={() => setAutoNarrar(v => !v)}
+          suportado={suportado}
         />
         <div className="flex-shrink-0 w-72 xl:w-80 border-l border-gray-800 flex flex-col overflow-hidden">
           <div className="p-4 border-b border-gray-800 flex-shrink-0">
@@ -292,6 +349,9 @@ export default function ModoGuiado({ receita, onFechar }) {
             <PainelPasso
               passoAtual={passoAtual} passo={passo} passos={passos}
               total={total} irPara={irPara} onFechar={onFechar}
+              falar={falar} parar={parar} falando={falando}
+              autoNarrar={autoNarrar} onToggleAuto={() => setAutoNarrar(v => !v)}
+              suportado={suportado}
             />
           )}
           {abaMobile === 'timer' && (
