@@ -1,5 +1,37 @@
 import { useMemo } from 'react'
 
+const ESTILO_POR_INGREDIENTE = [
+  { keywords: ['Camarão', 'Camarão seco', 'Caranguejo', 'Siri', 'Lagosta', 'Mariscos'],
+    gradient: 'linear-gradient(145deg, #FFF3E0 0%, #FFCCBC 100%)', icone: '🦐' },
+  { keywords: ['Bacalhau', 'Peixe', 'Tambaqui', 'Tilápia', 'Sardinha', 'Atum'],
+    gradient: 'linear-gradient(145deg, #E3F2FD 0%, #B3E5FC 100%)', icone: '🐟' },
+  { keywords: ['Frango', 'Galinha'],
+    gradient: 'linear-gradient(145deg, #FFFDE7 0%, #FFF9C4 100%)', icone: '🍗' },
+  { keywords: ['Carne seca', 'Carne de sol', 'Carne bovina', 'Alcatra', 'Costela', 'Boi'],
+    gradient: 'linear-gradient(145deg, #FBE9E7 0%, #FFCCBC 100%)', icone: '🍖' },
+  { keywords: ['Porco', 'Toucinho', 'Bacon', 'Linguiça', 'Presunto'],
+    gradient: 'linear-gradient(145deg, #FCE4EC 0%, #F8BBD9 100%)', icone: '🍖' },
+  { keywords: ['Milho', 'Canjica', 'Fubá', 'Pamonha', 'Mungunzá'],
+    gradient: 'linear-gradient(145deg, #FFFDE7 0%, #FFF176 100%)', icone: '🌽' },
+  { keywords: ['Leite de coco', 'Coco ralado'],
+    gradient: 'linear-gradient(145deg, #F1F8E9 0%, #DCEDC8 100%)', icone: '🌴' },
+  { keywords: ['Arroz'],
+    gradient: 'linear-gradient(145deg, #F9FBE7 0%, #F0F4C3 100%)', icone: '🍚' },
+  { keywords: ['Feijão', 'Lentilha', 'Grão-de-bico'],
+    gradient: 'linear-gradient(145deg, #EFEBE9 0%, #D7CCC8 100%)', icone: '🍲' },
+  { keywords: ['Mandioca', 'Macaxeira', 'Aipim', 'Farinha de mandioca', 'Tapioca', 'Goma'],
+    gradient: 'linear-gradient(145deg, #FFF8E1 0%, #FFECB3 100%)', icone: '🌿' },
+]
+
+function getEstiloIngrediente(ingredientes = []) {
+  for (const estilo of ESTILO_POR_INGREDIENTE) {
+    if (ingredientes.some(ing =>
+      estilo.keywords.some(k => ing.toLowerCase().includes(k.toLowerCase()))
+    )) return estilo
+  }
+  return null
+}
+
 const CATEGORY_STYLE = {
   'Prato Principal': {
     gradient: 'linear-gradient(145deg, #FFF8F0 0%, #FFE0B2 100%)',
@@ -36,7 +68,10 @@ const DIFFICULTY_STYLE = {
 }
 
 export default function RecipeCard({ receita, ingredientesUsuario = [], onClick }) {
-  const catStyle = CATEGORY_STYLE[receita.categoria] ?? DEFAULT_STYLE
+  const catStyle      = CATEGORY_STYLE[receita.categoria] ?? DEFAULT_STYLE
+  const ingEstilo     = getEstiloIngrediente(receita.ingredientes)
+  const cardGradient  = ingEstilo?.gradient ?? catStyle.gradient
+  const iconeSecund   = ingEstilo?.icone
 
   const match = useMemo(() => {
     if (!ingredientesUsuario.length) return null
@@ -81,20 +116,21 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
     >
       {/* ── Imagem ────────────────────────────────────── */}
       <div className="h-44 relative flex items-center justify-center flex-shrink-0 overflow-hidden"
-           style={{ background: catStyle.gradient }}>
+           style={{ background: cardGradient }}>
 
-        {/* Círculo decorativo de fundo */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.06]"
-             style={{ transform: 'scale(1.5)' }}>
-          <span className="text-[180px] leading-none select-none pointer-events-none">
-            {receita.emoji}
+        {/* Ícone de categoria decorativo ao fundo */}
+        {iconeSecund && (
+          <span className="absolute right-3 bottom-2 text-[100px] leading-none
+                           select-none pointer-events-none opacity-20 group-hover:opacity-30
+                           transition-opacity duration-300">
+            {iconeSecund}
           </span>
-        </div>
+        )}
 
-        {/* Emoji principal */}
-        <span className="relative text-6xl select-none
+        {/* Emoji principal da receita */}
+        <span className="relative text-6xl select-none z-10
                          group-hover:scale-110 transition-transform duration-500
-                         drop-shadow-sm z-10">
+                         drop-shadow-sm">
           {receita.emoji}
         </span>
 
@@ -145,7 +181,7 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
         </div>
 
         {/* CTA hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20
                         transition-colors duration-300 flex items-center justify-center">
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300
                            bg-white text-gray-800 text-xs font-semibold px-4 py-1.5
