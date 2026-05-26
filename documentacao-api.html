@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentação do Sistema — Tem na Cozinha MA</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* ── Capa ─────────────────────────────────────── */
+    .capa {
+      background: linear-gradient(135deg, #1a2233 0%, #0f172a 60%, #1c1917 100%);
+      color: white;
+      padding: 80px 80px 60px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .capa::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .capa::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .capa-inner { position: relative; z-index: 1; max-width: 800px; }
+
+    .capa-logo {
+      font-size: 72px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .capa h1 {
+      font-size: 44px;
+      font-weight: 800;
+      color: #F59E0B;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .capa .subtitulo {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .capa-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .capa-meta p {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .capa-meta span { color: #94a3b8; }
+
+    .capa-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .capa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    /* ── Layout geral ────────────────────────────── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 32px;
+    }
+
+    /* ── Índice ──────────────────────────────────── */
+    .toc {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 48px;
+      page-break-after: always;
+    }
+
+    .toc h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #F59E0B;
+      display: inline-block;
+    }
+
+    .toc ol {
+      counter-reset: none;
+      list-style: none;
+      columns: 2;
+      column-gap: 40px;
+    }
+
+    .toc ol li {
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      break-inside: avoid;
+    }
+
+    .toc ol li a {
+      color: #334155;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc ol li a:hover { color: #F59E0B; }
+
+    .toc-num {
+      background: #FEF3C7;
+      color: #D97706;
+      font-size: 11px;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── Seções ──────────────────────────────────── */
+    .secao {
+      margin-bottom: 56px;
+      page-break-inside: avoid;
+    }
+
+    .secao-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .secao-num {
+      background: #F59E0B;
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .secao h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 24px 0 12px;
+      padding-left: 10px;
+      border-left: 3px solid #F59E0B;
+    }
+
+    h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #374151;
+      margin: 16px 0 8px;
+    }
+
+    p { margin-bottom: 10px; color: #374151; }
+
+    /* ── Cards de informação ─────────────────────── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .info-card .icon { font-size: 24px; margin-bottom: 10px; display: block; }
+    .info-card .label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+    .info-card .value { font-size: 14px; font-weight: 600; color: #1e293b; }
+    .info-card .desc  { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+    /* ── Stack de tecnologias ────────────────────── */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tech-tag.amber  { background: #FEF3C7; border-color: #FDE68A; color: #92400E; }
+    .tech-tag.green  { background: #DCFCE7; border-color: #BBF7D0; color: #14532D; }
+    .tech-tag.blue   { background: #DBEAFE; border-color: #BFDBFE; color: #1E3A5F; }
+    .tech-tag.purple { background: #F3E8FF; border-color: #E9D5FF; color: #3B0764; }
+    .tech-tag.red    { background: #FEE2E2; border-color: #FECACA; color: #7F1D1D; }
+    .tech-tag.gray   { background: #F8FAFC; border-color: #CBD5E1; color: #1E293B; }
+    .tech-tag.orange { background: #FEF3C7; border-color: #FCD34D; color: #78350F; }
+
+    /* ── Diagrama de arquitetura ─────────────────── */
+    .arq-diagram {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .arq-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .arq-box {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 20px;
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .arq-box.amber  { background: #FEF9C3; border-color: #FDE68A; }
+    .arq-box.blue   { background: #DBEAFE; border-color: #93C5FD; }
+    .arq-box.green  { background: #DCFCE7; border-color: #86EFAC; }
+    .arq-box.orange { background: #FEF3C7; border-color: #FCD34D; }
+    .arq-box.purple { background: #F3E8FF; border-color: #C084FC; }
+
+    .arq-box .arq-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .arq-box .arq-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .arq-arrow {
+      font-size: 20px;
+      color: #94a3b8;
+      margin: 0 10px;
+      flex-shrink: 0;
+    }
+
+    .arq-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0 8px;
+    }
+
+    /* ── Tabelas ─────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead tr { background: #f8fafc; }
+
+    thead th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    tbody tr { border-bottom: 1px solid #f1f5f9; }
+    tbody tr:last-child { border-bottom: none; }
+
+    tbody td {
+      padding: 11px 16px;
+      color: #374151;
+      vertical-align: top;
+    }
+
+    .tag-pk  { background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-fk  { background: #DBEAFE; color: #1E3A5F; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .tag-idx { background: #F3E8FF; color: #3B0764; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+
+    /* ── Endpoints ───────────────────────────────── */
+    .endpoint {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .method {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      flex-shrink: 0;
+    }
+
+    .method.get  { background: #DCFCE7; color: #14532D; }
+    .method.post { background: #DBEAFE; color: #1E3A5F; }
+
+    .endpoint-path {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+      flex: 1;
+    }
+
+    .endpoint-desc {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .endpoint-body { padding: 16px 18px; }
+
+    /* ── Code blocks ─────────────────────────────── */
+    pre, code {
+      font-family: 'Courier New', Consolas, monospace;
+    }
+
+    .code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    .code-block .c-key    { color: #93C5FD; }
+    .code-block .c-str    { color: #86EFAC; }
+    .code-block .c-num    { color: #FCD34D; }
+    .code-block .c-bool   { color: #F9A8D4; }
+    .code-block .c-null   { color: #94a3b8; }
+    .code-block .c-cm     { color: #475569; font-style: italic; }
+    .code-block .c-kw     { color: #C084FC; }
+
+    .inline-code {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #be123c;
+      font-size: 12px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ── Param table ─────────────────────────────── */
+    .param-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin: 12px 0 6px;
+    }
+
+    /* ── Listas ──────────────────────────────────── */
+    ul, ol {
+      padding-left: 22px;
+      margin: 10px 0;
+    }
+
+    li { margin-bottom: 6px; color: #374151; font-size: 13.5px; }
+
+    /* ── Boxes de destaque ───────────────────────── */
+    .highlight-box {
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box.amber {
+      background: #FEF9C3;
+      border-left: 4px solid #F59E0B;
+    }
+
+    .highlight-box.blue {
+      background: #EFF6FF;
+      border-left: 4px solid #3B82F6;
+    }
+
+    .highlight-box.green {
+      background: #F0FDF4;
+      border-left: 4px solid #22C55E;
+    }
+
+    .highlight-box.red {
+      background: #FEF2F2;
+      border-left: 4px solid #EF4444;
+    }
+
+    .highlight-box p { margin: 0; font-size: 13px; color: #1e293b; }
+    .highlight-box strong { color: #0f172a; }
+
+    /* ── Fluxo ───────────────────────────────────── */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 20px 0;
+    }
+
+    .flow-step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      width: 2px;
+      bottom: -4px;
+      background: #e2e8f0;
+    }
+
+    .flow-num {
+      width: 36px;
+      height: 36px;
+      background: #F59E0B;
+      color: white;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .flow-content {
+      padding: 6px 0 24px;
+    }
+
+    .flow-content strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .flow-content span {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* ── Separador de página ─────────────────────── */
+    .page-break { page-break-before: always; }
+
+    /* ── Print ───────────────────────────────────── */
+    @media print {
+      body { font-size: 12px; }
+      .capa { page-break-after: always; min-height: 100vh; }
+      .toc  { page-break-after: always; }
+      .secao { page-break-inside: avoid; }
+      .endpoint { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     CAPA
+════════════════════════════════════════════ -->
+<div class="capa">
+  <div class="capa-inner">
+    <span class="capa-logo">🍳</span>
+    <h1>Tem na Cozinha MA</h1>
+    <p class="subtitulo">Documentação Técnica Completa do Sistema</p>
+
+    <div class="capa-badges">
+      <span class="capa-badge"><span class="badge-dot"></span> Produção</span>
+      <span class="capa-badge">React + Node.js</span>
+      <span class="capa-badge">AWS EC2 + Vercel</span>
+      <span class="capa-badge">MySQL 8</span>
+      <span class="capa-badge">REST API</span>
+    </div>
+
+    <p style="color:#cbd5e1;font-size:14px;line-height:1.8;max-width:600px;">
+      Plataforma web para descoberta e compartilhamento de receitas da culinária maranhense,
+      com busca inteligente por ingredientes disponíveis em casa, filtros avançados,
+      modo guiado de preparo e envio de sugestões via e-mail.
+    </p>
+
+    <div class="capa-meta">
+      <p><span>Acesso público:</span> https://tem-na-cozinha-ma-2.vercel.app</p>
+      <p><span>API (backend):</span> https://temnacozinhaapi.duckdns.org</p>
+      <p><span>Data do documento:</span> Maio de 2026</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ÍNDICE
+════════════════════════════════════════════ -->
+<div class="container">
+  <div class="toc">
+    <h2>Sumário</h2>
+    <ol>
+      <li><a href="#s1"><span class="toc-num">1</span> Visão Geral do Sistema</a></li>
+      <li><a href="#s2"><span class="toc-num">2</span> Stack Tecnológico</a></li>
+      <li><a href="#s3"><span class="toc-num">3</span> Arquitetura Geral</a></li>
+      <li><a href="#s4"><span class="toc-num">4</span> Frontend — React</a></li>
+      <li><a href="#s5"><span class="toc-num">5</span> Backend — API REST</a></li>
+      <li><a href="#s6"><span class="toc-num">6</span> Banco de Dados MySQL</a></li>
+      <li><a href="#s7"><span class="toc-num">7</span> Infraestrutura AWS EC2</a></li>
+      <li><a href="#s8"><span class="toc-num">8</span> HTTPS e Segurança</a></li>
+      <li><a href="#s9"><span class="toc-num">9</span> Deploy e CI/CD</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span> Funcionalidades Principais</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span> Documentação da API</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> Fluxos de Dados</a></li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 1 — VISÃO GERAL
+  ══════════════════════════════════════════ -->
+  <div class="secao" id="s1">
+    <div class="secao-header">
+      <div class="secao-num">1</div>
+      <h2>Visão Geral do Sistema</h2>
+    </div>
+
+    <p>
+      O <strong>Tem na Cozinha MA</strong> é uma aplicação web voltada para a valorização e preservação
+      da culinária maranhense. O sistema permite que qualquer usuário informe quais ingredientes tem disponíveis
+      em casa e receba, em tempo real, uma lista de receitas tradicionais que pode preparar com esses ingredientes —
+      incluindo receitas que estão "quase prontas" (com até 3 ingredientes faltando).
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="icon">🎯</span>
+        <div class="label">Objetivo</div>
+        <div class="value">Culinária Maranhense</div>
+        <div class="desc">Preservar e divulgar receitas regionais do Maranhão</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">👥</span>
+        <div class="label">Público-alvo</div>
+        <div class="value">Geral</div>
+        <div class="desc">Qualquer pessoa interessada em cozinhar pratos maranhenses</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">🌐</span>
+        <div class="label">Tipo de Aplicação</div>
+        <div class="value">Web SPA</div>
+        <div class="desc">Single Page Application com API REST separada</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">📱</span>
+        <div class="label">Responsividade</div>
+        <div class="value">Mobile-First</div>
+        <div class="desc">Interface adaptada para celulares, tablets e desktops</div>
+      </div>
+    </div>
+
+    <h3>Funcionalidades do Sistema</h3>
+    <ul>
+      <li><strong>Busca por ingredientes:</strong> usuário seleciona ingredientes que tem em casa e recebe receitas compatíveis, divididas em "tenho tudo" e "quase lá"</li>
+      <li><strong>Filtros avançados:</strong> categoria, dificuldade, tempo de preparo, ocasiões, opções veganas/diet</li>
+      <li><strong>Seções especiais:</strong> receitas organizadas por tema — festa junina, dias de festa, receitas rápidas, cardápio diário</li>
+      <li><strong>Modo guiado:</strong> apresentação passo-a-passo do modo de preparo com cronômetro e narração por voz (Web Speech API)</li>
+      <li><strong>Timer integrado:</strong> temporizador persistente durante o preparo da receita</li>
+      <li><strong>Sugestão de receitas:</strong> formulário para o usuário sugerir novas receitas, enviado por e-mail ao administrador</li>
+      <li><strong>Receitas em destaque:</strong> curadoria manual de receitas exibidas na página inicial</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 2 — STACK TECNOLÓGICO
+  ══════════════════════════════════════════ -->
+  <div class="secao" id="s2">
+    <div class="secao-header">
+      <div class="secao-num">2</div>
+      <h2>Stack Tecnológico</h2>
+    </div>
+
+    <h3>Frontend</h3>
+    <div class="tech-stack">
+      <span class="tech-tag amber">⚛ React 18</span>
+      <span class="tech-tag amber">⚡ Vite 5</span>
+      <span class="tech-tag amber">🎨 Tailwind CSS 3</span>
+      <span class="tech-tag blue">🔀 React Router v6</span>
+      <span class="tech-tag blue">🔗 Fetch API</span>
+      <span class="tech-tag purple">🎙 Web Speech API</span>
+    </div>
+
+    <h3>Backend</h3>
+    <div class="tech-stack">
+      <span class="tech-tag green">🟢 Node.js 20</span>
+      <span class="tech-tag green">🚀 Express 4</span>
+      <span class="tech-tag green">🗄 mysql2</span>
+      <span class="tech-tag blue">🔒 Helmet</span>
+      <span class="tech-tag blue">🌐 CORS</span>
+      <span class="tech-tag blue">⏱ express-rate-limit</span>
+      <span class="tech-tag purple">📧 Nodemailer</span>
+      <span class="tech-tag gray">⚙ dotenv</span>
+    </div>
+
+    <h3>Banco de Dados</h3>
+    <div class="tech-stack">
+      <span class="tech-tag orange">🐬 MySQL 8.0</span>
+      <span class="tech-tag orange">🔤 utf8mb4</span>
+      <span class="tech-tag orange">📊 JSON columns</span>
+      <span class="tech-tag orange">🔗 InnoDB + FK</span>
+    </div>
+
+    <h3>Infraestrutura e Deploy</h3>
+    <div class="tech-stack">
+      <span class="tech-tag amber">▲ Vercel (frontend)</span>
+      <span class="tech-tag orange">☁ AWS EC2 t3.micro</span>
+      <span class="tech-tag green">🔧 Ubuntu 22.04</span>
+      <span class="tech-tag blue">🌐 Nginx (proxy reverso)</span>
+      <span class="tech-tag green">🔐 Let's Encrypt SSL</span>
+      <span class="tech-tag purple">🦆 DuckDNS (domínio)</span>
+      <span class="tech-tag gray">⚙ PM2 (process manager)</span>
+    </div>
+
+    <div class="info-grid" style="margin-top:20px">
+      <div class="info-card">
+        <span class="icon">🔢</span>
+        <div class="label">Versão do Node</div>
+        <div class="value">Node.js 20 LTS</div>
+        <div class="desc">ES Modules (import/export)</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">📦</span>
+        <div class="label">Gerenciador de Pacotes</div>
+        <div class="value">npm</div>
+        <div class="desc">Frontend e backend independentes</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">🔄</span>
+        <div class="label">Formato de Módulos</div>
+        <div class="value">ESM</div>
+        <div class="desc">import/export em todo o projeto</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 3 — ARQUITETURA
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s3">
+    <div class="secao-header">
+      <div class="secao-num">3</div>
+      <h2>Arquitetura Geral</h2>
+    </div>
+
+    <p>
+      O sistema segue uma arquitetura de três camadas com frontend e backend completamente separados,
+      comunicando-se exclusivamente via API REST sobre HTTPS. Essa separação permite que cada
+      parte seja deployada, escalada e mantida de forma independente.
+    </p>
+
+    <div class="arq-diagram">
+      <div class="arq-section-label">Usuário</div>
+      <div class="arq-row">
+        <div class="arq-box amber">
+          <div class="arq-title">🌐 Navegador</div>
+          <div class="arq-sub">Chrome / Firefox / Safari</div>
+        </div>
+      </div>
+
+      <div class="arq-row" style="margin:6px 0">
+        <div style="color:#94a3b8;font-size:12px;">HTTPS</div>
+      </div>
+      <div class="arq-row" style="margin:2px 0">
+        <div style="color:#94a3b8;font-size:18px;">↓</div>
+      </div>
+
+      <div class="arq-section-label">Camada de Apresentação</div>
+      <div class="arq-row">
+        <div class="arq-box blue">
+          <div class="arq-title">⚛ React SPA</div>
+          <div class="arq-sub">Vercel CDN Global</div>
+        </div>
+      </div>
+
+      <div class="arq-row" style="margin:6px 0">
+        <div style="color:#94a3b8;font-size:12px;">HTTPS / REST API</div>
+      </div>
+      <div class="arq-row" style="margin:2px 0">
+        <div style="color:#94a3b8;font-size:18px;">↓</div>
+      </div>
+
+      <div class="arq-section-label">Camada de Aplicação — AWS EC2 (São Paulo)</div>
+      <div class="arq-row">
+        <div class="arq-box green">
+          <div class="arq-title">🌐 Nginx</div>
+          <div class="arq-sub">Porta 443 (HTTPS)<br>Proxy Reverso → :3333</div>
+        </div>
+        <div class="arq-arrow">→</div>
+        <div class="arq-box green">
+          <div class="arq-title">🚀 Express API</div>
+          <div class="arq-sub">Node.js / PM2<br>Porta 3333</div>
+        </div>
+        <div class="arq-arrow">→</div>
+        <div class="arq-box orange">
+          <div class="arq-title">🗄 MySQL 8</div>
+          <div class="arq-sub">localhost:3306<br>Banco local</div>
+        </div>
+      </div>
+
+      <div class="arq-row" style="margin:16px 0 4px;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:#94a3b8;">Serviços Externos</div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <div class="arq-box purple" style="min-width:120px">
+            <div class="arq-title">📧 Gmail SMTP</div>
+            <div class="arq-sub">Sugestões de receitas</div>
+          </div>
+          <div class="arq-box purple" style="min-width:120px">
+            <div class="arq-title">🔐 Let's Encrypt</div>
+            <div class="arq-sub">Certificado SSL</div>
+          </div>
+          <div class="arq-box purple" style="min-width:120px">
+            <div class="arq-title">🦆 DuckDNS</div>
+            <div class="arq-sub">Domínio gratuito</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Separação de Responsabilidades</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Camada</th>
+            <th>Tecnologia</th>
+            <th>Hospedagem</th>
+            <th>Responsabilidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frontend</strong></td>
+            <td>React + Vite + Tailwind</td>
+            <td>Vercel</td>
+            <td>Interface do usuário, navegação, exibição de dados, interatividade</td>
+          </tr>
+          <tr>
+            <td><strong>Backend</strong></td>
+            <td>Node.js + Express</td>
+            <td>AWS EC2</td>
+            <td>Lógica de negócio, validação, consultas ao banco, envio de e-mail</td>
+          </tr>
+          <tr>
+            <td><strong>Banco de Dados</strong></td>
+            <td>MySQL 8</td>
+            <td>AWS EC2 (local)</td>
+            <td>Persistência de receitas, ingredientes e relacionamentos</td>
+          </tr>
+          <tr>
+            <td><strong>Proxy / TLS</strong></td>
+            <td>Nginx + Certbot</td>
+            <td>AWS EC2</td>
+            <td>HTTPS, roteamento de domínio, proteção da porta do Node</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 4 — FRONTEND
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s4">
+    <div class="secao-header">
+      <div class="secao-num">4</div>
+      <h2>Frontend — React</h2>
+    </div>
+
+    <p>
+      O frontend é uma Single Page Application (SPA) construída com React 18 e bundleada com Vite.
+      Utiliza roteamento client-side com React Router e estilização via Tailwind CSS (utility-first).
+      Toda a comunicação com o backend ocorre via Fetch API, encapsulada no módulo
+      <span class="inline-code">src/services/api.js</span>.
+    </p>
+
+    <h3>Estrutura de Pastas</h3>
+    <div class="code-block">
+<span class="c-cm">src/</span>
+├── <span class="c-key">App.jsx</span>          <span class="c-cm">→ Rotas principais (React Router)</span>
+├── <span class="c-key">main.jsx</span>         <span class="c-cm">→ Ponto de entrada da aplicação</span>
+├── <span class="c-key">pages/</span>
+│   ├── <span class="c-str">Home.jsx</span>          <span class="c-cm">→ Página inicial com hero, destaques, seções</span>
+│   ├── <span class="c-str">BuscarReceitas.jsx</span> <span class="c-cm">→ Busca por ingredientes + filtros</span>
+│   ├── <span class="c-str">SecoesEspeciais.jsx</span><span class="c-cm">→ Seções temáticas (festa, junina, etc.)</span>
+│   └── <span class="c-str">SugerirReceita.jsx</span> <span class="c-cm">→ Formulário de sugestão</span>
+├── <span class="c-key">components/</span>
+│   ├── layout/       <span class="c-cm">→ Header, Footer, Layout (Outlet)</span>
+│   ├── ui/           <span class="c-cm">→ RecipeCard, RecipeDetailModal, SearchBar, Badge...</span>
+│   ├── busca/        <span class="c-cm">→ IngredientePicker, FiltrosPanel</span>
+│   └── secoes/       <span class="c-cm">→ SecaoCard</span>
+├── <span class="c-key">hooks/</span>
+│   ├── <span class="c-str">useReceitas.js</span>   <span class="c-cm">→ Busca todas as receitas da API</span>
+│   ├── <span class="c-str">useIngredientes.js</span><span class="c-cm">→ Autocomplete de ingredientes</span>
+│   ├── <span class="c-str">useFiltros.js</span>    <span class="c-cm">→ Estado global de filtros + resultados calculados</span>
+│   └── <span class="c-str">useSpeech.js</span>     <span class="c-cm">→ Narração por voz (Web Speech API)</span>
+├── <span class="c-key">context/</span>
+│   └── <span class="c-str">TimerContext.jsx</span>  <span class="c-cm">→ Cronômetro global persistente</span>
+├── <span class="c-key">services/</span>
+│   └── <span class="c-str">api.js</span>           <span class="c-cm">→ Wrapper Fetch com base URL da variável de ambiente</span>
+└── <span class="c-key">data/</span>
+    └── <span class="c-str">secoes.js</span>        <span class="c-cm">→ Configuração estática das seções especiais</span>
+    </div>
+
+    <h3>Páginas e Rotas</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Rota</th><th>Componente</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="inline-code">/</span></td>
+            <td>Home.jsx</td>
+            <td>Hero, receitas em destaque, como funciona, seções teaser, CTA</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">/buscar</span></td>
+            <td>BuscarReceitas.jsx</td>
+            <td>IngredientePicker, FiltrosPanel, RecipeGrid com resultados completos e quase</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">/secoes</span></td>
+            <td>SecoesEspeciais.jsx</td>
+            <td>Seções temáticas filtradas do catálogo local de receitas</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">/sugerir</span></td>
+            <td>SugerirReceita.jsx</td>
+            <td>Formulário que faz POST /sugestoes na API</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Custom Hooks</h3>
+
+    <h4>useReceitas</h4>
+    <p>
+      Faz uma requisição <span class="inline-code">GET /receitas</span> ao montar o componente e
+      normaliza os dados: converte campos booleanos (TINYINT), parseia arrays JSON
+      (<span class="inline-code">ocasioes</span>, <span class="inline-code">modo_preparo</span>) e
+      separa ingredientes obrigatórios dos opcionais.
+    </p>
+
+    <h4>useFiltros</h4>
+    <p>
+      Hook central da página de busca. Gerencia o estado de todos os filtros ativos
+      (busca por texto, categoria, dificuldade, tempo, ocasiões, flags booleanas e ingredientes).
+      Usa <span class="inline-code">useMemo</span> para recalcular eficientemente
+      <span class="inline-code">todasFiltradas</span>, <span class="inline-code">receitasCompletas</span>
+      e <span class="inline-code">receitasQuase</span> somente quando o estado muda.
+    </p>
+
+    <h4>useSpeech</h4>
+    <p>
+      Encapsula a <strong>Web Speech API</strong> nativa do navegador para narração dos passos
+      do modo guiado. Faz a síntese de voz em português (pt-BR) sem dependências externas ou custo.
+    </p>
+
+    <h4>TimerContext</h4>
+    <p>
+      Contexto global que mantém um cronômetro regressivo ativo mesmo quando o usuário navega
+      entre páginas. Usa <span class="inline-code">useContext</span> + <span class="inline-code">useState</span>
+      + <span class="inline-code">useEffect</span> com <span class="inline-code">setInterval</span>.
+    </p>
+
+    <h3>Comunicação com a API</h3>
+    <p>
+      O arquivo <span class="inline-code">src/services/api.js</span> encapsula todas as
+      chamadas HTTP. A URL base é definida pela variável de ambiente
+      <span class="inline-code">VITE_API_URL</span>, configurada no Vercel para apontar para
+      <span class="inline-code">https://temnacozinhaapi.duckdns.org</span>.
+    </p>
+    <div class="code-block">
+<span class="c-cm">// src/services/api.js</span>
+<span class="c-kw">const</span> BASE_URL = import.meta.env.<span class="c-str">VITE_API_URL</span> || <span class="c-str">'http://localhost:3333'</span>
+
+<span class="c-kw">export const</span> api = {
+  get:  (path) => fetch(<span class="c-str">`${BASE_URL}${path}`</span>).then(res => res.json()),
+  post: (path, body) => fetch(<span class="c-str">`${BASE_URL}${path}`</span>, {
+    method:  <span class="c-str">'POST'</span>,
+    headers: { <span class="c-str">'Content-Type'</span>: <span class="c-str">'application/json'</span> },
+    body:    JSON.stringify(body),
+  }).then(res => res.json()),
+}
+    </div>
+
+    <h3>Algoritmo de Busca por Ingredientes (Frontend)</h3>
+    <p>
+      O hook <span class="inline-code">useFiltros</span> implementa a lógica de matching
+      localmente no cliente, após ter carregado todas as receitas uma única vez:
+    </p>
+    <ol>
+      <li>Para cada receita, conta quantos ingredientes <strong>obrigatórios</strong> o usuário possui</li>
+      <li>Calcula <span class="inline-code">faltando = total_obrigatórios - possuidos</span></li>
+      <li><strong>receitasCompletas:</strong> faltando === 0 (tem tudo)</li>
+      <li><strong>receitasQuase:</strong> faltando > 0 e faltando &lt; total (tem pelo menos 1)</li>
+    </ol>
+
+    <div class="highlight-box blue">
+      <p><strong>Decisão de design:</strong> todas as receitas são carregadas uma única vez no hook
+      <span class="inline-code">useReceitas</span> e o matching é feito no cliente com
+      <span class="inline-code">useMemo</span>, evitando múltiplas requisições à API a cada tecla
+      digitada e tornando a busca instantânea após o carregamento inicial.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 5 — BACKEND
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s5">
+    <div class="secao-header">
+      <div class="secao-num">5</div>
+      <h2>Backend — API REST</h2>
+    </div>
+
+    <p>
+      O backend é uma API REST construída com Node.js e Express, rodando na porta 3333 dentro
+      de uma instância AWS EC2. Segue o padrão MVC simplificado: rotas → controllers → banco de dados.
+    </p>
+
+    <h3>Estrutura de Pastas</h3>
+    <div class="code-block">
+api/src/
+├── <span class="c-key">app.js</span>                    <span class="c-cm">→ Configuração central do Express</span>
+├── <span class="c-key">routes/</span>
+│   ├── <span class="c-str">receitas.routes.js</span>     <span class="c-cm">→ GET /receitas, /receitas/buscar, /receitas/:id</span>
+│   ├── <span class="c-str">ingredientes.routes.js</span> <span class="c-cm">→ GET /ingredientes, /ingredientes/buscar, /ingredientes/:id/receitas</span>
+│   └── <span class="c-str">sugestoes.routes.js</span>    <span class="c-cm">→ POST /sugestoes</span>
+├── <span class="c-key">controllers/</span>
+│   ├── <span class="c-str">receitas.controller.js</span>     <span class="c-cm">→ Consultas SQL + formatação de resposta</span>
+│   ├── <span class="c-str">ingredientes.controller.js</span> <span class="c-cm">→ Listagem e busca de ingredientes</span>
+│   └── <span class="c-str">sugestoes.controller.js</span>    <span class="c-cm">→ Validação + envio de e-mail</span>
+├── <span class="c-key">services/</span>
+│   └── <span class="c-str">mailer.js</span>             <span class="c-cm">→ Configuração do Nodemailer (Gmail SMTP)</span>
+└── <span class="c-key">database/</span>
+    ├── <span class="c-str">connection.js</span>         <span class="c-cm">→ Pool de conexões MySQL</span>
+    ├── <span class="c-str">runMigration.js</span>       <span class="c-cm">→ Script para rodar migrações</span>
+    └── <span class="c-str">migrations/</span>           <span class="c-cm">→ Arquivos SQL versionados</span>
+    └── <span class="c-str">seeds/</span>               <span class="c-cm">→ Dados iniciais das receitas</span>
+    </div>
+
+    <h3>Middlewares Globais (app.js)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Middleware</th><th>Função</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="inline-code">helmet()</span></td>
+            <td>Define cabeçalhos HTTP de segurança (X-Frame-Options, Content-Security-Policy, etc.)</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">cors(corsOptions)</span></td>
+            <td>Permite apenas requisições do Vercel (regex) e localhost</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">express.json({ limit: '20kb' })</span></td>
+            <td>Parse do body JSON com limite de tamanho</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">globalLimiter</span></td>
+            <td>Rate limit: 200 requisições por IP a cada 15 minutos</td>
+          </tr>
+          <tr>
+            <td><span class="inline-code">sugestoesLimiter</span></td>
+            <td>Rate limit específico: 5 sugestões por IP por hora</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Política de CORS</h3>
+    <p>
+      O CORS é configurado para aceitar somente origens conhecidas, protegendo a API contra
+      uso não autorizado por outros sites:
+    </p>
+    <div class="code-block">
+<span class="c-kw">const</span> corsOptions = {
+  origin: (origin, callback) => {
+    <span class="c-kw">if</span> (!origin) <span class="c-kw">return</span> callback(<span class="c-null">null</span>, <span class="c-bool">true</span>)  <span class="c-cm">// ferramentas como Postman</span>
+    <span class="c-kw">if</span> (
+      origin === FRONTEND_URL  <span class="c-cm">// URL exata do Vercel</span>
+      || <span class="c-str">/^https:\/\/tem-na-cozinha-ma-2[\w-]*\.vercel\.app$/</span>.test(origin)
+    ) {
+      callback(<span class="c-null">null</span>, <span class="c-bool">true</span>)
+    } <span class="c-kw">else</span> {
+      callback(<span class="c-kw">new</span> Error(<span class="c-str">'CORS não permitido'</span>))
+    }
+  }
+}
+    </div>
+
+    <h3>Variáveis de Ambiente (.env)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Variável</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="inline-code">PORT</span></td><td>Porta do servidor Express (padrão: 3333)</td></tr>
+          <tr><td><span class="inline-code">DB_HOST</span></td><td>Host do MySQL (localhost na EC2)</td></tr>
+          <tr><td><span class="inline-code">DB_USER</span></td><td>Usuário do banco de dados</td></tr>
+          <tr><td><span class="inline-code">DB_PASSWORD</span></td><td>Senha do banco de dados</td></tr>
+          <tr><td><span class="inline-code">DB_NAME</span></td><td>Nome do banco (<span class="inline-code">temnacozinha_ma</span>)</td></tr>
+          <tr><td><span class="inline-code">FRONTEND_URL</span></td><td>URL exata do frontend no Vercel (para CORS)</td></tr>
+          <tr><td><span class="inline-code">EMAIL_USER</span></td><td>E-mail Gmail do remetente</td></tr>
+          <tr><td><span class="inline-code">EMAIL_PASS</span></td><td>App Password do Gmail (não a senha da conta)</td></tr>
+          <tr><td><span class="inline-code">EMAIL_DEST</span></td><td>E-mail que receberá as sugestões</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Pool de Conexões MySQL</h3>
+    <p>
+      A conexão com o banco é gerenciada por um pool de conexões (máx. 10 conexões simultâneas),
+      garantindo reuso de conexões e melhor performance sob carga:
+    </p>
+    <div class="code-block">
+<span class="c-kw">export const</span> pool = mysql.createPool({
+  host: DB_HOST, port: DB_PORT || <span class="c-num">3306</span>,
+  user: DB_USER, password: DB_PASSWORD, database: DB_NAME,
+  waitForConnections: <span class="c-bool">true</span>,
+  connectionLimit:    <span class="c-num">10</span>,
+  queueLimit:         <span class="c-num">0</span>,
+})
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 6 — BANCO DE DADOS
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s6">
+    <div class="secao-header">
+      <div class="secao-num">6</div>
+      <h2>Banco de Dados MySQL</h2>
+    </div>
+
+    <p>
+      O banco de dados é um MySQL 8.0 instalado localmente na mesma instância EC2 da API.
+      O nome do banco é <span class="inline-code">temnacozinha_ma</span>, configurado com
+      charset <span class="inline-code">utf8mb4</span> para suporte completo a emojis e
+      caracteres especiais.
+    </p>
+
+    <h3>Diagrama de Entidades</h3>
+    <div class="arq-diagram">
+      <div style="display:flex;gap:40px;justify-content:center;align-items:flex-start;flex-wrap:wrap">
+        <div>
+          <div class="arq-box orange" style="min-width:220px;text-align:left;padding:16px 20px">
+            <div class="arq-title" style="margin-bottom:10px">📋 receitas</div>
+            <div style="font-size:11px;color:#64748b;line-height:1.9">
+              <span style="color:#D97706;font-weight:700">PK</span> id INT<br>
+              nome VARCHAR(150)<br>
+              descricao TEXT<br>
+              emoji VARCHAR(10)<br>
+              categoria VARCHAR(80)<br>
+              tempo_minutos INT<br>
+              tempo VARCHAR(30)<br>
+              porcoes INT<br>
+              dificuldade ENUM(Fácil/Média/Difícil)<br>
+              rapida TINYINT(1)<br>
+              tipica_festa TINYINT(1)<br>
+              vegano TINYINT(1)<br>
+              diet TINYINT(1)<br>
+              destaque TINYINT(1)<br>
+              modo_preparo JSON<br>
+              ocasioes JSON<br>
+              imagem_url VARCHAR(500)<br>
+              created_at TIMESTAMP
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div class="arq-box green" style="min-width:220px;text-align:left;padding:16px 20px">
+            <div class="arq-title" style="margin-bottom:10px">🥬 ingredientes</div>
+            <div style="font-size:11px;color:#64748b;line-height:1.9">
+              <span style="color:#D97706;font-weight:700">PK</span> id INT<br>
+              nome VARCHAR(100) UNIQUE
+            </div>
+          </div>
+
+          <div style="margin:8px 0;color:#94a3b8;font-size:12px">↕ N:N</div>
+
+          <div class="arq-box blue" style="min-width:220px;text-align:left;padding:16px 20px">
+            <div class="arq-title" style="margin-bottom:10px">🔗 receita_ingredientes</div>
+            <div style="font-size:11px;color:#64748b;line-height:1.9">
+              <span style="color:#D97706;font-weight:700">PK</span> id INT<br>
+              <span style="color:#3B82F6;font-weight:700">FK</span> receita_id → receitas.id<br>
+              <span style="color:#3B82F6;font-weight:700">FK</span> ingrediente_id → ingredientes.id<br>
+              opcional TINYINT(1)<br>
+              <span style="color:#7C3AED;font-weight:700">UQ</span> (receita_id, ingrediente_id, opcional)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Tabela: receitas</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Coluna</th><th>Tipo</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>id <span class="tag-pk">PK</span></td><td>INT AUTO_INCREMENT</td><td>Identificador único</td></tr>
+          <tr><td>nome</td><td>VARCHAR(150) NOT NULL</td><td>Nome da receita</td></tr>
+          <tr><td>descricao</td><td>TEXT</td><td>Descrição curta da receita</td></tr>
+          <tr><td>emoji</td><td>VARCHAR(10)</td><td>Emoji representativo do prato</td></tr>
+          <tr><td>categoria</td><td>VARCHAR(80)</td><td>Ex: "Prato Principal", "Sobremesa"</td></tr>
+          <tr><td>tempo_minutos</td><td>INT</td><td>Tempo em minutos (usado para filtros)</td></tr>
+          <tr><td>tempo</td><td>VARCHAR(30)</td><td>Texto legível: "30 min", "1h"</td></tr>
+          <tr><td>porcoes</td><td>INT</td><td>Número de porções</td></tr>
+          <tr><td>dificuldade</td><td>ENUM('Fácil','Média','Difícil')</td><td>Nível de dificuldade</td></tr>
+          <tr><td>rapida</td><td>TINYINT(1) DEFAULT 0</td><td>Flag: receita rápida (&lt;30min)</td></tr>
+          <tr><td>tipica_festa</td><td>TINYINT(1) DEFAULT 0</td><td>Flag: típica de festas</td></tr>
+          <tr><td>vegano</td><td>TINYINT(1) DEFAULT 0</td><td>Flag: receita vegana</td></tr>
+          <tr><td>diet</td><td>TINYINT(1) DEFAULT 0</td><td>Flag: versão diet/light</td></tr>
+          <tr><td>destaque</td><td>TINYINT(1) DEFAULT 0</td><td>Flag: exibida na home</td></tr>
+          <tr><td>modo_preparo</td><td>JSON</td><td>Array de strings com os passos do preparo</td></tr>
+          <tr><td>ocasioes</td><td>JSON</td><td>Array de strings: "São João", "Natal", etc.</td></tr>
+          <tr><td>imagem_url</td><td>VARCHAR(500)</td><td>URL da imagem da receita</td></tr>
+          <tr><td>created_at</td><td>TIMESTAMP</td><td>Data de inserção</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Tabela: ingredientes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Coluna</th><th>Tipo</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>id <span class="tag-pk">PK</span></td><td>INT AUTO_INCREMENT</td><td>Identificador único</td></tr>
+          <tr><td>nome</td><td>VARCHAR(100) NOT NULL UNIQUE</td><td>Nome do ingrediente (único)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Tabela: receita_ingredientes</h3>
+    <p>
+      Tabela de junção que implementa o relacionamento N:N entre receitas e ingredientes.
+      Inclui o campo <span class="inline-code">opcional</span> que distingue ingredientes
+      obrigatórios (0) dos opcionais (1) para o algoritmo de busca.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Coluna</th><th>Tipo</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>id <span class="tag-pk">PK</span></td><td>INT AUTO_INCREMENT</td><td>Identificador único</td></tr>
+          <tr><td>receita_id <span class="tag-fk">FK</span></td><td>INT NOT NULL</td><td>Referência a receitas.id (CASCADE DELETE)</td></tr>
+          <tr><td>ingrediente_id <span class="tag-fk">FK</span></td><td>INT NOT NULL</td><td>Referência a ingredientes.id (CASCADE DELETE)</td></tr>
+          <tr><td>opcional</td><td>TINYINT(1) DEFAULT 0</td><td>0 = obrigatório, 1 = opcional</td></tr>
+          <tr><td><span class="tag-idx">UQ</span></td><td>(receita_id, ingrediente_id, opcional)</td><td>Evita duplicatas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Migrações</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Arquivo</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="inline-code">001_create_tables.sql</span></td><td>Cria as 3 tabelas principais</td></tr>
+          <tr><td><span class="inline-code">002_add_imagem_url.sql</span></td><td>Adiciona coluna imagem_url à tabela receitas</td></tr>
+          <tr><td><span class="inline-code">003_add_vegano_diet.sql</span></td><td>Adiciona colunas vegano e diet</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box amber">
+      <p><strong>Colunas JSON:</strong> as colunas <strong>modo_preparo</strong> e <strong>ocasioes</strong>
+      armazenam arrays JSON diretamente no MySQL 8. Isso elimina a necessidade de tabelas
+      auxiliares para dados que são sempre lidos e escritos juntos com a receita.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 7 — INFRAESTRUTURA
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s7">
+    <div class="secao-header">
+      <div class="secao-num">7</div>
+      <h2>Infraestrutura AWS EC2</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="icon">☁</span>
+        <div class="label">Provedor</div>
+        <div class="value">Amazon Web Services</div>
+        <div class="desc">Região: sa-east-1 (São Paulo)</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">🖥</span>
+        <div class="label">Tipo de Instância</div>
+        <div class="value">t3.micro</div>
+        <div class="desc">2 vCPU, 1 GB RAM (Free Tier)</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">🐧</span>
+        <div class="label">Sistema Operacional</div>
+        <div class="value">Ubuntu 22.04 LTS</div>
+        <div class="desc">Server sem interface gráfica</div>
+      </div>
+      <div class="info-card">
+        <span class="icon">💾</span>
+        <div class="label">Armazenamento</div>
+        <div class="value">EBS 8 GB</div>
+        <div class="desc">SSD de propósito geral (gp2)</div>
+      </div>
+    </div>
+
+    <h3>Regras de Security Group</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Porta</th><th>Protocolo</th><th>Origem</th><th>Finalidade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>22</td><td>TCP (SSH)</td><td>Meu IP</td><td>Acesso ao terminal da instância</td></tr>
+          <tr><td>80</td><td>TCP (HTTP)</td><td>0.0.0.0/0</td><td>Necessário para validação SSL do Certbot</td></tr>
+          <tr><td>443</td><td>TCP (HTTPS)</td><td>0.0.0.0/0</td><td>Requisições da API em produção</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box red">
+      <p><strong>Nota sobre IP dinâmico:</strong> instâncias EC2 t3.micro sem Elastic IP
+      recebem um novo endereço de IP público toda vez que são paradas e reiniciadas.
+      Ao reiniciar, é necessário atualizar o IP no painel do DuckDNS para que o domínio
+      continue funcionando.</p>
+    </div>
+
+    <h3>Nginx — Proxy Reverso</h3>
+    <p>
+      O Nginx fica na frente da aplicação Node.js, responsável por terminar o TLS (HTTPS)
+      e encaminhar as requisições para a porta 3333. A porta 3333 <strong>não é exposta</strong>
+      diretamente para a internet.
+    </p>
+    <div class="code-block">
+<span class="c-cm"># /etc/nginx/sites-available/api</span>
+server {
+  listen <span class="c-num">443</span> ssl;
+  server_name temnacozinhaapi.duckdns.org;
+
+  ssl_certificate     /etc/letsencrypt/live/temnacozinhaapi.duckdns.org/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/temnacozinhaapi.duckdns.org/privkey.pem;
+
+  location / {
+    proxy_pass         http://localhost:<span class="c-num">3333</span>;
+    proxy_http_version <span class="c-num">1.1</span>;
+    proxy_set_header   Upgrade $http_upgrade;
+    proxy_set_header   Connection <span class="c-str">'upgrade'</span>;
+    proxy_set_header   Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+    </div>
+
+    <h3>PM2 — Gerenciador de Processos</h3>
+    <p>
+      O PM2 garante que a API Node.js continue rodando após reinicializações do servidor,
+      reinicia automaticamente em caso de crash e facilita o monitoramento.
+    </p>
+    <div class="code-block">
+<span class="c-cm"># Iniciar a API com PM2</span>
+pm2 start src/app.js --name api
+
+<span class="c-cm"># Configurar para iniciar automaticamente no boot</span>
+pm2 startup
+pm2 save
+
+<span class="c-cm"># Reiniciar recarregando variáveis de ambiente</span>
+pm2 restart api --update-env
+
+<span class="c-cm"># Monitorar em tempo real</span>
+pm2 logs api
+    </div>
+
+    <h3>DuckDNS — Domínio Gratuito</h3>
+    <p>
+      O DuckDNS fornece o subdomínio <span class="inline-code">temnacozinhaapi.duckdns.org</span>
+      que aponta para o IP público da EC2. Como o IP pode mudar ao reiniciar a instância,
+      o DuckDNS permite atualizar o IP manualmente pelo site ou via API.
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 8 — HTTPS E SEGURANÇA
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s8">
+    <div class="secao-header">
+      <div class="secao-num">8</div>
+      <h2>HTTPS e Segurança</h2>
+    </div>
+
+    <h3>Por que HTTPS é obrigatório?</h3>
+    <p>
+      O frontend está no Vercel com HTTPS. Navegadores modernos bloqueiam por padrão
+      requisições de uma página HTTPS para uma API HTTP — isso é chamado de
+      <strong>Mixed Content</strong>. Sem HTTPS na API, o site não consegue buscar receitas.
+    </p>
+
+    <h3>Let's Encrypt + Certbot</h3>
+    <p>
+      O certificado SSL gratuito é emitido pela Let's Encrypt via Certbot, utilizando
+      o método de validação <strong>HTTP-01</strong> (não DNS-01, para evitar problemas
+      com registros CAA do DuckDNS):
+    </p>
+    <div class="code-block">
+<span class="c-cm"># Instalar Certbot com plugin Nginx</span>
+sudo apt install certbot python3-certbot-nginx
+
+<span class="c-cm"># Emitir certificado (HTTP-01, sem DNS)</span>
+sudo certbot --nginx -d temnacozinhaapi.duckdns.org \
+  --preferred-challenges http
+    </div>
+
+    <div class="highlight-box green">
+      <p><strong>Renovação automática:</strong> o Certbot instala automaticamente um cron job
+      que renova o certificado antes de expirar (válido por 90 dias). Não é necessária
+      intervenção manual.</p>
+    </div>
+
+    <h3>Camadas de Segurança da API</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Camada</th><th>Implementação</th><th>Proteção</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Transport</td>
+            <td>HTTPS / TLS 1.2+</td>
+            <td>Dados criptografados em trânsito</td>
+          </tr>
+          <tr>
+            <td>Cabeçalhos HTTP</td>
+            <td>Helmet.js</td>
+            <td>XSS, clickjacking, MIME sniffing</td>
+          </tr>
+          <tr>
+            <td>Origem</td>
+            <td>CORS restritivo</td>
+            <td>Apenas frontend autorizado acessa a API</td>
+          </tr>
+          <tr>
+            <td>Rate Limiting</td>
+            <td>express-rate-limit</td>
+            <td>Proteção contra DoS e abuso</td>
+          </tr>
+          <tr>
+            <td>Injeção SQL</td>
+            <td>Queries parametrizadas (mysql2)</td>
+            <td>Nunca concatena input do usuário no SQL</td>
+          </tr>
+          <tr>
+            <td>XSS (e-mail)</td>
+            <td>escapeHtml() no controller</td>
+            <td>Sanitiza inputs antes de enviar por e-mail</td>
+          </tr>
+          <tr>
+            <td>Validação</td>
+            <td>Checks no controller</td>
+            <td>Tamanho, formato, campos obrigatórios</td>
+          </tr>
+          <tr>
+            <td>Credenciais</td>
+            <td>Variáveis de ambiente (.env)</td>
+            <td>Senhas nunca no código-fonte</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Consultas Parametrizadas</h3>
+    <p>
+      Todas as queries SQL usam o operador <span class="inline-code">?</span> do mysql2,
+      que garante que o input do usuário seja tratado como dado (nunca como código SQL):
+    </p>
+    <div class="code-block">
+<span class="c-cm">// CORRETO — parametrizado, imune a SQL injection</span>
+pool.query(<span class="c-str">'SELECT * FROM receitas WHERE id = ?'</span>, [<span class="c-num">id</span>])
+
+<span class="c-cm">// ERRADO — concatenação vulnerável (NÃO usado no projeto)</span>
+pool.query(<span class="c-str">`SELECT * FROM receitas WHERE id = ${id}`</span>)
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 9 — DEPLOY
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s9">
+    <div class="secao-header">
+      <div class="secao-num">9</div>
+      <h2>Deploy e CI/CD</h2>
+    </div>
+
+    <h3>Frontend — Vercel (Deploy Automático)</h3>
+    <p>
+      O Vercel é conectado diretamente ao repositório GitHub. A cada push na branch
+      <span class="inline-code">main</span>, o Vercel automaticamente:
+    </p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <strong>Detecta o push no GitHub</strong>
+          <span>Webhook automático dispara o pipeline de build</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <strong>Executa npm run build</strong>
+          <span>Vite compila o React, gera assets otimizados em /dist</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <strong>Deploy no CDN global</strong>
+          <span>Arquivos estáticos distribuídos em edge locations ao redor do mundo</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <strong>HTTPS automático</strong>
+          <span>Vercel gerencia o certificado SSL do domínio vercel.app</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box blue">
+      <p><strong>Variável de ambiente no Vercel:</strong> <span class="inline-code">VITE_API_URL</span>
+      deve ser configurada no painel do Vercel com o valor
+      <span class="inline-code">https://temnacozinhaapi.duckdns.org</span>.
+      O Vite incorpora essa variável no bundle durante o build.</p>
+    </div>
+
+    <h3>Backend — AWS EC2 (Deploy Manual)</h3>
+    <p>
+      O deploy do backend é realizado manualmente via SSH:
+    </p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <strong>Conectar via SSH</strong>
+          <span>ssh -i chave.pem ubuntu@&lt;IP-da-EC2&gt;</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <strong>Atualizar o código</strong>
+          <span>git pull origin main (dentro de ~/Tem-na-cozinhaMA)</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <strong>Instalar dependências (se necessário)</strong>
+          <span>cd api && npm install</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <strong>Reiniciar com PM2</strong>
+          <span>pm2 restart api --update-env (o flag --update-env é necessário para recarregar variáveis do .env)</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Estrutura do Repositório</h3>
+    <div class="code-block">
+Tem-na-cozinhaMA/      <span class="c-cm">→ Repositório único (monorepo)</span>
+├── src/               <span class="c-cm">→ Frontend React (Vite)</span>
+│   ├── pages/
+│   ├── components/
+│   ├── hooks/
+│   └── services/
+├── api/               <span class="c-cm">→ Backend Node.js/Express</span>
+│   ├── src/
+│   │   ├── routes/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   └── database/
+│   └── package.json
+├── public/            <span class="c-cm">→ Assets estáticos (ícones, imagens)</span>
+├── index.html         <span class="c-cm">→ Entry point do Vite</span>
+├── vite.config.js
+├── tailwind.config.js
+└── package.json       <span class="c-cm">→ Deps do frontend</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 10 — FUNCIONALIDADES
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s10">
+    <div class="secao-header">
+      <div class="secao-num">10</div>
+      <h2>Funcionalidades Principais</h2>
+    </div>
+
+    <h3>Busca por Ingredientes</h3>
+    <p>
+      O principal diferencial do sistema. O usuário seleciona os ingredientes que tem em casa
+      usando o componente <span class="inline-code">IngredientePicker</span>, que faz
+      autocomplete consultando <span class="inline-code">GET /ingredientes/buscar?q=</span>.
+      Os resultados são divididos em:
+    </p>
+    <ul>
+      <li><strong>Tenho tudo:</strong> receitas cujos ingredientes obrigatórios o usuário possui todos</li>
+      <li><strong>Quase lá:</strong> receitas onde faltam entre 1 e (total-1) ingredientes obrigatórios</li>
+    </ul>
+
+    <div class="highlight-box green">
+      <p><strong>Ingredientes opcionais</strong> (marcados com <span class="inline-code">opcional=1</span>
+      no banco) são exibidos na receita mas <strong>não são contados</strong> no algoritmo de matching,
+      pois o usuário pode fazer o prato sem eles.</p>
+    </div>
+
+    <h3>Filtros Avançados</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Filtro</th><th>Tipo</th><th>Valores</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Busca por nome</td><td>Texto livre</td><td>Substring match case-insensitive</td></tr>
+          <tr><td>Categoria</td><td>Seleção única</td><td>Prato Principal, Entrada, Sobremesa, Bebida...</td></tr>
+          <tr><td>Dificuldade</td><td>Multi-seleção</td><td>Fácil, Média, Difícil</td></tr>
+          <tr><td>Tempo de preparo</td><td>Seleção única</td><td>Até 30min, Até 1h, Mais de 1h</td></tr>
+          <tr><td>Ocasião</td><td>Multi-seleção</td><td>São João, Natal, Dia a Dia...</td></tr>
+          <tr><td>Receita rápida</td><td>Toggle</td><td>Sim / Não</td></tr>
+          <tr><td>Típica de festa</td><td>Toggle</td><td>Sim / Não</td></tr>
+          <tr><td>Vegano</td><td>Toggle</td><td>Sim / Não</td></tr>
+          <tr><td>Diet</td><td>Toggle</td><td>Sim / Não</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Modal de Detalhes da Receita</h3>
+    <p>
+      Ao clicar em uma receita, o componente <span class="inline-code">RecipeDetailModal</span>
+      exibe todos os detalhes: imagem, ingredientes (destacando os que o usuário tem e os que faltam),
+      modo de preparo em lista numerada e botão para iniciar o modo guiado.
+    </p>
+
+    <h3>Modo Guiado</h3>
+    <p>
+      O componente <span class="inline-code">ModoGuiado</span> apresenta os passos do modo de
+      preparo um a um, com:
+    </p>
+    <ul>
+      <li>Navegação por passos (anterior / próximo)</li>
+      <li>Barra de progresso visual</li>
+      <li>Narração por voz usando a Web Speech API (sem custo, nativa do navegador)</li>
+      <li>Integração com o MiniTimer para temporização de passos</li>
+    </ul>
+
+    <h3>Sugestão de Receitas</h3>
+    <p>
+      O formulário em <span class="inline-code">/sugerir</span> envia um
+      <span class="inline-code">POST /sugestoes</span> com os dados da receita sugerida.
+      O controller valida todos os campos, sanitiza contra XSS usando
+      <span class="inline-code">escapeHtml()</span> e envia um e-mail HTML formatado
+      para o administrador via Gmail SMTP com Nodemailer.
+    </p>
+
+    <div class="highlight-box amber">
+      <p><strong>Rate limiting de sugestões:</strong> cada IP pode enviar no máximo
+      <strong>5 sugestões por hora</strong>, prevenindo spam no e-mail do administrador.</p>
+    </div>
+
+    <h3>Seções Especiais</h3>
+    <p>
+      A página <span class="inline-code">/secoes</span> agrupa as receitas em categorias temáticas
+      configuradas estaticamente no arquivo <span class="inline-code">src/data/secoes.js</span>
+      (não requer chamada de API adicional):
+    </p>
+    <ul>
+      <li>Receitas Rápidas (&lt;30 minutos)</li>
+      <li>Para Festas (tipica_festa = true)</li>
+      <li>São João / Festa Junina</li>
+      <li>Cardápio do Dia a Dia</li>
+      <li>Vegano / Sem Carne</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 11 — DOCUMENTAÇÃO DA API
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s11">
+    <div class="secao-header">
+      <div class="secao-num">11</div>
+      <h2>Documentação da API</h2>
+    </div>
+
+    <div class="highlight-box blue">
+      <p><strong>Base URL (produção):</strong> <span class="inline-code">https://temnacozinhaapi.duckdns.org</span><br>
+      <strong>Base URL (local):</strong> <span class="inline-code">http://localhost:3333</span><br>
+      Todas as respostas são em <strong>JSON</strong>. Campos booleanos são retornados como
+      <span class="inline-code">true</span>/<span class="inline-code">false</span> (não 0/1).</p>
+    </div>
+
+    <h3>Health Check</h3>
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/health</span>
+        <span class="endpoint-desc">Verifica se a API está online</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="param-label">Resposta 200</div>
+        <div class="code-block">{ <span class="c-key">"status"</span>: <span class="c-str">"ok"</span>, <span class="c-key">"timestamp"</span>: <span class="c-str">"2026-05-25T14:30:00.000Z"</span> }</div>
+      </div>
+    </div>
+
+    <h3>Receitas</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/receitas</span>
+        <span class="endpoint-desc">Lista todas as receitas com filtros opcionais</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="param-label">Query Parameters (todos opcionais)</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Parâmetro</th><th>Tipo</th><th>Exemplo</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td>categoria</td><td>string</td><td>Prato Principal</td><td>Filtra por categoria</td></tr>
+              <tr><td>dificuldade</td><td>string</td><td>Fácil</td><td>Fácil | Média | Difícil</td></tr>
+              <tr><td>rapida</td><td>boolean</td><td>true</td><td>Apenas receitas rápidas</td></tr>
+              <tr><td>tipica_festa</td><td>boolean</td><td>true</td><td>Apenas receitas de festa</td></tr>
+              <tr><td>vegano</td><td>boolean</td><td>true</td><td>Apenas receitas veganas</td></tr>
+              <tr><td>diet</td><td>boolean</td><td>true</td><td>Apenas receitas diet</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="param-label">Resposta 200</div>
+        <div class="code-block">{
+  <span class="c-key">"success"</span>: <span class="c-bool">true</span>,
+  <span class="c-key">"data"</span>: [
+    {
+      <span class="c-key">"id"</span>: <span class="c-num">1</span>,
+      <span class="c-key">"nome"</span>: <span class="c-str">"Arroz de Cuxá"</span>,
+      <span class="c-key">"emoji"</span>: <span class="c-str">"🍚"</span>,
+      <span class="c-key">"categoria"</span>: <span class="c-str">"Prato Principal"</span>,
+      <span class="c-key">"tempo_minutos"</span>: <span class="c-num">40</span>,
+      <span class="c-key">"dificuldade"</span>: <span class="c-str">"Média"</span>,
+      <span class="c-key">"rapida"</span>: <span class="c-bool">false</span>,
+      <span class="c-key">"vegano"</span>: <span class="c-bool">false</span>,
+      <span class="c-key">"destaque"</span>: <span class="c-bool">true</span>,
+      <span class="c-key">"ocasioes"</span>: [<span class="c-str">"Dia a Dia"</span>],
+      <span class="c-key">"modo_preparo"</span>: [<span class="c-str">"Refogue o alho..."</span>, <span class="c-str">"Adicione o arroz..."</span>],
+      <span class="c-key">"imagem_url"</span>: <span class="c-str">"https://..."</span>,
+      <span class="c-key">"ingredientes"</span>: [
+        { <span class="c-key">"nome"</span>: <span class="c-str">"Arroz"</span>, <span class="c-key">"opcional"</span>: <span class="c-bool">false</span> },
+        { <span class="c-key">"nome"</span>: <span class="c-str">"Vinagreira"</span>, <span class="c-key">"opcional"</span>: <span class="c-bool">false</span> }
+      ]
+    }
+  ],
+  <span class="c-key">"total"</span>: <span class="c-num">15</span>
+}</div>
+      </div>
+    </div>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/receitas/:id</span>
+        <span class="endpoint-desc">Busca detalhes completos de uma receita pelo ID</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="param-label">Resposta 404</div>
+        <div class="code-block">{ <span class="c-key">"success"</span>: <span class="c-bool">false</span>, <span class="c-key">"message"</span>: <span class="c-str">"Receita não encontrada."</span> }</div>
+      </div>
+    </div>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/receitas/buscar?ingredientes=Arroz,Feijão</span>
+        <span class="endpoint-desc">Busca receitas por lista de ingredientes</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="param-label">Resposta 200</div>
+        <div class="code-block">{
+  <span class="c-key">"success"</span>: <span class="c-bool">true</span>,
+  <span class="c-key">"data"</span>: {
+    <span class="c-key">"completas"</span>: [ <span class="c-cm">/* receitas com todos ingredientes */</span> ],
+    <span class="c-key">"quase"</span>:     [ <span class="c-cm">/* receitas com 1-3 ingredientes faltando */</span> ]
+  },
+  <span class="c-key">"total"</span>: { <span class="c-key">"completas"</span>: <span class="c-num">3</span>, <span class="c-key">"quase"</span>: <span class="c-num">7</span> }
+}</div>
+      </div>
+    </div>
+
+    <h3>Ingredientes</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/ingredientes</span>
+        <span class="endpoint-desc">Lista todos os ingredientes em ordem alfabética</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="code-block">{ <span class="c-key">"success"</span>: <span class="c-bool">true</span>, <span class="c-key">"data"</span>: [{ <span class="c-key">"id"</span>: <span class="c-num">1</span>, <span class="c-key">"nome"</span>: <span class="c-str">"Açafrão"</span> }], <span class="c-key">"total"</span>: <span class="c-num">29</span> }</div>
+      </div>
+    </div>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/ingredientes/buscar?q=cebola</span>
+        <span class="endpoint-desc">Autocomplete de ingredientes (mín. 2 caracteres)</span>
+      </div>
+    </div>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method get">GET</span>
+        <span class="endpoint-path">/ingredientes/:id/receitas</span>
+        <span class="endpoint-desc">Receitas que contêm determinado ingrediente como obrigatório</span>
+      </div>
+    </div>
+
+    <h3>Sugestões de Receitas</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method post">POST</span>
+        <span class="endpoint-path">/sugestoes</span>
+        <span class="endpoint-desc">Envia sugestão de receita por e-mail — máx. 5 por IP/hora</span>
+      </div>
+      <div class="endpoint-body">
+        <div class="param-label">Body (JSON)</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Campo</th><th>Obrigatório</th><th>Validação</th></tr></thead>
+            <tbody>
+              <tr><td>nome</td><td>Sim</td><td>Máx. 150 caracteres</td></tr>
+              <tr><td>descricao</td><td>Não</td><td>Máx. 500 caracteres</td></tr>
+              <tr><td>ingredientes</td><td>Sim</td><td>Máx. 2000 caracteres</td></tr>
+              <tr><td>modoPreparo</td><td>Sim</td><td>Máx. 5000 caracteres</td></tr>
+              <tr><td>cpfAutor</td><td>Não</td><td>Formato 000.000.000-00</td></tr>
+              <tr><td>emailAutor</td><td>Não</td><td>Formato e-mail válido</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="param-label">Resposta 200</div>
+        <div class="code-block">{ <span class="c-key">"success"</span>: <span class="c-bool">true</span>, <span class="c-key">"message"</span>: <span class="c-str">"Sugestão enviada com sucesso!"</span> }</div>
+      </div>
+    </div>
+
+    <h3>Códigos de Status HTTP</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Código</th><th>Significado</th><th>Quando ocorre</th></tr></thead>
+        <tbody>
+          <tr><td>200</td><td>OK</td><td>Requisição bem-sucedida</td></tr>
+          <tr><td>400</td><td>Bad Request</td><td>Parâmetros inválidos ou ausentes</td></tr>
+          <tr><td>404</td><td>Not Found</td><td>Recurso não encontrado</td></tr>
+          <tr><td>429</td><td>Too Many Requests</td><td>Rate limit atingido</td></tr>
+          <tr><td>500</td><td>Internal Server Error</td><td>Erro inesperado no servidor</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEÇÃO 12 — FLUXOS
+  ══════════════════════════════════════════ -->
+  <div class="secao page-break" id="s12">
+    <div class="secao-header">
+      <div class="secao-num">12</div>
+      <h2>Fluxos de Dados</h2>
+    </div>
+
+    <h3>Fluxo 1: Busca por ingredientes</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <strong>Carregamento inicial</strong>
+          <span>useReceitas faz GET /receitas → recebe todas as receitas com ingredientes → armazena no estado React</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <strong>Usuário digita ingrediente</strong>
+          <span>IngredientePicker faz GET /ingredientes/buscar?q=... → exibe sugestões de autocomplete</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <strong>Usuário seleciona ingredientes</strong>
+          <span>adicionarIngrediente() atualiza o estado de filtros no useFiltros</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <strong>useMemo recalcula instantaneamente</strong>
+          <span>receitasCompletas e receitasQuase são recalculados no cliente sem nova requisição à API</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <strong>RecipeGrid exibe os resultados</strong>
+          <span>Seções "Tenho tudo" e "Quase lá" com badges indicando ingredientes faltando</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Fluxo 2: Modo guiado de preparo</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <strong>Clique na receita</strong>
+          <span>Abre RecipeDetailModal com os dados já carregados (sem nova requisição à API)</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <strong>Clique em "Modo guiado"</strong>
+          <span>Renderiza ModoGuiado com o array modo_preparo da receita</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <strong>Narração automática por voz</strong>
+          <span>useSpeech chama window.speechSynthesis.speak() com o texto do passo atual em pt-BR</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <strong>Timer persistente</strong>
+          <span>MiniTimer lê/escreve no TimerContext global, que persiste mesmo ao navegar entre páginas</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>Fluxo 3: Sugestão de receita</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <strong>Formulário preenchido</strong>
+          <span>Estado local gerenciado com useState em SugerirReceita.jsx</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <strong>POST /sugestoes</strong>
+          <span>api.post('/sugestoes', form) via Fetch API com Content-Type: application/json</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <strong>Validação + sanitização no servidor</strong>
+          <span>Campos obrigatórios, tamanhos, formato CPF/e-mail, escapeHtml() contra XSS</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <strong>Envio de e-mail</strong>
+          <span>Nodemailer envia e-mail HTML formatado ao administrador via Gmail SMTP com App Password</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <strong>Feedback visual</strong>
+          <span>Frontend exibe tela de sucesso com confirmação ao usuário</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Rodapé ══ -->
+  <div style="border-top:1px solid #e2e8f0;padding:24px 0;margin-top:40px;text-align:center">
+    <p style="color:#94a3b8;font-size:12px">
+      Tem na Cozinha MA — Documentação Técnica Completa — Maio de 2026<br>
+      Frontend: <strong>https://tem-na-cozinha-ma-2.vercel.app</strong> &nbsp;|&nbsp;
+      API: <strong>https://temnacozinhaapi.duckdns.org</strong>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
