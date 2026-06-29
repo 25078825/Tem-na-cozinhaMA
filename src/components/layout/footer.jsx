@@ -71,7 +71,7 @@ export default function Footer() {
             © 2026 Tem na Cozinha MA. Todos os direitos reservados.
           </p>
           <p className="text-xs text-gray-400 flex items-center gap-1">
-            Feito com <span className="text-amber-400">❤️</span> no Maranhão
+            Feito com amor no Maranhão
           </p>
         </div>
       </div>

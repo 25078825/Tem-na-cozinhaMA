@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { to: '/',        label: 'Início',          icon: '🏠', end: true  },
-  { to: '/buscar',  label: 'Buscar Receitas', icon: '🔍', end: false },
-  { to: '/secoes',  label: 'Seções',          icon: '📂', end: false },
-  { to: '/sugerir', label: 'Sugerir Receita', icon: '✉️', end: false },
+  { to: '/',        label: 'Início',          end: true  },
+  { to: '/buscar',  label: 'Buscar Receitas', end: false },
+  { to: '/secoes',  label: 'Seções',          end: false },
+  { to: '/sugerir', label: 'Sugerir Receita', end: false },
 ]
 
 export default function Header() {
@@ -118,7 +118,6 @@ export default function Header() {
                  }`
               }
             >
-              <span className="text-base">{link.icon}</span>
               {link.label}
             </NavLink>
           ))}

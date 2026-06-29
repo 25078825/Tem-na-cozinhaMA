@@ -133,7 +133,7 @@ export default function RecipeGrid({
           {/* Pode fazer agora */}
           <section>
             <SectionHeader
-              icon="✅" bgIcon="bg-green-100"
+              icon="" bgIcon="bg-green-100"
               title="Pode fazer agora"
               subtitle="Você tem todos os ingredientes necessários"
               count={receitasCompletas.length}
@@ -164,7 +164,7 @@ export default function RecipeGrid({
           {/* Quase lá */}
           <section>
             <SectionHeader
-              icon="🧩" bgIcon="bg-amber-100"
+              icon="" bgIcon="bg-amber-100"
               title="Quase lá"
               subtitle="Contém pelo menos um dos seus ingredientes"
               count={receitasQuase.length}
@@ -191,8 +191,7 @@ export default function RecipeGrid({
             <div className="bg-gradient-to-r from-amber-50 to-amber-50
                             border border-amber-100 rounded-2xl p-4 flex gap-3.5 mb-6">
               <div className="w-9 h-9 bg-amber-100 rounded-xl flex items-center
-                              justify-center text-lg flex-shrink-0">
-                💡
+                              justify-center flex-shrink-0">
               </div>
               <div>
                 <p className="font-semibold text-amber-800 text-sm">

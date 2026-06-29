@@ -14,8 +14,7 @@ export default function EmptyState({ icon, title, desc, action, compact = false 
                       py-8 px-6 text-center">
         <div className={`w-12 h-12 ${style.bg} ring-4 ${style.ring}
                          rounded-2xl flex items-center justify-center
-                         mx-auto mb-3 text-xl`}>
-          {icon}
+                         mx-auto mb-3`}>
         </div>
         <p className="font-semibold text-gray-700 text-sm">{title}</p>
         <p className="text-xs text-gray-400 mt-1 leading-relaxed">{desc}</p>
@@ -37,8 +36,7 @@ export default function EmptyState({ icon, title, desc, action, compact = false 
                     py-16 px-8 text-center">
       <div className={`w-20 h-20 ${style.bg} ring-8 ${style.ring}
                        rounded-3xl flex items-center justify-center
-                       mx-auto mb-6 text-4xl shadow-sm`}>
-        {icon}
+                       mx-auto mb-6 shadow-sm`}>
       </div>
 
       <h3 className="font-display font-bold text-gray-800 text-xl mb-2">

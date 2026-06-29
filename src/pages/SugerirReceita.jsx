@@ -44,7 +44,6 @@ export default function SugerirReceita() {
 
       {status === 'ok' ? (
         <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-          <span className="text-5xl block mb-4">🎉</span>
           <h2 className="font-display font-bold text-xl text-green-800 mb-2">
             Sugestão enviada!
           </h2>

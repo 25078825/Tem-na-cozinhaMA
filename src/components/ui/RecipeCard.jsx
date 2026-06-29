@@ -95,7 +95,7 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
 
   const statusBadge =
     !match                 ? null
-    : match.pct === 100    ? { label: '✓ Você tem tudo',               cls: 'bg-green-500  text-white' }
+    : match.pct === 100    ? { label: 'Você tem tudo',                  cls: 'bg-green-500  text-white' }
     : match.faltando === 1 ? { label: 'Falta 1 ingrediente',           cls: 'bg-amber-500 text-white' }
     : match.faltando <= 3  ? { label: `Faltam ${match.faltando} ingredientes`, cls: 'bg-amber-500 text-white' }
     :                        { label: `${match.possuidos}/${match.total} ingredientes`, cls: 'bg-gray-600 text-white' }
@@ -118,22 +118,6 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
       <div className="h-44 relative flex items-center justify-center flex-shrink-0 overflow-hidden"
            style={{ background: cardGradient }}>
 
-        {/* Ícone de categoria decorativo ao fundo */}
-        {iconeSecund && (
-          <span className="absolute right-3 bottom-2 text-[100px] leading-none
-                           select-none pointer-events-none opacity-20 group-hover:opacity-30
-                           transition-opacity duration-300">
-            {iconeSecund}
-          </span>
-        )}
-
-        {/* Emoji principal da receita */}
-        <span className="relative text-6xl select-none z-10
-                         group-hover:scale-110 transition-transform duration-500
-                         drop-shadow-sm">
-          {receita.emoji}
-        </span>
-
         {/* Badge categoria */}
         <span className={`absolute top-3 left-3 text-[11px] font-semibold
                           px-2.5 py-1 rounded-full backdrop-blur-sm ${catStyle.badge}`}>
@@ -154,28 +138,28 @@ export default function RecipeCard({ receita, ingredientesUsuario = [], onClick 
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-amber-600
                              border border-amber-200/70 shadow-sm">
-              ⚡ Rápida
+              Rápida
             </span>
           )}
           {receita.tipicaFesta && (
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-purple-600
                              border border-purple-200/70 shadow-sm">
-              🎉 Festa
+              Festa
             </span>
           )}
           {receita.vegano && (
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-green-700
                              border border-green-300/70 shadow-sm">
-              🌱 Vegano
+              Vegano
             </span>
           )}
           {receita.diet && (
             <span className="text-[11px] font-semibold px-2 py-1 rounded-full
                              bg-white/90 backdrop-blur-sm text-teal-700
                              border border-teal-300/70 shadow-sm">
-              🥗 Diet
+              Diet
             </span>
           )}
         </div>

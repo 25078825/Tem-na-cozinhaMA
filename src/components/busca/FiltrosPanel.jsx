@@ -43,7 +43,7 @@ function Section({ label, children, defaultOpen = true }) {
   )
 }
 
-function Toggle({ emoji, label, desc, active, onChange }) {
+function Toggle({ label, desc, active, onChange }) {
   return (
     <button
       onClick={() => onChange(!active)}
@@ -54,9 +54,6 @@ function Toggle({ emoji, label, desc, active, onChange }) {
           : 'bg-white border-gray-200 hover:border-amber-200 hover:bg-gray-50'
       }`}
     >
-      <span className={`text-base flex-shrink-0 transition-all ${active ? '' : 'grayscale opacity-70'}`}>
-        {emoji}
-      </span>
       <div className="flex-1 min-w-0">
         <p className={`text-sm font-medium leading-tight ${active ? 'text-amber-700' : 'text-gray-700'}`}>
           {label}
@@ -86,7 +83,7 @@ export default function FiltrosPanel({
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-display font-semibold text-gray-800 text-base
                        flex items-center gap-2">
-          <span>🎛️</span> Filtros
+          Filtros
           {temFiltrosAtivos && (
             <span className="bg-amber-500 text-white text-[10px] font-bold
                              w-4 h-4 rounded-full flex items-center justify-center">
@@ -173,28 +170,24 @@ export default function FiltrosPanel({
         <Section label="Características" defaultOpen={false}>
           <div className="space-y-2">
             <Toggle
-              emoji="⚡"
               label="Receita rápida"
               desc="Pronta em até 30 minutos"
               active={filtros.rapida}
               onChange={v => onSetFiltro('rapida', v)}
             />
             <Toggle
-              emoji="🎉"
               label="Típica de festa"
               desc="Ideal para servir em celebrações"
               active={filtros.tipicaFesta}
               onChange={v => onSetFiltro('tipicaFesta', v)}
             />
             <Toggle
-              emoji="🌱"
               label="Vegano"
               desc="Sem nenhum ingrediente de origem animal"
               active={filtros.vegano}
               onChange={v => onSetFiltro('vegano', v)}
             />
             <Toggle
-              emoji="🥗"
               label="Diet / Diabético"
               desc="Adequada para quem controla o açúcar"
               active={filtros.diet}

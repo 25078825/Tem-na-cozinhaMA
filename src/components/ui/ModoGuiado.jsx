@@ -15,7 +15,7 @@ function Temporizador({ onMinimizar }) {
     <div className="bg-gray-900 rounded-2xl p-4 space-y-3">
       <div className="flex items-center justify-between">
         <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-          ⏱ Temporizador
+          Temporizador
         </p>
         <button
           onClick={onMinimizar}
@@ -76,7 +76,7 @@ function Temporizador({ onMinimizar }) {
           <button onClick={pausar}
                   className="flex-1 bg-yellow-500 hover:bg-yellow-400
                              text-white text-xs font-bold py-2 rounded-xl transition-colors">
-            ⏸ Pausar
+            Pausar
           </button>
         )}
         <button onClick={zerar}
@@ -244,7 +244,7 @@ function PainelPasso({ passoAtual, passo, passos, total, irPara, onFechar,
                              bg-green-500 hover:bg-green-400 active:scale-[0.97]
                              text-white font-bold py-3 rounded-2xl
                              transition-all shadow-lg shadow-green-500/30 text-sm">
-            ✓ Concluir
+            Concluir
           </button>
         )}
       </div>
@@ -290,9 +290,9 @@ export default function ModoGuiado({ receita, onFechar }) {
   }, [])
 
   const ABAS = [
-    { id: 'passo',        icon: '📋', label: 'Passo'        },
-    { id: 'timer',        icon: '⏱',  label: 'Timer'        },
-    { id: 'ingredientes', icon: '🧂',  label: 'Ingredientes' },
+    { id: 'passo',        label: 'Passo'        },
+    { id: 'timer',        label: 'Timer'        },
+    { id: 'ingredientes', label: 'Ingredientes' },
   ]
 
   return (
@@ -300,7 +300,6 @@ export default function ModoGuiado({ receita, onFechar }) {
 
       <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 border-b border-gray-800">
         <div className="flex items-center gap-3 min-w-0">
-          <span className="text-2xl flex-shrink-0">{receita.emoji}</span>
           <div className="min-w-0">
             <p className="text-white font-semibold text-sm truncate">{receita.nome}</p>
             <p className="text-gray-500 text-xs">Modo guiado</p>
@@ -335,7 +334,7 @@ export default function ModoGuiado({ receita, onFechar }) {
           </div>
           <div className="flex-1 overflow-y-auto p-4">
             <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">
-              🧂 Ingredientes
+              Ingredientes
             </p>
             <ListaIngredientes ingredientes={ingredientes} ingDestacados={ingDestacados} />
           </div>
@@ -378,7 +377,6 @@ export default function ModoGuiado({ receita, onFechar }) {
                   : 'text-gray-600 hover:text-gray-400'
               }`}
             >
-              <span className="text-base leading-none">{aba.icon}</span>
               {aba.label}
             </button>
           ))}

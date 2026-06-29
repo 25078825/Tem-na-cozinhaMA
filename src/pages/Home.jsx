@@ -13,11 +13,11 @@ const STATS = [
 ]
 
 const STEPS = [
-  { step: '1', emoji: '🧅', title: 'Informe o que você tem',
+  { step: '1', title: 'Informe o que você tem',
     desc: 'Selecione os ingredientes disponíveis em casa agora mesmo.' },
-  { step: '2', emoji: '🔍', title: 'O sistema analisa',
+  { step: '2', title: 'O sistema analisa',
     desc: 'Encontramos receitas que combinam com seus ingredientes.' },
-  { step: '3', emoji: '👨‍🍳', title: 'Escolha e cozinhe',
+  { step: '3', title: 'Escolha e cozinhe',
     desc: 'Veja o modo de preparo e prepare um prato maranhense incrível.' },
 ]
 
@@ -93,7 +93,7 @@ export default function Home() {
                                  text-white font-semibold px-8 py-3.5 rounded-xl transition-all
                                  text-sm md:text-base backdrop-blur-sm
                                  flex items-center justify-center gap-2">
-                <span>📅</span> Ver por época
+                Ver por época
               </button>
             </div>
           </div>
@@ -143,7 +143,6 @@ export default function Home() {
                     {item.step}
                   </div>
                 </div>
-                <div className="text-4xl mb-4">{item.emoji}</div>
                 <h3 className="font-display font-semibold text-gray-900 text-base mb-2">
                   {item.title}
                 </h3>
@@ -230,7 +229,6 @@ export default function Home() {
 
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="container-page text-center">
-          <span className="text-5xl mb-6 block">🍳</span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Pronto para cozinhar?
           </h2>

@@ -28,7 +28,7 @@ export default function IngredientePicker({
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-display font-semibold text-gray-800 text-base
                        flex items-center gap-2">
-          <span>🧅</span> Meus ingredientes
+          Meus ingredientes
           {selecionados.length > 0 && (
             <span className="bg-amber-500 text-white text-[10px] font-bold
                              px-1.5 py-0.5 rounded-full">

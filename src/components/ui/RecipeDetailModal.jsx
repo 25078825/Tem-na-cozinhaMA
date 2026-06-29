@@ -21,20 +21,18 @@ const DIFFICULTY_STYLE = {
   'Difícil': 'bg-red-100    text-red-700',
 }
 
-function InfoStat({ icon, label, value }) {
+function InfoStat({ label, value }) {
   return (
     <div className="flex-1 flex flex-col items-center py-1 px-2">
-      <span className="text-base mb-0.5">{icon}</span>
       <span className="text-[10px] text-gray-400 uppercase tracking-wider">{label}</span>
       <span className="text-sm font-semibold text-gray-700 mt-0.5 text-center">{value}</span>
     </div>
   )
 }
 
-function SectionTitle({ icon, children }) {
+function SectionTitle({ children }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-lg">{icon}</span>
       <h3 className="font-display font-semibold text-gray-800 text-base">
         {children}
       </h3>
@@ -122,7 +120,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
     :              'bg-amber-400'
 
   const statusMsg =
-    pct === 100    ? '✅ Você tem todos os ingredientes!'
+    pct === 100    ? 'Você tem todos os ingredientes!'
     : possuidos === 0 ? 'Você ainda não tem nenhum ingrediente desta receita'
     :                   `Você tem ${possuidos} de ${totalObrigatorios} ingredientes`
 
@@ -163,10 +161,6 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               </svg>
             </button>
 
-            <span className="block text-6xl sm:text-7xl mb-4 select-none">
-              {receita.emoji}
-            </span>
-
             <div className="flex flex-wrap gap-2 mb-3">
               <span className={`text-xs font-semibold px-2.5 py-1 rounded-full
                                 ${CATEGORY_BADGE[receita.categoria] ?? 'bg-gray-100 text-gray-600'}`}>
@@ -175,25 +169,25 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
               {receita.rapida && (
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full
                                  bg-amber-100 text-amber-700">
-                  ⚡ Receita rápida
+                  Receita rápida
                 </span>
               )}
               {receita.tipicaFesta && (
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full
                                  bg-purple-100 text-purple-700">
-                  🎉 Típica de festa
+                  Típica de festa
                 </span>
               )}
               {receita.vegano && (
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full
                                  bg-green-100 text-green-700">
-                  🌱 Vegano
+                  Vegano
                 </span>
               )}
               {receita.diet && (
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full
                                  bg-teal-100 text-teal-700">
-                  🥗 Diet
+                  Diet
                 </span>
               )}
             </div>
@@ -206,8 +200,8 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
           <div className="flex-shrink-0 bg-white border-y border-gray-100">
             <div className="flex items-stretch divide-x divide-gray-100">
-              <InfoStat icon="⏱️" label="Tempo"   value={receita.tempo} />
-              <InfoStat icon="🍽️" label="Porções" value={`${receita.porcoes} pessoas`} />
+              <InfoStat label="Tempo"   value={receita.tempo} />
+              <InfoStat label="Porções" value={`${receita.porcoes} pessoas`} />
               <div className="flex-1 flex flex-col items-center justify-center py-3 px-2">
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider mb-1.5">
                   Dificuldade
@@ -224,7 +218,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
             {receita.ocasioes?.length > 0 && (
               <div>
-                <SectionTitle icon="📅">Épocas &amp; Ocasiões</SectionTitle>
+                <SectionTitle>Épocas &amp; Ocasiões</SectionTitle>
                 <div className="flex flex-wrap gap-2 mt-3">
                   {receita.ocasioes.map(oc => (
                     <span key={oc}
@@ -279,7 +273,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
 
             <div>
               <div className="flex items-center justify-between mb-3">
-                <SectionTitle icon="🧂">Ingredientes</SectionTitle>
+                <SectionTitle>Ingredientes</SectionTitle>
                 <span className="text-xs font-medium text-gray-400 bg-gray-100
                                  px-2.5 py-1 rounded-full">
                   {totalObrigatorios} {totalObrigatorios === 1 ? 'item' : 'itens'}
@@ -300,7 +294,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
             {receita.ingredientesOpcionais?.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <SectionTitle icon="✨">Opcionais</SectionTitle>
+                  <SectionTitle>Opcionais</SectionTitle>
                   <span className="text-xs text-gray-400">
                     podem enriquecer o prato
                   </span>
@@ -333,7 +327,7 @@ export default function RecipeDetailModal({ receita, ingredientesUsuario = [], o
             {receita.modoPreparo?.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <SectionTitle icon="👨‍🍳">Modo de Preparo</SectionTitle>
+                  <SectionTitle>Modo de Preparo</SectionTitle>
                   <span className="text-xs font-medium text-gray-400 bg-gray-100
                                    px-2.5 py-1 rounded-full">
                     {receita.modoPreparo.length} passos

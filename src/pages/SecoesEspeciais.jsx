@@ -56,7 +56,6 @@ function SecaoDetalhe({ secao, receitas, onVoltar }) {
             Todas as seções
           </button>
           <div className="flex items-start gap-4">
-            <span className="text-5xl md:text-6xl flex-shrink-0">{secao.emoji}</span>
             <div>
               <h1 className="font-display font-bold text-white text-3xl md:text-4xl mb-2">
                 {secao.titulo}
@@ -137,7 +136,7 @@ export default function SecoesEspeciais() {
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700
                             text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
-              <span>🌿</span> Categorias especiais
+              Categorias especiais
             </div>
             <h1 className="section-title mb-3">Explore por categoria</h1>
             <p className="text-gray-500 leading-relaxed">
@@ -150,7 +149,7 @@ export default function SecoesEspeciais() {
       <div className="container-page py-10 space-y-12">
         <div>
           <div className="mb-5">
-            <h2 className="font-display font-bold text-gray-800 text-xl mb-1">🌟 Destaques</h2>
+            <h2 className="font-display font-bold text-gray-800 text-xl mb-1">Destaques</h2>
             <p className="text-sm text-gray-500">Seções mais procuradas</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -165,7 +164,7 @@ export default function SecoesEspeciais() {
         <div>
           <div className="mb-5">
             <h2 className="font-display font-bold text-gray-800 text-xl mb-1">
-              📅 Por época &amp; ocasião
+              Por época &amp; ocasião
             </h2>
             <p className="text-sm text-gray-500">Receitas organizadas por datas especiais</p>
           </div>
