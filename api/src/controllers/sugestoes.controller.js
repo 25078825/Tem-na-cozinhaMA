@@ -1,4 +1,6 @@
+import jwt from 'jsonwebtoken'
 import { transporter } from '../services/mailer.js'
+import { pool } from '../database/connection.js'
 
 function escapeHtml(str) {
   return String(str)
@@ -44,14 +46,41 @@ export async function sugerirReceita(req, res) {
     return res.status(400).json({ success: false, message: 'E-mail do autor inválido.' })
   }
 
-  const safeNome        = escapeHtml(nome.trim())
-  const safeDescricao   = descricao   ? escapeHtml(descricao.trim())   : null
+  const safeNome         = escapeHtml(nome.trim())
+  const safeDescricao    = descricao    ? escapeHtml(descricao.trim())    : null
   const safeIngredientes = escapeHtml(ingredientes.trim())
-  const safePreparo     = escapeHtml(modoPreparo.trim())
-  const safeCpfAutor    = cpfAutor    ? escapeHtml(stripNewlines(cpfAutor))    : null
-  const safeEmailAutor  = emailAutor  ? escapeHtml(stripNewlines(emailAutor))  : null
+  const safePreparo      = escapeHtml(modoPreparo.trim())
+  const safeCpfAutor     = cpfAutor     ? escapeHtml(stripNewlines(cpfAutor))   : null
+  const safeEmailAutor   = emailAutor   ? escapeHtml(stripNewlines(emailAutor)) : null
 
   try {
+    // 1. Persiste a sugestão no banco
+    const [resultado] = await pool.query(
+      `INSERT INTO sugestoes (nome, descricao, ingredientes, modo_preparo, cpf_autor, email_autor)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        nome.trim(),
+        descricao?.trim() || null,
+        ingredientes.trim(),
+        modoPreparo.trim(),
+        cpfAutor?.trim() || null,
+        emailAutor?.trim() || null,
+      ]
+    )
+
+    const sugestaoId = resultado.insertId
+
+    // 2. Gera link de aceite de uso único (expira em 7 dias)
+    const tokenAceite = jwt.sign(
+      { type: 'aceitar_sugestao', sugestaoId },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    )
+
+    const backendUrl = process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 3333}`
+    const linkAceite = `${backendUrl}/sugestoes/${sugestaoId}/aceitar-por-email?token=${tokenAceite}`
+
+    // 3. Envia e-mail de notificação com botão de aceitar
     await transporter.sendMail({
       from:    `"Tem na Cozinha MA" <${process.env.EMAIL_USER}>`,
       to:      process.env.EMAIL_DEST,
@@ -69,6 +98,12 @@ export async function sugerirReceita(req, res) {
         ${safeCpfAutor ? `<p><strong>CPF:</strong> ${safeCpfAutor}</p>` : ''}
         ${safeEmailAutor ? `<p><strong>E-mail:</strong> ${safeEmailAutor}</p>` : ''}
         ` : ''}
+        <p style="margin-top:24px">
+          <a href="${linkAceite}" style="background:#16A34A;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold">
+            ✅ Aceitar e publicar receita
+          </a>
+        </p>
+        <p style="color:#888;font-size:12px">Ou acesse o painel administrativo para revisar antes de aceitar.</p>
       `,
     })
 

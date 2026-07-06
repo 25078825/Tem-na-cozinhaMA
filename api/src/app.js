@@ -7,6 +7,8 @@ import { testConnection }   from './database/connection.js'
 import receitasRoutes       from './routes/receitas.routes.js'
 import ingredientesRoutes   from './routes/ingredientes.routes.js'
 import sugestoesRoutes      from './routes/sugestoes.routes.js'
+import authRoutes           from './routes/auth.routes.js'
+import adminRoutes          from './routes/admin.routes.js'
 
 dotenv.config()
 
@@ -54,9 +56,19 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
 
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Muitas tentativas de login. Tente novamente mais tarde.' },
+})
+
 app.use('/receitas',     receitasRoutes)
 app.use('/ingredientes', ingredientesRoutes)
 app.use('/sugestoes',    sugestoesLimiter, sugestoesRoutes)
+app.use('/auth',         loginLimiter, authRoutes)
+app.use('/admin',        adminRoutes)
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Rota não encontrada.' })
